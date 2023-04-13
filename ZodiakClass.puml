@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class DateCalculator
+
+class HandleRequestActivity extends RequestHandler{
++ requestHandler();
+
+}
+
+class RequestResult extends RequestHandler {
++ getUserBirthdate() : DateFormat MM/DD ;
++ getUserId() : long userId;
++ getUserPronouns(): StringFormat;
+}
+
+
+RequestResult -|> UserDao
+HandleRequestActivity -|> RequestResult
+
+class UserDao{
++ saveUserInformation();
++ getUserInformation() : UserId;
+}
+
+UserDao -|> DateCalculator
+DateCalculator -|> FindElementalSign
+
+
+abstract class DateCalculator {
++ findUserZodiacSign(UserInput birthDate) : Zodiac;
++ printUserZodiacSignResult();
+}
+
+
+class FindElementalSign {
+HashMap <Zodiac, Elemental> allSigns;
++ getUserElementalSign();
++ printUserElementalInformation();
+
+}
+
+
+
+@enduml

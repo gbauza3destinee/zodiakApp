@@ -17,7 +17,7 @@ level of detail to aim for.*
 
 ## 1. Problem Statement
 
-*Explain clearly what problem you are trying to solve.*
+*This App predicts a User's strengths and preferred workflow, by taking in a valid birthdate and returning Astrological Information .*
 
 
 ## 2. Top Questions to Resolve in Review
@@ -25,9 +25,11 @@ level of detail to aim for.*
 *List the most important questions you have about your design, or things that
 you are still debating internally that you might like help working through.*
 
-1.   
-2.   
-3.  
+1. Setting up the relationship between Elemental Classes (4) and the Zodiac SuperClass, 
+which functionality should be hidden (in Zodiac Class), and which should be open to use?
+2. Setting up the Elemental + Zodiac HashMap 
+3. Date Calculator Class, takes in User input (birthdate) 
+what is the simplest way to sort a User Input and match it to it's corresponding Sun Sign Element 
 
 ## 3. Use Cases
 
