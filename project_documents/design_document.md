@@ -98,6 +98,24 @@ Offers Users a "POST" API status method only.
 *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
 *`SongModel`* from the Unit 3 project.*
 
+
+
+```
+// UserModel
+
+String userId
+String userName
+String pronouns
+
+// BirthDateModel
+String userId
+DateFormat userMonthAndDay
+String userZodiac
+String userElementalSign
+
+```
+
+
 ## 6.2. *First Endpoint*
 
 *Describe the behavior of the first endpoint you will build into your service
@@ -111,6 +129,13 @@ your team before building it!)*
 *(You should have a separate section for each of the endpoints you are expecting
 to build...)*
 
+
+
+* Accepts `POST` requests to `/userModel/:id`
+* Accepts a valid user ID and saves a user's corresponding ZodiacReport.
+    * If the given userID is not found, will throw a
+      `UserIdNotFound`
+
 ## 6.3 *Second Endpoint*
 
 *(repeat, but you can use shorthand here, indicating what is different, likely
@@ -118,12 +143,40 @@ primarily the data in/out and error conditions. If the sequence diagram is
 nearly identical, you can say in a few words how it is the same/different from
 the first endpoint)*
 
+* Accepts `GET` requests to `/userModel/:id`
+* Accepts a user ID and returns the corresponding ZodiacReport.
+    * If the given userId ID does not correspond to saved ZodiacReport txt file, will throw a
+      `ZodiacReportNotFound`
+
+
 # 7. Tables
 
 *Define the DynamoDB tables you will need for the data your service will use. It
 may be helpful to first think of what objects your service will need, then
 translate that to a table structure, like with the *`Playlist` POJO* versus the
 `playlists` table in the Unit 3 project.*
+
+# 7.1 
+
+User Table
+
+userId // partition key, String
+userName // String
+userBirthDate // DateFormat
+userPronouns // StringFormat 
+
+
+
+# 7.2
+
+BirthDate Table
+
+userId // partition key, String
+userBirthdate (MM/DD/YYYY)  // dateFormat
+zodiacSign // String
+elementalSign // String
+
+
 
 # 8. Pages
 
@@ -134,3 +187,7 @@ pages. It should be clear what the interactions will be on the page, especially
 where customers enter and submit data. You may want to accompany the mockups
 with some description of behaviors of the page (e.g. “When customer submits the
 submit-dog-photo button, the customer is sent to the doggie detail page”)*
+
+
+Figma Link for WireFrame/Prototype: 
+https://www.figma.com/file/eC5nieQ8Z6vRwT7bZnhkV1/ZodiakGUIWireFrame?node-id=0%3A1&t=dhJTOe26ZgJGT3DJ-1
