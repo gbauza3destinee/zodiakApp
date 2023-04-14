@@ -3,6 +3,8 @@
 
 abstract class DateCalculator
 
+
+interface RequestHandler
 class HandleRequestActivity extends RequestHandler{
 + requestHandler();
 
@@ -15,29 +17,57 @@ class RequestResult extends RequestHandler {
 }
 
 
-RequestResult -|> UserDao
 HandleRequestActivity -|> RequestResult
 
 class UserDao{
 + saveUserInformation();
-+ getUserInformation() : UserId;
++ getUserReport(long userId): Elemental, Zodiac;
 }
 
-UserDao -|> DateCalculator
-DateCalculator -|> FindElementalSign
 
+RequestResult -|> DateCalculator
+
+UserDao *-- DateCalculator
+
+UserDao -|> Elemental
 
 abstract class DateCalculator {
-+ findUserZodiacSign(UserInput birthDate) : Zodiac;
++ HashMap <Elemental, Zodiac> allSignsByElementMap;
++ calculateUserZodiacSign(UserInput birthDate) : Zodiac;
 + printUserZodiacSignResult();
++ addUserToUserHashMap <HashMap <Elemental, Zodiac> allSignsByElementMap , String> ZodiacUserMap;
 }
 
 
-class FindElementalSign {
-HashMap <Zodiac, Elemental> allSigns;
-+ getUserElementalSign();
+class Elemental {
+- UserDao userDao;
++ getAllSignsByElement(): HashMap <Elemental, Zodiac> allSignsByElementMap;
++ getUserElementalSign(long userId): Elemental;
 + printUserElementalInformation();
 
+}
+
+class Fire extends Elemental{
++ HashMap <Elemental, Zodiac> fireHashMap;
++ printUserElementalInformation();
+}
+
+class Water extends Elemental {
++ HashMap <Elemental, Zodiac> waterHashMap;
++ printUserElementalInformation();
+
+}
+
+
+class Air extends Elemental{
++ HashMap <Elemental, Zodiac> airHashMap;
++ printUserElementalInformation();
+}
+
+
+class Earth extends Elemental{
++ HashMap <Elemental, Zodiac> earthHashMap;
++ printUserElementalInformation();
 }
 
 
