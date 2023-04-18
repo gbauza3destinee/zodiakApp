@@ -1,4 +1,4 @@
-# [team name] Design Document
+# [Zodiak ] Design Document
 
 ## Instructions
 

@@ -40,7 +40,7 @@ abstract class DateCalculator {
 
 
 class Elemental {
-- UserDao userDao;
++ UserDao userDao;
 + getAllSignsByElement(): HashMap <Elemental, Zodiac> allSignsByElementMap;
 + getUserElementalSign(long userId): Elemental;
 + printUserElementalInformation();
