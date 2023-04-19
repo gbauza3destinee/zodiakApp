@@ -1,9 +1,8 @@
-
 Resources:
-  UsersTable:
+  UserSignsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: "Users"
+      TableName: "UserSigns"
       "AttributeDefinitions":
         - "AttributeName": "userId"
           "AttributeType": "S"
