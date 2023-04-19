@@ -1,0 +1,9 @@
+// UserSigns
+
+userId // partition key, string
+birthDate // string or date format if able
+zodiacSign // string
+elementalSign // string
+
+
+
