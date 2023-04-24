@@ -61,7 +61,11 @@ in a format the database server will understand.**
 
 ## Week 3
 
-**Goals:**
+**Goals: Code Implementation begins, starting with 
+- Utility app (that holds most of the logic) 
+- model classes which are just POJOs that contain dynamodb annotations and help the program connect from data-model classes to real time operations done on our database's table**
+- DAO class which will be without business logic, and the only class to touch the dynamodb (database) save and load functions, which perform actual changes, updates and operations to our tables located on the database server.
+
 
 **Activity:**
 
@@ -71,10 +75,10 @@ in a format the database server will understand.**
 
 ## Week 4
 
-**Goals:**
+**Goals: Define and set up with Swagger and RapiDoc my program's API functions and details for users or other clients to connect to.**
 
 **Activity:**
 
-**Important Docs, Commits, or Code Reviews**:
+**Important Docs, Commits, or Code Reviews**: External Ressources- Swagger, Syntax - RapiDoc/ OpenAPI
 
 **Things learned:**
