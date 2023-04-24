@@ -1,3 +1,4 @@
+@DynamoDBTable (tableName = "Users")
 public class User{
     private String userId;
     private String userName;
@@ -5,11 +6,11 @@ public class User{
     private String pronouns;
 
 
+    @DynamoDBHashKey(attributeName = "shoeId")
     public String getUserId(){
         return userName();
 
     }
-
 
     public void setUserId(){
         this.userId = userId;
@@ -17,6 +18,7 @@ public class User{
     }
 
 
+    @DynamoDBAttribute(attributeName = "userName")
     public String getUserName() {
         return userName;
     }
@@ -25,6 +27,8 @@ public class User{
         this.userName = userName;
     }
 
+
+    @DynamoDBAttribute(attributeName = "birthDate")
     public String getBirthDate() {
         return birthDate;
     }
@@ -33,6 +37,8 @@ public class User{
         this.birthDate = birthDate;
     }
 
+
+    @DynamoDBAttribute(attributeName = "pronoun")
     public String getPronouns() {
         return pronouns;
     }
