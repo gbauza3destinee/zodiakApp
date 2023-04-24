@@ -36,13 +36,15 @@ instructors by the end of the unit._
 
 ## Week 1
 
-**Goals:**
+**Goals: Set up my project's Wire Frame and Prototype Designs via Figma **
 
 **Activity:**
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned: A prototype of an app idea, can help organize execution of flow within a program being built up, 
+this later helps with conceptualizing the Class architecture of the program and which relationships come into 
+play in order for the program to work smoothly, this all comes together within the Plant UML diagram.**
 
 ## Week 2
 
