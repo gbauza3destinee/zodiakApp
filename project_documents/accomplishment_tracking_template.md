@@ -48,13 +48,16 @@ play in order for the program to work smoothly, this all comes together within t
 
 ## Week 2
 
-**Goals:**
+**Goals: Map out the exchange of data in my program (what is the currency of information passed), and set up new database tables that will correlate to my program, via a database's CLI program.**
 
 **Activity:**
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned: Using AWS CLI, and a command related to "CLOUDFORMATIONSTACKS", we can deploy directly via terminal, 
+our new database tables to intiate via our Database Server, and what their PRIMARY KEY or unique identifiers will be. 
+This able to be deployed with a YAML File that provides a server specific steps and values to set up within the table, 
+in a format the database server will understand.**
 
 ## Week 3
 
