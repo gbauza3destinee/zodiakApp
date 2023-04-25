@@ -1,4 +1,10 @@
-@DynamoDBTable (tableName = "Users")
+package com.bloomtech.zodiakProject;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "Users")
 public class User{
     private String userId;
     private String userName;
@@ -8,7 +14,7 @@ public class User{
 
     @DynamoDBHashKey(attributeName = "shoeId")
     public String getUserId(){
-        return userName();
+        return userId;
 
     }
 
@@ -46,6 +52,9 @@ public class User{
     public void setPronouns(String pronouns) {
         this.pronouns = pronouns;
     }
+
+
+
 
 
 
