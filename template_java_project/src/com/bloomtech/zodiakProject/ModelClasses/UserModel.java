@@ -60,10 +60,10 @@ public class UserModel {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
 
         return false;
-     }
+    }
 
     @java.lang.Override
     public java.lang.String toString() {
@@ -76,21 +76,39 @@ public class UserModel {
     }
 
 
-
-
-    public static Builder builder() {
-        return new Builder();
-    }
-
-
-    // TODO:Implement Builder with all fields as with method()
-
-    public static final class Builder{
+    public static final class Builder {
 
         private String userId;
         private String userName;
         private String birthDate;
         private String pronouns;
 
+        public static Builder builder() {
+            return new Builder();
+        }
+
+
+        public Builder withId(String userIdToUse) {
+            this.userId = userIdToUse;
+            return this;
+        }
+
+        public Builder withName(String nameToUse) {
+            this.userName = nameToUse;
+            return this;
+        }
+
+        public Builder withCustomerId(String customerBirthDate) {
+            this.birthDate = customerBirthDate;
+            return this;
+        }
+
+
+        public UserModel build() {
+            return new UserModel(this);
+        }
     }
+
 }
+
+
