@@ -1,3 +1,7 @@
+package com.bloomtech.zodiakProject.ModelClasses;
+
+import java.util.Objects;
+
 public class UserSignModel{
     private String userId;
     private String birthDate;
