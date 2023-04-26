@@ -1,13 +1,11 @@
-
-/*
- * Represents a record in the UserSigns' table
- * */
-
+package com.bloomtech.zodiakProject.ModelClasses;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "playlists")
+/*
+ * Represents a record in the UserSigns' table
+ * */
 public class UserSign {
 
     private String userId;

@@ -1,7 +1,6 @@
 package com.bloomtech.zodiakProject;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.bloomtech.zodiakProject.User;
+import com.bloomtech.zodiakProject.ModelClasses.User;
 
 import javax.inject.Inject;
 

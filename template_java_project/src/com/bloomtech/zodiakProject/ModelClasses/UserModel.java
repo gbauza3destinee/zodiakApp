@@ -1,3 +1,7 @@
+package com.bloomtech.zodiakProject.ModelClasses;
+
+import java.util.Objects;
+
 public class UserModel {
 
     private String userId;
@@ -58,6 +62,7 @@ public class UserModel {
     @Override
     public boolean equals(Object o){
 
+        return false;
      }
 
     @java.lang.Override
@@ -69,7 +74,6 @@ public class UserModel {
                 ", pronouns='" + pronouns + '\'' +
                 '}';
     }
-
 
 
 
