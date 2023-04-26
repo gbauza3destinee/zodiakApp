@@ -10,28 +10,24 @@ import com.bloomtech.zodiakProject.UserDao;
 
 import java.text.DateFormat;
 
-public class CreateUserEntryActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
+public class CreateUserEntryActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
 
     UserDao userDao;
 
 
-
-
-    public CreateUserEntryActivity(UserDao userDao){
+    public CreateUserEntryActivity(UserDao userDao) {
 
     }
-
 
 
     @Override
     public CreateUserResult handleRequest(CreateUserRequest input, Context context) {
 
         // Gather all incoming user data
-        String userId  = input.getUserId();
+        String userId = input.getUserId();
         String userName = input.getUserName();
         String userPronouns = input.getPronouns();
         DateFormat userBirthDate = input.getBirthdate();
-
 
 
         User user = new User();
@@ -41,14 +37,10 @@ public class CreateUserEntryActivity implements RequestHandler <CreateUserReques
         user.setPronouns(userPronouns);
 
 
+        CreateUserResult result = CreateUserResult.builder().withbirthdate(userBirthDate)
+                .withUserName(userName).withUserId(userId).withPronouns(userPronouns).build();
 
-        CreateUserResult result = new CreateUserResult();
-
-
-        return null;
-
-
-
+        return result;
 
 
     }

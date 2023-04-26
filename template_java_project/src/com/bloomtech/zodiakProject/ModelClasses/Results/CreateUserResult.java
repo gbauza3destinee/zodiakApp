@@ -9,20 +9,50 @@ import java.text.DateFormat;
 
 public class CreateUserResult {
 
-    private UserModel user;
+
+    private String userId;
+    private String userName;
+    private DateFormat birthdate;
+    private String pronouns;
 
     public CreateUserResult(Builder builder) {
-        this.user = builder.user;
+        this.userId= builder.userId;
+        this.userName = builder.userName;
+        this.birthdate = builder.birthdate;
+        this.pronouns = builder.pronouns;
 
     }
 
-
-    public UserModel getPlaylist() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public DateFormat getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(DateFormat birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getPronouns() {
+        return pronouns;
+    }
+
+    public void setPronouns(String pronouns) {
+        this.pronouns = pronouns;
     }
 
     public static Builder builder() {
@@ -30,36 +60,34 @@ public class CreateUserResult {
     }
 
     public static final class Builder {
-        private UserModel user;
         private String userId;
         private String userName;
         private DateFormat birthdate;
         private String pronouns;
 
-        public Builder withUser(UserModel user) {
-            this.user = user;
-            return this;
-        }
 
-
-        private Builder() {
-        }
-
-
-        private CreateUserResult.Builder withUserId(String userIdToUse) {
+        public Builder withUserId(String userIdToUse) {
             this.userId = userIdToUse;
             return this;
         }
 
-        private CreateUserResult.Builder withUserName(String userNameToUse) {
+        public Builder withUserName(String userNameToUse) {
             this.userName = userNameToUse;
             return this;
         }
 
 
-        private CreateUserResult.Builder withbirthdate(DateFormat userBirthDateToUse) {
+        public Builder withbirthdate(DateFormat userBirthDateToUse) {
             this.birthdate = userBirthDateToUse;
             return this;
+        }
+
+        public Builder withPronouns(String userPronouns) {
+            this.pronouns = userPronouns;
+            return this;
+        }
+
+        public Builder() {
         }
 
 
