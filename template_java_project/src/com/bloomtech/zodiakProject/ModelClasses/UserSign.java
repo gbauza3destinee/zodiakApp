@@ -14,6 +14,8 @@ public class UserSign {
     private String elementalSign;
 
 
+    //TODO: 4/25 FixDynamodb import again
+
     @DynamoDBHashKey(attributeName = "userId")
     public String getUserId() {
         return userId;
