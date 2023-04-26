@@ -8,6 +8,10 @@ public class UserSignModel{
     private String zodiacSign;
     private String elementalSign;
 
+    public UserSignModel(Builder builder) {
+    }
+
+
     public String getUserId() {
         return userId;
     }
@@ -54,6 +58,37 @@ public class UserSignModel{
 
 
     //Builder
+
+    public static Builder builder() { return new Builder(); }
+
+    public static final class Builder {
+        private String userId;
+        private String birthDate;
+        private String zodiacSign;
+        private String elemental;
+
+        public Builder withUserId(String idToUse) {
+            this.userId = idToUse;
+            return this;
+        }
+
+        public Builder withBirthDate(String birthDateToUse) {
+            this.birthDate = birthDateToUse;
+            return this;
+        }
+
+        public Builder withZodiacSign(String zodiacSignToUse) {
+            this.zodiacSign = zodiacSignToUse;
+            return this;
+        }
+
+        //TODO: figure out why this instance can't be populated in the parameter
+        public UserSignModel build() {return new UserSignModel(this);}
+    }
+}
+
+
+
 
 
 

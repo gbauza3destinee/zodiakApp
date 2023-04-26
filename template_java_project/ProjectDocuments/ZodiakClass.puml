@@ -39,6 +39,13 @@ abstract class DateCalculator {
 }
 
 
+
+abstract class ZodiacCalculator{
+    + getZodiacSign(UserInput birthDate) : Zodiac
+    + getElementalSign(ZodiacSign zodiac) : Elemental
+
+}
+
 class Elemental {
 + UserDao userDao;
 + getAllSignsByElement(): HashMap <Elemental, Zodiac> allSignsByElementMap;
