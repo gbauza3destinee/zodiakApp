@@ -98,10 +98,17 @@ public class UserModel {
             return this;
         }
 
-        public Builder withCustomerId(String customerBirthDate) {
+        public Builder withBirthdate(String customerBirthDate) {
             this.birthDate = customerBirthDate;
             return this;
         }
+
+        public Builder withPronouns(String customerPronouns) {
+            this.pronouns = customerPronouns;
+            return this;
+        }
+
+
 
 
         public UserModel build() {
