@@ -123,6 +123,11 @@ public class CreateUserRequest {
             this.birthdate = userBirthDateToUse;
             return this;
         }
+
+
+        public CreateUserRequest build(){
+            return new CreateUserRequest(this);
+        }
     }
 
 
