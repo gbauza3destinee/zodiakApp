@@ -77,6 +77,9 @@ public class UserSignModel{
             return this;
         }
 
+        //TODO: I know the POJO Class that faces the database table needs to have these objects as Strings
+        // TODO: However, at this point in the Model Creation, should these values be turned from String to Object?
+
         public Builder withZodiacSign(String zodiacSignToUse) {
             this.zodiacSign = zodiacSignToUse;
             return this;

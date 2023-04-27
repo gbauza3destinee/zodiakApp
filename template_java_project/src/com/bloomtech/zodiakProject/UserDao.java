@@ -22,6 +22,9 @@ public class UserDao {
 
 
 
+        // TODO: Should this DAO Class also save Elemental Sign + ZodiacSign, rather than
+    // having two dao classes- User & UserSign
+
     //TODO: NEXT- Implement Service Util class that generates real ids, so that this variable is not carrying null.
 
 
