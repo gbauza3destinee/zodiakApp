@@ -82,6 +82,11 @@ public class UserSignModel{
             return this;
         }
 
+        public Builder withElementalSign(String elementalSignToUse) {
+            this.elemental = elementalSignToUse;
+            return this;
+        }
+
         //TODO: figure out why this instance can't be populated in the parameter
         public UserSignModel build() {return new UserSignModel(this);}
     }
