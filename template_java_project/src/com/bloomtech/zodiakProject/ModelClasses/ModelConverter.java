@@ -2,10 +2,9 @@ package com.bloomtech.zodiakProject.ModelClasses;
 
 public class ModelConverter {
 
+
+    // DONE: Implement Logic for Both Model Class
     public UserModel toUserModel(User user){
-
-        // TODO : Add in all .with methods for User fields.
-
 
         UserModel userModel = UserModel.Builder.builder().withPronouns(user.getPronouns())
                 .withBirthdate(user.getBirthDate()).withId(user.getUserId()).withName(user.getUserName()).build();
@@ -21,15 +20,10 @@ public class ModelConverter {
     public UserSignModel toUserSignModel(UserSign userSign){
       //  return UserSignModel.builder();
 
-        UserSignModel userSignModel = UserSignModel.builder().withUserId().withBirthDate().withZodiacSign().w.build()
-        userSign.getUserId();
-        userSign.getElementalSign();
-        userSign.getZodiacSign();
+        UserSignModel userSignModel = UserSignModel.builder().withUserId(userSign.getUserId()).withBirthDate(userSign.getZodiacSign())
+                .withZodiacSign(userSign.getZodiacSign()).withElementalSign( userSign.getElementalSign()).build();
 
-
-
-
-        return null;
+        return userSignModel;
 
     }
 
