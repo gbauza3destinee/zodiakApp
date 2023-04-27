@@ -25,9 +25,10 @@ class UserDao{
 }
 
 
-RequestResult -|> ZodiacCalculator
+RequestResult -|> GenerateUserId
 
-UserDao *-- ZodiacCalculator
+
+Elemental *-- Zodiac
 
 UserDao -|> Elemental
 
@@ -35,7 +36,6 @@ UserDao -|> Elemental
 abstract class ZodiacCalculator{
     + getZodiacSign(UserInput birthDate) : Zodiac
     + getElementalSign(ZodiacSign zodiac) : Elemental
-    + addUserToUserHashMap <HashMap <Elemental, Zodiac> allSignsByElementMap , String> ZodiacUserMap;
 }
 
 
@@ -49,7 +49,6 @@ class Elemental {
 + UserDao userDao;
 + getAllSignsByElement(): HashMap <Elemental, Zodiac> allSignsByElementMap;
 + getUserElementalSign(long userId): Elemental;
-+ printUserElementalInformation();
 
 }
 

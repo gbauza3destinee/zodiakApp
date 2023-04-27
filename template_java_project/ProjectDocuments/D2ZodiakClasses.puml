@@ -1,0 +1,95 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class CreateUserEntryActivity{
+    + API CLASS
+   }
+
+class CreateUserRequest {
+    + API CLASS
+}
+
+
+class CreateUserResult extends RequestHandler {
+    + API CLASS
+    + Builder.build()
+    + getUserBirthdate() : DateFormat MM/DD
+    + getUserId() : long userId;
+    + getUserPronouns(): StringFormat;
+}
+
+CreateUserEntryActivity -|> CreateUserResult
+CreateUserRequest -|> CreateUserResult
+
+
+class UserDao{
++ saveUserInformation()
++ getUserReport(long userId): Elemental, Zodiac
+}
+
+
+
+UserDao *-- ZodiacCalculator
+
+UserDao -|> Elemental
+
+interface Zodiac{
+    + printUserZodiacInformation();
+    + printUserElementalInformation();
+
+}
+
+
+abstract class UserGeneratorService{
+    + isValidString() : boolean
+    + generateUserId(): String userId
+
+}
+
+abstract class DateGenerator{
+    + matchDateToZodiac(): ZodiacSign
+}
+
+class Elemental implements Zodiac{
++ UserDao userDao;
++ getAllSignsByElement(): HashMap <Elemental, Zodiac> allSignsByElementMap;
++ getUserElementalSign(long userId): Elemental
+
++ printUserZodiacAndElementalInformation()
+
+}
+
+class FireElemental extends Elemental{
++ HashMap <Elemental, Zodiac> fireHashMap
+
++ printUserZodiacAndElementalInformation()
+
+
+}
+
+class WaterElemental extends Elemental {
++ HashMap <Elemental, Zodiac> waterHashMap
+
++ printUserZodiacAndElementalInformation()
+
+}
+
+class AirElemental extends Elemental{
++ HashMap <Elemental, Zodiac> airHashMap;
+
++ printUserZodiacAndElementalInformation()
+
+}
+
+
+class EarthElemental extends Elemental{
++ HashMap <Elemental, Zodiac> earthHashMap;
++ printUserZodiacAndElementalInformation()
+
+}
+
+
+
+@enduml
