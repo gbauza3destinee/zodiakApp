@@ -13,46 +13,53 @@ public class UserSignDao {
     }
 
 
-    // TODO : Make sure for this table,these are the accurate data keys!
-    // TODO: NEXT -- Developing the Zodiak Classes- swap  an object of ZodiakSign for String in this logic
+    // TODO : For this table the primary key is UserId.
+    // Q: on creation of datatype "Zodiac" and "Elemental" - should I keep these as Strings or
+    // implement my Super Interface Class Zodiac and Elemental Subclasses this early on here?
 
 
 
-    public UserSign getUserSign(UserSign userSign){
+
+    public UserSign getUserZodiacSign(UserSign userSign){
+
 
         String zodiacSign = userSign.getZodiacSign();
         String userId = userSign.getUserId();
-        UserSign thisUserSign = dynamoDBMapper.load(UserSign.class, userId, zodiacSign);
+        UserSign thisUserSignInformation = dynamoDBMapper.load(UserSign.class, userId, zodiacSign);
 
-        return thisUserSign;
+        // TODO: Should I return an object or String this early on in the program?
+        return zodiacSign;
+    }
+
+
+
+    public UserSign getUserElementalSign(UserSign userSign){
+
+
+        String elementalSign = userSign.getElementalSign();
+        String userId = userSign.getUserId();
+        UserSign thisUserSignInformation = dynamoDBMapper.load(UserSign.class, userId, elementalSign);
+
+        // TODO: Should I return an object or String this early on in the program?
+        return elementalSign;
     }
 
 
 
 
-    public void saveUserZodiacSign(UserSign userSign){
+    public void saveUserZodiacSign(String userId){
 
-        String userId = userSign.getUserId();
-        String zodiacSign = this.getUserSign(userSign);
-      //  ZodiacSign zodiacSign = this.getUserSign(userSign);
-
-        dynamoDBMapper.save(UserSign.class, userSign.getUserId(), zodiacSign );
-
-
-
-
+        dynamoDBMapper.save(UserSign.class, userSign.getUserId());
 
 
     }
 
 
-    public void saveUserSign(UserSign userSign){
+    public void saveUserElementalSign(UserSign userSign){
 
-        String userId = userSign.getUserId();
-        String zodiacSign = this.getUserSign(userSign);
-        //  ZodiacSign zodiacSign = this.getUserSign(userSign);
+        String userElementalSign = userSign.getElementalSign();
 
-        dynamoDBMapper.save(UserSign.class, userSign.getUserId(), zodiacSign );
+        dynamoDBMapper.save(UserSign.class, userSign.getUserId(), userElementalSign);
 
 
 
