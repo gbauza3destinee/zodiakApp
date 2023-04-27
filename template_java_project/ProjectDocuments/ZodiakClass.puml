@@ -25,24 +25,23 @@ class UserDao{
 }
 
 
-RequestResult -|> DateCalculator
+RequestResult -|> ZodiacCalculator
 
-UserDao *-- DateCalculator
+UserDao *-- ZodiacCalculator
 
 UserDao -|> Elemental
-
-abstract class DateCalculator {
-+ HashMap <Elemental, Zodiac> allSignsByElementMap;
-+ calculateUserZodiacSign(UserInput birthDate) : Zodiac;
-+ printUserZodiacSignResult();
-+ addUserToUserHashMap <HashMap <Elemental, Zodiac> allSignsByElementMap , String> ZodiacUserMap;
-}
-
 
 
 abstract class ZodiacCalculator{
     + getZodiacSign(UserInput birthDate) : Zodiac
     + getElementalSign(ZodiacSign zodiac) : Elemental
+    + addUserToUserHashMap <HashMap <Elemental, Zodiac> allSignsByElementMap , String> ZodiacUserMap;
+}
+
+
+abstract class GenerateUserId{
+    + isValidString() : boolean;
+    + generateUserId(): String userId;
 
 }
 
@@ -64,7 +63,6 @@ class Water extends Elemental {
 + printUserElementalInformation();
 
 }
-
 
 class Air extends Elemental{
 + HashMap <Elemental, Zodiac> airHashMap;

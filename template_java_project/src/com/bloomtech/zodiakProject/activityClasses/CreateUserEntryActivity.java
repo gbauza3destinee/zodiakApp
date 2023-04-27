@@ -14,8 +14,11 @@ public class CreateUserEntryActivity implements RequestHandler<CreateUserRequest
     UserDao userDao;
 
 
+    // DONE: Implemented Logic for Activity Class
+
     public CreateUserEntryActivity(UserDao userDao) {
 
+        this.userDao = userDao;
     }
 
 
@@ -28,6 +31,7 @@ public class CreateUserEntryActivity implements RequestHandler<CreateUserRequest
         String userPronouns = input.getPronouns();
         DateFormat userBirthDate = input.getBirthdate();
 
+        // userDao.getUser(userId);
 
         User user = new User();
         user.setUserId();

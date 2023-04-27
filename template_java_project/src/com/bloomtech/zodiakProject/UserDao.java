@@ -8,7 +8,8 @@ public class UserDao {
     private final DynamoDBMapper dynamoDbMapper;
 
 
-    // TODO : Do I not need my instantiation statement because i have imported the com file path?
+
+    // TODO: 4/27 When dealing with this class, we want to pass around a User Model or User(db tags) class ?
 
     @Inject
     public UserDao(DynamoDBMapper dynamoDbMapper){
@@ -20,6 +21,8 @@ public class UserDao {
 
 
     public User getUser(String userId){
+
+
 
         return null;
     }
