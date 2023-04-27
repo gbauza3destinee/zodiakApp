@@ -14,11 +14,9 @@ public class ModelConverter {
     }
 
 
-
     //DONE: Create builder in UserSignModel Class
     // DONE: Implement Logic for toUserSignModel Class
     public UserSignModel toUserSignModel(UserSign userSign){
-      //  return UserSignModel.builder();
 
         UserSignModel userSignModel = UserSignModel.builder().withUserId(userSign.getUserId()).withBirthDate(userSign.getZodiacSign())
                 .withZodiacSign(userSign.getZodiacSign()).withElementalSign( userSign.getElementalSign()).build();
