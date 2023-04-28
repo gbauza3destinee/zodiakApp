@@ -3,20 +3,25 @@ package com.bloomtech.zodiakProject.Requests;
 import com.amazonaws.internal.config.Builder;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**\
+ * A Class representing a new server requested entry made by a User.
+ */
 
 
 public class CreateUserRequest {
 
 
     private String userName;
-    private DateFormat birthdate;
+    private LocalDate birthdate;
     private String pronouns;
 
 
     // TODO: Change DateFormat to LocalDate Us 9 after researching how it works
-    public CreateUserRequest( String userName, DateFormat birthdate, String pronouns){
+    public CreateUserRequest( String userName, LocalDate birthdate, String pronouns){
         this.userName = userName;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
@@ -43,11 +48,11 @@ public class CreateUserRequest {
         this.userName = userName;
     }
 
-    public DateFormat getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(DateFormat birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

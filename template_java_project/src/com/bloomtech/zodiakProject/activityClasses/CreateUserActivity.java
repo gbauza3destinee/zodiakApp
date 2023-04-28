@@ -9,6 +9,7 @@ import com.bloomtech.zodiakProject.UserGeneratorService;
 
 import javax.naming.Context;
 import java.text.DateFormat;
+import java.time.LocalDate;
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
@@ -41,7 +42,7 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
 
         String userName = input.getUserName();
         String userPronouns = input.getPronouns();
-        DateFormat userBirthDate = input.getBirthdate();
+        LocalDate userBirthDate = input.getBirthdate();
 
         thisUser.setUserName(userName);
         thisUser.setBirthDate(userBirthDate.toString());

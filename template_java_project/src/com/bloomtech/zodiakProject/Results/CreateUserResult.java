@@ -3,13 +3,14 @@ package com.bloomtech.zodiakProject.Results;
 import com.amazonaws.internal.config.Builder;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 
 public class CreateUserResult {
 
 
     private String userId;
     private String userName;
-    private DateFormat birthdate;
+    private LocalDate birthdate;
     private String pronouns;
 
     public CreateUserResult(Builder builder) {
@@ -37,11 +38,11 @@ public class CreateUserResult {
         this.userName = userName;
     }
 
-    public DateFormat getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(DateFormat birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -60,7 +61,7 @@ public class CreateUserResult {
     public static final class Builder {
         private String userId;
         private String userName;
-        private DateFormat birthdate;
+        private LocalDate birthdate;
         private String pronouns;
 
 
@@ -75,7 +76,7 @@ public class CreateUserResult {
         }
 
 
-        public Builder withbirthdate(DateFormat userBirthDateToUse) {
+        public Builder withbirthdate(LocalDate userBirthDateToUse) {
             this.birthdate = userBirthDateToUse;
             return this;
         }
