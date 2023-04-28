@@ -15,7 +15,7 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
     UserDao userDao;
 
 
-    // DONE: Implemented Logic for Activity Class
+    // DONE: Updated Logic to Assign new ID generator
 
     public CreateUserActivity(UserDao userDao) {
 
@@ -23,25 +23,29 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
     }
 
 
+    /**
+     * Request Handler method that works with APi requests made by a user,
+     * gathers 3 fields and saves to a User generated instance with a unique Id.
+     * @param input - represents the incoming data provided by user
+     * @param context - represents server side functions
+     * @return result - results in a program saved valid instance of an id
+     */
     @Override
     public CreateUserResult handleRequest(CreateUserRequest input, Context context) {
 
         // Gather all incoming user data
 
+        User thisUser = new User();
         String userId = UserGeneratorService.generateUserId();
-        User user = new User();
+        thisUser.setUserId(userId);
 
         String userName = input.getUserName();
         String userPronouns = input.getPronouns();
         DateFormat userBirthDate = input.getBirthdate();
 
-        // userDao.getUser(userId);
-
-        User user = new User();
-        user.setUserId();
-        user.setUserName(userName);
-        user.setBirthDate(userBirthDate.toString());
-        user.setPronouns(userPronouns);
+        thisUser.setUserName(userName);
+        thisUser.setBirthDate(userBirthDate.toString());
+        thisUser.setPronouns(userPronouns);
 
 
         CreateUserResult result = CreateUserResult.builder().withbirthdate(userBirthDate)
