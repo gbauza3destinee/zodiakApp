@@ -15,6 +15,7 @@ public class CreateUserRequest {
     private String pronouns;
 
 
+    // TODO: Change DateFormat to LocalDate Us 9 after researching how it works
     public CreateUserRequest( String userName, DateFormat birthdate, String pronouns){
         this.userName = userName;
         this.birthdate = birthdate;
@@ -63,18 +64,17 @@ public class CreateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateUserRequest that = (CreateUserRequest) o;
-        return userId.equals(that.userId) && userName.equals(that.userName) && birthdate.equals(that.birthdate) && pronouns.equals(that.pronouns);
+        return userName.equals(that.userName) && birthdate.equals(that.birthdate) && pronouns.equals(that.pronouns);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, userName, birthdate, pronouns);
+        return Objects.hash( userName, birthdate, pronouns);
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
-                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", birthdate=" + birthdate +
                 ", pronouns='" + pronouns + '\'' +
@@ -88,7 +88,6 @@ public class CreateUserRequest {
 
     public static final class Builder{
 
-        private String userId;
         private String userName;
         private DateFormat birthdate;
         private String pronouns;
@@ -97,10 +96,6 @@ public class CreateUserRequest {
         }
 
 
-        private Builder withUserId(String userIdToUse){
-            this.userId = userIdToUse;
-            return this;
-        }
 
         private Builder withUserName(String userNameToUse){
             this.userName = userNameToUse;
@@ -108,8 +103,12 @@ public class CreateUserRequest {
         }
 
 
-        private Builder withbirthdate(DateFormat userBirthDateToUse){
+        private Builder withBirthDate(DateFormat userBirthDateToUse){
             this.birthdate = userBirthDateToUse;
+            return this;
+        }
+        private Builder withPronouns(String userPronouns){
+            this.pronouns = userPronouns;
             return this;
         }
 
