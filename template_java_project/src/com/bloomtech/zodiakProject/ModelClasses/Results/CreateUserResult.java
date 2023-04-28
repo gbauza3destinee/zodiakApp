@@ -4,6 +4,7 @@ import com.amazonaws.internal.config.Builder;
 import com.bloomtech.zodiakProject.ModelClasses.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.ModelClasses.UserModel;
+import com.bloomtech.zodiakProject.UserGeneratorService;
 
 import java.text.DateFormat;
 
@@ -17,6 +18,7 @@ public class CreateUserResult {
 
     public CreateUserResult(Builder builder) {
         this.userId= builder.userId;
+
         this.userName = builder.userName;
         this.birthdate = builder.birthdate;
         this.pronouns = builder.pronouns;

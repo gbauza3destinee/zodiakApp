@@ -43,7 +43,6 @@ public class UserDao {
     // TODO: Check syntax here for saving under this User Table.
     public void saveUser(User user){
 
-        UserSign usersign = new UserSign();
         String userId = user.getUserId();
         User saveThisUser = dynamoDbMapper.save(User.class, userId);
 

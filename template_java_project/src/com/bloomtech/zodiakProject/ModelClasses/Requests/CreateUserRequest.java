@@ -11,14 +11,13 @@ import java.util.Objects;
 
 public class CreateUserRequest {
 
-    private String userId;
+
     private String userName;
     private DateFormat birthdate;
     private String pronouns;
 
 
-    public CreateUserRequest(String userId, String userName, DateFormat birthdate, String pronouns){
-        this.userId = userId;
+    public CreateUserRequest( String userName, DateFormat birthdate, String pronouns){
         this.userName = userName;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
@@ -29,7 +28,6 @@ public class CreateUserRequest {
     }
 
     public CreateUserRequest(Builder builder){
-        this.userId = userId;
         this.userName = userName;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
@@ -37,13 +35,6 @@ public class CreateUserRequest {
     }
 
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getUserName() {
         return userName;

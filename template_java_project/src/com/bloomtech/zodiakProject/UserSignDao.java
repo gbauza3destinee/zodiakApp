@@ -20,7 +20,7 @@ public class UserSignDao {
 
 
 
-    public UserSign getUserZodiacSign(UserSign userSign){
+    public UserSign getUserZodiacSign(String userId){
 
 
         String zodiacSign = userSign.getZodiacSign();
