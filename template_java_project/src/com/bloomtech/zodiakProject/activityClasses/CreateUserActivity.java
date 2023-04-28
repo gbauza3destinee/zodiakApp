@@ -1,6 +1,7 @@
 package com.bloomtech.zodiakProject.activityClasses;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.bloomtech.zodiakProject.DateCalculator;
 import com.bloomtech.zodiakProject.DateGenerator;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
@@ -58,11 +59,11 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         thisUser.setUserName(userName);
         thisUser.setBirthDate(input.getBirthdate().toString());
         thisUser.setPronouns(String.format("%s / %s", userPronouns, userPronouns));
-        DateGenerator dateGenerator = new DateGenerator();
+        DateCalculator dateCalculator = new DateCalculator();
 
         // 4/28 Note- Here is where I swapped all the big logic for creating this ElementToZodiac HashMap,
        // and instead moved it into the Static but immutable Class "DateGenerator"
-        dateGenerator.findUserZodiacAndElementalSign(input.getBirthdate());
+        dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
 
 
 

@@ -1,7 +1,6 @@
 package com.bloomtech.zodiakProject;
 
 import com.bloomtech.zodiakProject.ModelClasses.UserModel;
-import com.bloomtech.zodiakProject.activityClasses.CreateUserActivity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.HashMap;
 // TODO: EDIT Syntax with cases for DateRange
 //  TODO: Edit/ Improve Accessing HashMap and Nested ArrayList
 
-public final class DateGenerator {
+public final class DateCalculator {
 
     UserDao userDao;
     UserModel userModel = new UserModel();
