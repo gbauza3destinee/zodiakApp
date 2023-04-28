@@ -94,7 +94,7 @@ public class CreateUserRequest {
     public static final class Builder{
 
         private String userName;
-        private DateFormat birthdate;
+        private LocalDate birthdate;
         private String pronouns;
 
         private Builder (){
@@ -108,7 +108,7 @@ public class CreateUserRequest {
         }
 
 
-        private Builder withBirthDate(DateFormat userBirthDateToUse){
+        private Builder withBirthDate(LocalDate userBirthDateToUse){
             this.birthdate = userBirthDateToUse;
             return this;
         }
