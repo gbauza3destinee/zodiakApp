@@ -16,6 +16,8 @@ public class UserModel {
     private String zodiac;
     private String elemental;
 
+    private String userId;
+
 
     public UserModel() {
 
@@ -27,6 +29,7 @@ public class UserModel {
         this.pronouns = pronouns;
         this.zodiac = zodiac;
         this.elemental = elemental;
+        this.userId = userId;
 
     }
 
@@ -85,10 +88,6 @@ public class UserModel {
 
 
 
-
-
-
-
     @Override
     public boolean equals(Object o) {
 
@@ -116,10 +115,15 @@ public class UserModel {
         private String zodiac;
         private String elemental;
 
+        private String userId;
+
         public static Builder builder() {
             return new Builder();
         }
 
+
+        // TODO: Verify if userId needs to be added to Builder scope and regular class scope-
+        // or is that redundant?
 
 
         public Builder withName(String nameToUse) {
@@ -127,6 +131,10 @@ public class UserModel {
             return this;
         }
 
+        public Builder withUserId(String generatedUserId) {
+            this.userId = generatedUserId;
+            return this;
+        }
         public Builder withBirthdate(String customerBirthDate) {
             this.birthDate = customerBirthDate;
             return this;

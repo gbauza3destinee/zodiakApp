@@ -6,8 +6,6 @@ import java.text.DateFormat;
 import java.util.Objects;
 
 
-// TODO: Double check at this point in execution of flow, if
-// TODO: this request class should have birthdate in DateFormat or String (like in data table)?
 
 public class CreateUserRequest {
 

@@ -1,22 +1,23 @@
 package com.bloomtech.zodiakProject.activityClasses;
-
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.UserDao;
+import com.bloomtech.zodiakProject.UserGeneratorService;
 
+import javax.naming.Context;
 import java.text.DateFormat;
 
-public class CreateUserEntryActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
+public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
     UserDao userDao;
 
 
     // DONE: Implemented Logic for Activity Class
 
-    public CreateUserEntryActivity(UserDao userDao) {
+    public CreateUserActivity(UserDao userDao) {
 
         this.userDao = userDao;
     }
@@ -26,7 +27,10 @@ public class CreateUserEntryActivity implements RequestHandler<CreateUserRequest
     public CreateUserResult handleRequest(CreateUserRequest input, Context context) {
 
         // Gather all incoming user data
-        String userId = input.getUserId();
+
+        String userId = UserGeneratorService.generateUserId();
+        User user = new User();
+
         String userName = input.getUserName();
         String userPronouns = input.getPronouns();
         DateFormat userBirthDate = input.getBirthdate();

@@ -8,10 +8,7 @@ public class User{
     private String userName;
     private String birthDate;
     private String pronouns;
-
     private String zodiac;
-
-
 
     private String elemental;
 
@@ -22,7 +19,7 @@ public class User{
 
     }
 
-    public void setUserId(){
+    public void setUserId( String userId){
         this.userId = userId;
 
     }
