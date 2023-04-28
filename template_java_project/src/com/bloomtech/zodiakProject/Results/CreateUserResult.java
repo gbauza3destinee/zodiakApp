@@ -1,10 +1,6 @@
-package com.bloomtech.zodiakProject.ModelClasses.Results;
+package com.bloomtech.zodiakProject.Results;
 
 import com.amazonaws.internal.config.Builder;
-import com.bloomtech.zodiakProject.ModelClasses.Requests.CreateUserRequest;
-import com.bloomtech.zodiakProject.ModelClasses.User;
-import com.bloomtech.zodiakProject.ModelClasses.UserModel;
-import com.bloomtech.zodiakProject.UserGeneratorService;
 
 import java.text.DateFormat;
 

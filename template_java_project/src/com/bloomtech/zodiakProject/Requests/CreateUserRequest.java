@@ -1,4 +1,4 @@
-package com.bloomtech.zodiakProject.ModelClasses.Requests;
+package com.bloomtech.zodiakProject.Requests;
 
 import com.amazonaws.internal.config.Builder;
 

@@ -5,10 +5,15 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 public class User{
-    private String userId;
     private String userName;
     private String birthDate;
     private String pronouns;
+
+    private String zodiac;
+
+
+
+    private String elemental;
 
 
     @DynamoDBHashKey(attributeName = "shoeId")
@@ -50,6 +55,27 @@ public class User{
 
     public void setPronouns(String pronouns) {
         this.pronouns = pronouns;
+    }
+
+
+    @DynamoDBAttribute(attributeName = "zodiac")
+    public String getZodiac() {
+        return zodiac;
+    }
+
+    public void setZodiac(String zodiac) {
+        this.zodiac = zodiac;
+    }
+
+
+    @DynamoDBAttribute(attributeName = "elemental")
+
+    public String getElemental() {
+        return elemental;
+    }
+
+    public void setElemental(String elemental) {
+        this.elemental = elemental;
     }
 
 

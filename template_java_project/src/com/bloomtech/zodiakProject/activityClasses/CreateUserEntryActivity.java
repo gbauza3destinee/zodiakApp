@@ -2,8 +2,8 @@ package com.bloomtech.zodiakProject.activityClasses;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.bloomtech.zodiakProject.ModelClasses.Requests.CreateUserRequest;
-import com.bloomtech.zodiakProject.ModelClasses.Results.CreateUserResult;
+import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
+import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.UserDao;
 
