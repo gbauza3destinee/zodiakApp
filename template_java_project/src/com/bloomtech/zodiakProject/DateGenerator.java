@@ -7,10 +7,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//TODO: METHOD-findUserZodiacAndElementalSign() 4/28*
+// TODO: EDIT Syntax with cases for DateRange
+//  TODO: Edit/ Improve Accessing HashMap and Nested ArrayList
+
 public final class DateGenerator {
 
     UserDao userDao;
     UserModel userModel = new UserModel();
+    LocalDate usersBirthDate;
     public HashMap<String, ArrayList<String>> elementalToZodiacMap;
     public ArrayList <String> fireSignsList;
     public ArrayList <String> airSignsList;
@@ -19,14 +24,17 @@ public final class DateGenerator {
 
     public DateGenerator(){
 
+
+
+
     }
 
     /**
      * Provides Access to all program, an organized list of each Element and their corresponding
      * Elemental values.
-     * @return the loaded HashMap for the program to use
+     * No return but populates the program's loaded HashMap containing the corresponding elementals + zodiac signs
      */
-    public final HashMap<String,ArrayList<String>> provideElementalToZodiacMap(){
+    public final void loadHashMapUtils(){
 
 
         // Setting my HashMap
@@ -63,8 +71,15 @@ public final class DateGenerator {
 
 
 
-            return elementalToZodiacMap;
     }
+
+
+    public final HashMap<String, ArrayList<String>> getElementalToZodiacMap() {
+        return elementalToZodiacMap;
+    }
+
+
+    //TODO: EDIT Syntax with cases -- with oversight by more experienced developer!
     public void findUserZodiacAndElementalSign(LocalDate userBirthDate){
         // LocalDate -  userBirthdate
 
@@ -204,12 +219,14 @@ public final class DateGenerator {
         }
 
 
-        public static void main(String[] args) {
-
-
-
-        }
     }
 
+
+    public static void main(String[] args) {
+
+
+        //! For testing with Console print outputs
+
+    }
 
 }
