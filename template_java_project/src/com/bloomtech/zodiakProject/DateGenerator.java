@@ -79,7 +79,7 @@ public final class DateGenerator {
     }
 
 
-    //TODO: EDIT Syntax with cases -- with oversight by more experienced developer!
+    //TODO: EDIT Syntax for cases & formatting a Date Range -- with oversight by more experienced developer!
     public void findUserZodiacAndElementalSign(LocalDate userBirthDate){
         // LocalDate -  userBirthdate
 

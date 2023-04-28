@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-//TODO: Review with S, I outsourced the Hashmap + SwitchCase Ladder to the "DateGenerator" Class.
+//TODO: Review with S, I outsourced the Hashmap + SwitchCase Ladder to the "DateGenerator" Class- go over syntax errors
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
@@ -49,16 +49,19 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         LocalDate userBirthdate = input.getBirthdate();
 
 
-        // TODO: How to use a Hashmap to retrieve both key and value pair
+        // TODO: Review - how to use a Hashmap to retrieve both key and value pair
         //TODO: Google how to format a date range in java
 
 
-        /// Setting general fields
+        /// Set User's general fields
         thisUser.setUserId(userId);
         thisUser.setUserName(userName);
         thisUser.setBirthDate(input.getBirthdate().toString());
         thisUser.setPronouns(String.format("%s / %s", userPronouns, userPronouns));
         DateGenerator dateGenerator = new DateGenerator();
+
+        // 4/28 Note- Here is where I swapped all the big logic for creating this ElementToZodiac HashMap,
+       // and instead moved it into the Static but immutable Class "DateGenerator"
         dateGenerator.findUserZodiacAndElementalSign(input.getBirthdate());
 
 
