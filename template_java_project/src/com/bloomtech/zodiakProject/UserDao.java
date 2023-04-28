@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 public class UserDao {
     private final DynamoDBMapper dynamoDbMapper;
-    private UserModel userModel;
+    private User user;
 
 
 
@@ -27,19 +27,13 @@ public class UserDao {
 
 
     public User getUser(String userId){
-
-       // UserGeneratorService.generateUserId();
-
         User thisUser = dynamoDbMapper.load(User.class, userId);
-
-        //UserSignModel
-
 
         return thisUser;
     }
 
 
-    // TODO: Check syntax here for saving under this User Table.
+
     public void saveUser(User user){
 
         String userId = user.getUserId();

@@ -3,20 +3,22 @@ package com.bloomtech.zodiakProject.ModelClasses;
 import java.util.Objects;
 
 
+// TODO: 4/28 Verify if userId needs to be added to Builder scope and regular class scope- or is this redundant?
+
+
 /**
  * A "User" Class that represents the real time instance of a User instance within the program.
  *
  */
 
 public class UserModel {
+    private String userId;
 
     private String userName;
     private String birthDate;
     private String pronouns;
     private String zodiac;
     private String elemental;
-
-    private String userId;
 
 
     public UserModel() {
@@ -121,9 +123,6 @@ public class UserModel {
             return new Builder();
         }
 
-
-        // TODO: Verify if userId needs to be added to Builder scope and regular class scope-
-        // or is that redundant?
 
 
         public Builder withName(String nameToUse) {

@@ -1,6 +1,8 @@
 package com.bloomtech.zodiakProject.activityClasses;
 
-public class GetZodiacActivity implements RequestHandler<,>{
+public class GetZodiacActivity implements RequestHandler<>{
+
+
 
 
 
