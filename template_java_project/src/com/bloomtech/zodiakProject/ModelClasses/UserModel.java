@@ -1,5 +1,6 @@
 package com.bloomtech.zodiakProject.ModelClasses;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -15,7 +16,7 @@ public class UserModel {
     private String userId;
 
     private String userName;
-    private String birthDate;
+    private LocalDate birthDate;
     private String pronouns;
     private String zodiac;
     private String elemental;
@@ -51,11 +52,11 @@ public class UserModel {
         this.userName = userName;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -112,7 +113,7 @@ public class UserModel {
     public static final class Builder {
 
         private String userName;
-        private String birthDate;
+        private LocalDate birthDate;
         private String pronouns;
         private String zodiac;
         private String elemental;
@@ -134,7 +135,7 @@ public class UserModel {
             this.userId = generatedUserId;
             return this;
         }
-        public Builder withBirthdate(String customerBirthDate) {
+        public Builder withBirthdate(LocalDate customerBirthDate) {
             this.birthDate = customerBirthDate;
             return this;
         }
