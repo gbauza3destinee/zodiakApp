@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-//TODO: Review with S, I outsourced the Hashmap + SwitchCase Ladder to the "DateGenerator" Class- go over syntax errors
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
@@ -49,9 +48,6 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         String userName = input.getUserName();
 
 
-        // TODO: Review - how to use a Hashmap to retrieve both key and value pair
-        //TODO: Google how to format a date range in java
-
 
         /// Set User's general fields
         String userId = UserGeneratorService.generateUserId();
@@ -61,8 +57,10 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         thisUser.setPronouns(String.format("%s / %s", userPronouns, userPronouns));
         DateCalculator dateCalculator = new DateCalculator();
 
-        // 4/28 Note- Here is where I swapped all the big logic for creating this ElementToZodiac HashMap,
-       // and instead moved it into the Static but immutable Class "DateGenerator"
+
+
+        // THIS LOGIC WILL CHANGE AFTER DateCalculator Class changes from switchcase to if/else ladder
+
         dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
 
 

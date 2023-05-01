@@ -3,9 +3,8 @@ package com.bloomtech.zodiakProject.ModelClasses;
 import java.time.LocalDate;
 import java.util.Objects;
 
-
-// TODO: 4/28 Verify if userId needs to be added to Builder scope and regular class scope- or is this redundant?
-
+// TUTOR NOTE: None of my classes need to access or use UserModel objects, instead we will be
+// interacting with the DAO Class to save and fetch a User
 
 /**
  * A "User" Class that represents the real time instance of a User instance within the program.
@@ -35,6 +34,8 @@ public class UserModel {
         this.userId = userId;
 
     }
+
+
 
     public String getUserId() {
         return userId;

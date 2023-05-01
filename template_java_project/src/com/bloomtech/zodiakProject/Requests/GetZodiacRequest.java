@@ -5,14 +5,15 @@ import java.util.Objects;
 
 public class GetZodiacRequest {
 
-    private String userName;
+    // TODO: Delete all fields but userId for this API action
+
+    private String userId;
     private LocalDate birthdate;
     private String pronouns;
 
 
-    // TODO: Change DateFormat to LocalDate Us 9 after researching how it works
-    public GetZodiacRequest( String userName, LocalDate birthdate, String pronouns){
-        this.userName = userName;
+    public GetZodiacRequest( String userId, LocalDate birthdate, String pronouns){
+        this.userId = userId;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
     }
@@ -22,19 +23,19 @@ public class GetZodiacRequest {
     }
 
     public GetZodiacRequest(GetZodiacRequest.Builder builder){
-        this.userName = userName;
+        this.userId = userId;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
 
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public LocalDate getBirthdate() {
@@ -58,18 +59,18 @@ public class GetZodiacRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GetZodiacRequest that = (GetZodiacRequest) o;
-        return userName.equals(that.userName) && birthdate.equals(that.birthdate) && pronouns.equals(that.pronouns);
+        return userId.equals(that.userId) && birthdate.equals(that.birthdate) && pronouns.equals(that.pronouns);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash( userName, birthdate, pronouns);
+        return Objects.hash( userId, birthdate, pronouns);
     }
 
     @Override
     public String toString() {
         return "GetZodiacRequest{" +
-                ", userName='" + userName + '\'' +
+                ", userName='" + userId + '\'' +
                 ", birthdate=" + birthdate +
                 ", pronouns='" + pronouns + '\'' +
                 '}';
@@ -80,9 +81,12 @@ public class GetZodiacRequest {
         return new GetZodiacRequest.Builder();
     }
 
+
+    // TODO: Update fields to just add userId.
+
     public static final class Builder{
 
-        private String userName;
+        private String userId;
         private LocalDate birthdate;
         private String pronouns;
 
@@ -90,9 +94,8 @@ public class GetZodiacRequest {
         }
 
 
-
-        private GetZodiacRequest.Builder withUserName(String userNameToUse){
-            this.userName = userNameToUse;
+        private GetZodiacRequest.Builder withUserId(String userId){
+            this.userId = userId;
             return this;
         }
 

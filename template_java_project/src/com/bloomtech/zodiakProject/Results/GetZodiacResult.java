@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class GetZodiacResult {
 
+    //TODO: Take out all fields but major
 
     private UserGeneratorService userGeneratorService;
     private String userId;
@@ -15,7 +16,6 @@ public class GetZodiacResult {
     private String zodiacSign;
 
     public GetZodiacResult(GetZodiacResult.Builder builder) {
-
 
         this.userId = builder.userId;
         this.birthdate = builder.birthdate;
@@ -54,6 +54,14 @@ public class GetZodiacResult {
 
     public void setElementalSign(String userElementalSign) {
         this.elementalSign = userElementalSign;
+    }
+
+    public String getZodiacSign() {
+        return zodiacSign;
+    }
+
+    public void setZodiacSign(String userZodiacSign) {
+        this.zodiacSign = userZodiacSign;
     }
 
     public static GetZodiacResult.Builder builder() {

@@ -6,9 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//TODO: METHOD-findUserZodiacAndElementalSign() 4/28*
-// TODO: EDIT Syntax with cases for DateRange
-//  TODO: Edit/ Improve Accessing HashMap and Nested ArrayList
+//TODO: Change Switch Case into If/Else Ladder 5/1
 
 public final class DateCalculator {
 
@@ -21,9 +19,7 @@ public final class DateCalculator {
     public ArrayList <String> waterSignsList;
     public ArrayList <String> earthSignsList;
 
-    public DateGenerator(){
-
-
+    public DateCalculator(){
 
 
     }
@@ -82,11 +78,20 @@ public final class DateCalculator {
     public void findUserZodiacAndElementalSign(LocalDate userBirthDate){
         // LocalDate -  userBirthdate
 
-        // TODO: How to use a Hashmap to retrieve both key and value pair
-        //TODO: Google how to format a date range in java
+        if(LocalDate.parse("2020-19-03").compareTo(userBirthDate)<=1 && LocalDate.parse("2020-21-03").compareTo(userBirthDate)== -1 ){
+        // checking if birthdate falls in certain range ^ (lower range / upper range)
 
-        switch (userBirthDate){
-            case 3/21/2020 - 3/19/2020:
+            // Don't use usermodel in this class!
+            // Return String: (Zodiac, Element Sign)
+            // When we need to access this, use .split()
+            // Since this is a utility class - do not let it modify objects (setting), just let it provide something
+            // In Activity Class we can call this method + provide it to user instance (not user model)
+
+
+        switch (userBirthDate) {
+            case 3/19/2020 - 3/19/2020:
+
+                //TODO FIX DATE!
 
                 userModel.setZodiac("Aries");
                 ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
@@ -223,6 +228,7 @@ public final class DateCalculator {
 
     public static void main(String[] args) {
 
+        // Potential instructions + hello prompts
 
         //! For testing with Console print outputs
 
