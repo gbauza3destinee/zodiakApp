@@ -16,7 +16,7 @@ public final class UserGeneratorService {
         static final int USER_ID_LENGTH = 5;
 
         // do not instantiate
-        private UserGeneratorService() {}
+        public UserGeneratorService() {}
 
         /**
          * Checks that the provided String contains only valid characters.

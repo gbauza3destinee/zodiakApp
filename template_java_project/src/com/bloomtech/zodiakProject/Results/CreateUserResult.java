@@ -1,6 +1,8 @@
 package com.bloomtech.zodiakProject.Results;
 
 import com.amazonaws.internal.config.Builder;
+import com.bloomtech.zodiakProject.UserGeneratorService;
+import com.bloomtech.zodiakProject.activityClasses.CreateUserActivity;
 
 import java.text.DateFormat;
 import java.time.LocalDate;
@@ -8,12 +10,17 @@ import java.time.LocalDate;
 public class CreateUserResult {
 
 
+    private UserGeneratorService userGeneratorService;
     private String userId;
     private String userName;
     private LocalDate birthdate;
     private String pronouns;
 
     public CreateUserResult(Builder builder) {
+        UserGeneratorService userGeneratorService = new UserGeneratorService();
+
+        //TODO : I've placed a User generator in Activity Class and Now this Constructor - which is best practice?
+        this.userId = UserGeneratorService.generateUserId();
         this.userId= builder.userId;
 
         this.userName = builder.userName;

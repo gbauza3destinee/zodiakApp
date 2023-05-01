@@ -44,10 +44,9 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         // Gather all incoming user data
 
         User thisUser = new User();
-        String userId = UserGeneratorService.generateUserId();
-        String userName = input.getUserName();
         String userPronouns = input.getPronouns();
         LocalDate userBirthdate = input.getBirthdate();
+        String userName = input.getUserName();
 
 
         // TODO: Review - how to use a Hashmap to retrieve both key and value pair
@@ -55,6 +54,7 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
 
 
         /// Set User's general fields
+        String userId = UserGeneratorService.generateUserId();
         thisUser.setUserId(userId);
         thisUser.setUserName(userName);
         thisUser.setBirthDate(input.getBirthdate().toString());
