@@ -58,9 +58,6 @@ public class GetZodiacRequest {
     }
 
 
-    // TODO: Update fields to just add userId.
-
-    // -
 
     public static final class Builder{
 

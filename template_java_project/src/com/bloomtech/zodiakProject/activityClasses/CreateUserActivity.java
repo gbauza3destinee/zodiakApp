@@ -63,8 +63,6 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
 
         dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
 
-
-
         CreateUserResult result = CreateUserResult.builder().withbirthdate(userBirthdate)
                 .withUserName(userName).withUserId(userId).withPronouns(userPronouns).build();
 

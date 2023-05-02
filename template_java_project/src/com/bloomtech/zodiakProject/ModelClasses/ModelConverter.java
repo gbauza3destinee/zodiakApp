@@ -1,5 +1,7 @@
 package com.bloomtech.zodiakProject.ModelClasses;
 
+import java.time.LocalDate;
+
 public class ModelConverter {
 
 
@@ -7,22 +9,11 @@ public class ModelConverter {
     public UserModel toUserModel(User user){
 
         UserModel userModel = UserModel.Builder.builder().withPronouns(user.getPronouns())
-                .withBirthdate(user.getBirthDate()).withId(user.getUserId()).withName(user.getUserName()).build();
+                .withBirthdate(LocalDate.parse(user.getBirthDate())).withUserId(user.getUserId()).withName(user.getUserName()).build();
 
         return userModel;
 
     }
 
-
-    //DONE: Create builder in UserSignModel Class
-    // DONE: Implement Logic for toUserSignModel Class
-    public UserSignModel toUserSignModel(UserSign userSign){
-
-        UserSignModel userSignModel = UserSignModel.builder().withUserId(userSign.getUserId()).withBirthDate(userSign.getZodiacSign())
-                .withZodiacSign(userSign.getZodiacSign()).withElementalSign( userSign.getElementalSign()).build();
-
-        return userSignModel;
-
-    }
 
 }

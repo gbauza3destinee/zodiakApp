@@ -12,7 +12,6 @@ import javax.naming.Context;
 import java.time.LocalDate;
 
 
-//TODO: My goal is to find a way to tie up the new data (sign information) to the existing userId + user.
 
 
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
@@ -47,7 +46,6 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         // 3. Save user's birthdate
         // 4. Pass user's birthdate to DateCalculator .findUserZodiacAndElementalSign(LocalDate userBirthDate);
 
-
         String userId = input.getUserId();
         UserDao userDao = new UserDao();
         User thisUser = userDao.getUser(userId);
@@ -56,7 +54,7 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         DateCalculator dateCalculator = new DateCalculator();
         String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(userBirthDate);
 
-        //TODO: Brush up on Splitting Strings by index
+        //TODO: Brush up on Splitting Strings by index HERE
 
         zodiacAndElementalSign.split(",");
         String zodiac = ;
