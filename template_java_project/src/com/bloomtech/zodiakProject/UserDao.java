@@ -17,7 +17,10 @@ public class UserDao {
         //AmazonDynamoDB dynamoDBClient = DynamoDbClientProvider.getDynamoDBClient();
         this.dynamoDbMapper = dynamoDbMapper;
 
+        }
 
+
+        public UserDao(){
         }
 
 

@@ -1,6 +1,7 @@
 package com.bloomtech.zodiakProject.activityClasses;
 
 import com.bloomtech.zodiakProject.DateCalculator;
+import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
@@ -41,26 +42,32 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
     public GetZodiacResult handleRequest(GetZodiacRequest input, Context context) {
 
 
+        // 1. Access this user's instance information added to DDB by Dao
+        // 2. Access by userId the User instance
+        // 3. Save user's birthdate
+        // 4. Pass user's birthdate to DateCalculator .findUserZodiacAndElementalSign(LocalDate userBirthDate);
 
 
-        // 1. Take in birthdate
-        // 2. perform logic to find the elemental and zodiac sign
+        String userId = input.getUserId();
+        UserDao userDao = new UserDao();
+        User thisUser = userDao.getUser(userId);
 
-        LocalDate usersBirthDate = input.getBirthdate();
-
+        LocalDate userBirthDate = LocalDate.parse(thisUser.getBirthDate());
         DateCalculator dateCalculator = new DateCalculator();
-        dateCalculator.findUserZodiacAndElementalSign(usersBirthDate);
-        // the date calculator method will find the zodiak + elemental signs and set them to this user's profile.
+        String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(userBirthDate);
+
+        //TODO: Brush up on Splitting Strings by index
+
+        zodiacAndElementalSign.split(",");
+        String zodiac = ;
+        String elemental = ;
+        thisUser.setZodiac(zodiacAndElementalSign.split(" ", ", "));
+        thisUser.setElemental(zodiacAndElementalSign.split("," "."));
 
 
-        // Gets an existing by UserId
-        input.getUserId();
+        GetZodiacResult result = GetZodiacResult.builder().withUserId(userId).withZodiacSign(zodiac).withElementalSign(elemental).build();
 
-
-
-
-
-        return null;
+        return result;
 
 
     }
