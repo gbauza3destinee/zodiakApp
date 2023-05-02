@@ -5,17 +5,13 @@ import java.util.Objects;
 
 public class GetZodiacRequest {
 
-    // TODO: Delete all fields but userId for this API action
-
+    //5.1 deleted all fields but userId.
     private String userId;
-    private LocalDate birthdate;
-    private String pronouns;
 
 
-    public GetZodiacRequest( String userId, LocalDate birthdate, String pronouns){
+    public GetZodiacRequest( String userId){
         this.userId = userId;
-        this.birthdate = birthdate;
-        this.pronouns = pronouns;
+
     }
 
     public GetZodiacRequest(){
@@ -24,8 +20,6 @@ public class GetZodiacRequest {
 
     public GetZodiacRequest(GetZodiacRequest.Builder builder){
         this.userId = userId;
-        this.birthdate = birthdate;
-        this.pronouns = pronouns;
 
     }
 
@@ -38,44 +32,26 @@ public class GetZodiacRequest {
         this.userId = userId;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public String getPronouns() {
-        return pronouns;
-    }
-
-    public void setPronouns(String pronouns) {
-        this.pronouns = pronouns;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GetZodiacRequest that = (GetZodiacRequest) o;
-        return userId.equals(that.userId) && birthdate.equals(that.birthdate) && pronouns.equals(that.pronouns);
+        return userId.equals(that.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash( userId, birthdate, pronouns);
+        return Objects.hash(userId);
     }
 
     @Override
     public String toString() {
         return "GetZodiacRequest{" +
-                ", userName='" + userId + '\'' +
-                ", birthdate=" + birthdate +
-                ", pronouns='" + pronouns + '\'' +
+                "userId='" + userId + '\'' +
                 '}';
     }
-
 
     public static GetZodiacRequest.Builder builder(){
         return new GetZodiacRequest.Builder();
@@ -89,8 +65,7 @@ public class GetZodiacRequest {
     public static final class Builder{
 
         private String userId;
-        private LocalDate birthdate;
-        private String pronouns;
+
 
         private Builder (){
         }
@@ -98,16 +73,6 @@ public class GetZodiacRequest {
 
         private GetZodiacRequest.Builder withUserId(String userId){
             this.userId = userId;
-            return this;
-        }
-
-
-        private GetZodiacRequest.Builder withBirthDate(LocalDate userBirthDateToUse){
-            this.birthdate = userBirthDateToUse;
-            return this;
-        }
-        private GetZodiacRequest.Builder withPronouns(String userPronouns){
-            this.pronouns = userPronouns;
             return this;
         }
 

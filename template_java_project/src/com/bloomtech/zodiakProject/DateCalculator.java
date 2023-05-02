@@ -1,8 +1,4 @@
 package com.bloomtech.zodiakProject;
-
-import com.bloomtech.zodiakProject.ModelClasses.UserModel;
-
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +7,6 @@ import java.util.HashMap;
 
 public final class DateCalculator {
 
-    UserDao userDao;
-    UserModel userModel = new UserModel();
     LocalDate usersBirthDate;
     public HashMap<String, ArrayList<String>> elementalToZodiacMap;
     public ArrayList<String> fireSignsList;
@@ -192,4 +186,4 @@ public final class DateCalculator {
     }
 
 }
-        }
+

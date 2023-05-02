@@ -1,24 +1,19 @@
 package com.bloomtech.zodiakProject.Results;
-
-import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
 import com.bloomtech.zodiakProject.UserGeneratorService;
 
-import java.time.LocalDate;
 
 public class GetZodiacResult {
 
-    //TODO: Take out all fields but userId
+    //5.1 Take out all fields but userId
 
     private UserGeneratorService userGeneratorService;
     private String userId;
-    private LocalDate birthdate;
     private String elementalSign;
     private String zodiacSign;
 
     public GetZodiacResult(GetZodiacResult.Builder builder) {
 
         this.userId = builder.userId;
-        this.birthdate = builder.birthdate;
         this.elementalSign = builder.elementalSign;
         this.zodiacSign = builder.zodiacSign;
 
@@ -32,21 +27,6 @@ public class GetZodiacResult {
         this.userId = userId;
     }
 
-    public LocalDate getBirthDate() {
-        return birthdate;
-    }
-
-    public void setBirthDate(LocalDate userBirthDate) {
-        this.birthdate = userBirthDate;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
 
     public String getElementalSign() {
         return elementalSign;
@@ -71,7 +51,6 @@ public class GetZodiacResult {
     public static final class Builder {
 
         private String userId;
-        private LocalDate birthdate;
         private String elementalSign;
         private String zodiacSign;
 
@@ -82,10 +61,6 @@ public class GetZodiacResult {
             return this;
         }
 
-        public GetZodiacResult.Builder withUserBirthDateString( LocalDate userBirthDate) {
-            this.birthdate = userBirthDate;
-            return this;
-        }
 
 
         public GetZodiacResult.Builder withElementalSign(String userElementalSign) {
