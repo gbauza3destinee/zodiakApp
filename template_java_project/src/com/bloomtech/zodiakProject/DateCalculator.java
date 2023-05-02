@@ -2,6 +2,7 @@ package com.bloomtech.zodiakProject;
 
 import com.bloomtech.zodiakProject.ModelClasses.UserModel;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,12 +15,12 @@ public final class DateCalculator {
     UserModel userModel = new UserModel();
     LocalDate usersBirthDate;
     public HashMap<String, ArrayList<String>> elementalToZodiacMap;
-    public ArrayList <String> fireSignsList;
-    public ArrayList <String> airSignsList;
-    public ArrayList <String> waterSignsList;
-    public ArrayList <String> earthSignsList;
+    public ArrayList<String> fireSignsList;
+    public ArrayList<String> airSignsList;
+    public ArrayList<String> waterSignsList;
+    public ArrayList<String> earthSignsList;
 
-    public DateCalculator(){
+    public DateCalculator() {
 
 
     }
@@ -29,12 +30,12 @@ public final class DateCalculator {
      * Elemental values.
      * No return but populates the program's loaded HashMap containing the corresponding elementals + zodiac signs
      */
-    public final void loadHashMapUtils(){
+    public final void loadHashMapUtils() {
 
 
         // Setting my HashMap
 
-        HashMap <String, ArrayList<String>> elementalToZodiacMap = new HashMap<>();
+        HashMap<String, ArrayList<String>> elementalToZodiacMap = new HashMap<>();
         ArrayList fireSignsList = new ArrayList();
         fireSignsList.add("Aries");
         fireSignsList.add("Leo");
@@ -65,7 +66,6 @@ public final class DateCalculator {
         elementalToZodiacMap.put("Earth", earthSignsList);
 
 
-
     }
 
 
@@ -74,154 +74,111 @@ public final class DateCalculator {
     }
 
 
-    //TODO: EDIT Syntax for cases & formatting a Date Range -- with oversight by more experienced developer!
-    public void findUserZodiacAndElementalSign(LocalDate userBirthDate){
-        // LocalDate -  userBirthdate
+    // TODO: Change implementation from setting values to a User instance with a void method
+    // TODO: To -> Returning 1 String called Zodiac, Elemental which can be split with String.split() in Activity
 
-        if(LocalDate.parse("2020-19-03").compareTo(userBirthDate)<=1 && LocalDate.parse("2020-21-03").compareTo(userBirthDate)== -1 ){
+    /**
+     * A method that takes in a User's birthdate and matches it to the correct Astrological Sun Sign
+     *
+     * @param userBirthDate
+     * @return String consisting of (Zodiac, Elemental)
+     */
+
+    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) {
+        // DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
-            // Don't use usermodel in this class!
-            // Return String: (Zodiac, Element Sign)
-            // When we need to access this, use .split()
-            // Since this is a utility class - do not let it modify objects (setting), just let it provide something
-            // In Activity Class we can call this method + provide it to user instance (not user model)
+        //Clause 1 Aries
+        if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
 
+            ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
+            String userFireElemental = fireSignsList.get(1);
 
-        switch (userBirthDate) {
-            case 3/19/2020 - 3/19/2020:
+            String userZodiacAndElementalString = "Aries, Fire";
 
-                //TODO FIX DATE!
+            return "Aries, Fire";
 
-                userModel.setZodiac("Aries");
-                ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
-                String userFireElemental = fireSignsList.get(1);
-                userModel.setElemental(userFireElemental);
+        } else if (LocalDate.parse("2020-20-04").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-20-05").compareTo(userBirthDate) == -1) {
 
-                //TODO: Review why these would not work for retrieving both Key And Value!
-                //elementalToZodiacMap.get("Aries");
-                //thisUser.setElemental(fireSignsList.get(1)));
-                System.out.println("Your Zodiac Sign is Aries");
-                break;
+            //Clause 2 :Taurus
+            earthSignsList = elementalToZodiacMap.get("Earth");
+            String userEarthElemental = earthSignsList.get(2);
 
-            case 04/20/2020 - 5/20/2020:
-                userModel.setZodiac("Taurus");
-                //thisUser.setElemental(elementalToZodiacMap.get("Earth","Taurus"));
-                ArrayList<String> earthSignsList = elementalToZodiacMap.get("Earth");
-                String userEarthElemental = earthSignsList.get(2);
-                userModel.setElemental(userEarthElemental);
-                System.out.println(userEarthElemental); //for testing values
+            String userZodiacAndElementalString = "Taurus, Earth";
+            System.out.println(userZodiacAndElementalString);
+            return userZodiacAndElementalString;
+        } else if (LocalDate.parse("2020-21-05").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-20-06").compareTo(userBirthDate) == -1) {
 
-                System.out.println("Your Zodiac Sign is Taurus");
-                break;
+            //Clause 3 - Gemini
+            ArrayList<String> airSignsList = elementalToZodiacMap.get("Air");
+            String userAirElemental = airSignsList.get(1);
 
-            case 05/21/2020 - 06/20/2020:
-                userModel.setZodiac("Gemini");
-                ArrayList<String> airSignsList = elementalToZodiacMap.get("Air");
-                String userAirElemental = fireSignsList.get(1);
-                userModel.setElemental(userAirElemental);
+            return "Gemini, Air";
 
-                //TODO: Review why these would not work for retrieving both Key And Value!
-                //elementalToZodiacMap.get("Aries");
-                //thisUser.setElemental(elementalToZodiacMap.get("Air","Gemini"));
-                System.out.println("Your Zodiac Sign is Gemini");
-                break;
+        } else if (LocalDate.parse("2020-21-06").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-07").compareTo(userBirthDate) == -1) {
+            //Clause 4- Cancer
+            ArrayList<String> waterSignsList = elementalToZodiacMap.get("Water");
+            String userWaterElemental = waterSignsList.get(1);
 
-            case 06/21/2020 - 07/22/2020:
+            return "Cancer, Water";
 
-                userModel.setZodiac("Cancer");
-                ArrayList<String> waterSignsList = elementalToZodiacMap.get("Water");
-                String userWaterElemental = waterSignsList.get(1);
-                userModel.setElemental(userWaterElemental);
-                //thisUser.setElemental(elementalToZodiacMap.get("Water","Cancer"));
-                System.out.println("Your Zodiac Sign is Cancer!");
-                break;
+        } else if (LocalDate.parse("2020-23-07").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-08").compareTo(userBirthDate) == -1) {
+            // Clause 5- Leo
+            fireSignsList = elementalToZodiacMap.get("Fire");
+            String userFireLeoElemental = fireSignsList.get(2);
+            return "Leo, Fire";
+        } else if (LocalDate.parse("2020-23-08").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-09").compareTo(userBirthDate) == -1) {
+            // Clause 6- Virgo
+            earthSignsList = elementalToZodiacMap.get("Earth");
+            String userVirgoEarthElemental = earthSignsList.get(3);
+            return "Virgo, Earth";
 
-            case 07/23/2020 - 08/22/2020:
-                userModel.setZodiac("Leo");
-                fireSignsList = elementalToZodiacMap.get("Fire");
-                String userFireLeoElemental = fireSignsList.get(2);
-                userModel.setElemental(userFireLeoElemental);
+        } else if (LocalDate.parse("2020-23-09").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-10").compareTo(userBirthDate) == -1) {
+            //Clause 7 - Libra
+            airSignsList = elementalToZodiacMap.get("Air");
+            String userLibraAirElemental = fireSignsList.get(2);
+            return "Libra, Air";
 
-                //thisUser.setElemental(elementalToZodiacMap.get("Fire","Leo"));
-                System.out.println("Your Zodiac Sign is Leo");
-                break;
+        } else if (LocalDate.parse("2020-23-10").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-11").compareTo(userBirthDate) == -1) {
+            //Clause 8 - Scorpio
+            waterSignsList = elementalToZodiacMap.get("Water");
+            String userScorpioWaterElemental = waterSignsList.get(2);
+            return "Scorpio, Water";
 
-            case 08/23/2020 - 09/22/2020:
-                userModel.setZodiac("Virgo");
-                earthSignsList = elementalToZodiacMap.get("Earth");
-                String userVirgoEarthElemental = fireSignsList.get(3);
-                userModel.setElemental(userVirgoEarthElemental);
+        } else if (LocalDate.parse("2020-22-11").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-12").compareTo(userBirthDate) == -1) {
+            //Clause 9 - Sagittarrius
 
-                //thisUser.setElemental(elementalToZodiacMap.get("Earth","Virgo"));
-                System.out.println("Your Zodiac Sign is Virgo");
-                break;
+            fireSignsList = elementalToZodiacMap.get("Fire");
+            String userSagFireElemental = fireSignsList.get(3);
+            return "Sagittarius, Fire";
 
-            case 09/23/2020 - 10/22/2020:
-                userModel.setZodiac("Libra");
-                airSignsList = elementalToZodiacMap.get("Air");
-                String userLibraAirElemental = fireSignsList.get(2);
-                userModel.setElemental(userLibraAirElemental);
-                //thisUser.setElemental(elementalToZodiacMap.get("Air","Libra"));
-                System.out.println("Your Zodiac Sign is Libra");
-                break;
+        } else if (LocalDate.parse("2020-22-12").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-19-01").compareTo(userBirthDate) == -1) {
+            //Clause 10 - Capricorn
 
-            case 10/23/2020 - 11/21/2020:
-                userModel.setZodiac("Scorpio");
-                waterSignsList = elementalToZodiacMap.get("Water");
-                String userScorpioWaterElemental = waterSignsList.get(2);
-                userModel.setElemental(userScorpioWaterElemental);
-                //thisUser.setElemental(elementalToZodiacMap.get("Water","Scorpio"));
-                System.out.println("Your Zodiac Sign is Scorpio");
-                break;
+            earthSignsList = elementalToZodiacMap.get("Earth");
+            String userCapEarthElemental = earthSignsList.get(1);
+            return "Capricorn, Earth";
+        } else if (LocalDate.parse("2021-20-01").compareTo(userBirthDate) <= 1 && LocalDate.parse("2021-18-02").compareTo(userBirthDate) == -1) {
+            //Clause 11 - Aquarius
+            airSignsList = elementalToZodiacMap.get("Air");
+            String userAquaAirElemental = airSignsList.get(3);
+            return "Aquarius, Air";
+        } else if (LocalDate.parse("2021-19-02").compareTo(userBirthDate) <= 1 && LocalDate.parse("2021-20-03").compareTo(userBirthDate) == -1) {
+            //Clause 12 - Pisces
 
-            case 11/22/2020 - 12/21/2020:
-                userModel.setZodiac("Sagittarius");
-                fireSignsList = elementalToZodiacMap.get("Fire");
-                String userSagFireElemental = fireSignsList.get(3);
-                userModel.setElemental(userSagFireElemental);
+            waterSignsList = elementalToZodiacMap.get("Water");
+            String userPiscesWaterElemental = waterSignsList.get(3);
+            return "Pisces, Water";
 
-                //thisUser.setElemental(elementalToZodiacMap.get("Fire","Sagittarius"));
-                System.out.println("Your Zodiac Sign is Sagittarius");
-                break;
-
-            case 12/22/2020 - 01/19/2021:
-                userModel.setZodiac("Capricorn");
-                earthSignsList = elementalToZodiacMap.get("Earth");
-                String userCapEarthElemental = earthSignsList.get(1);
-                userModel.setElemental(userCapEarthElemental);
-
-                //thisUser.setElemental(elementalToZodiacMap.get("Earth","Capricorn"));
-                System.out.println("Your Zodiac Sign is Capricorn");
-                break;
-
-            case 1/20/2021 - 2/18/2021:
-                userModel.setZodiac("Aquarius");
-                airSignsList = elementalToZodiacMap.get("Air");
-                String userAquaAirElemental = airSignsList.get(3);
-                userModel.setElemental(userAquaAirElemental);
-
-                //thisUser.setElemental(elementalToZodiacMap.get("Air","Aquarius"));
-                System.out.println("Your Zodiac Sign is Aquarius");
-                break;
-
-            case 02/19/2021 - 03/20/2021:
-                userModel.setZodiac("Pisces");
-                waterSignsList = elementalToZodiacMap.get("Water");
-                String userPiscesWaterElemental = fireSignsList.get(3);
-                userModel.setElemental(userPiscesWaterElemental);
-
-                //thisUser.setElemental(elementalToZodiacMap.get("Water","Pisces"));
-                System.out.println("Your Zodiac Sign is Pisces");
-                break;
-
-            default:
-                System.out.println("Sorry, you entered an invalid date range! Please choose a date from" +
-                        "01/01/2020 onwards.");
-
+        } else {
+            String errorMessage = "Sorry, you entered an invalid date range! Please choose a date from" +
+                    "01/01/2020 onwards!";
+            System.out.println(errorMessage);
 
         }
 
+        return "Sorry, you entered an invalid date range! Please choose a date from" +
+                "01/01/2020 onwards!";
 
     }
 
@@ -235,3 +192,4 @@ public final class DateCalculator {
     }
 
 }
+        }

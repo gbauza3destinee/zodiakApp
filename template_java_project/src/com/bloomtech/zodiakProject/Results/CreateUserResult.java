@@ -19,7 +19,6 @@ public class CreateUserResult {
     public CreateUserResult(Builder builder) {
         UserGeneratorService userGeneratorService = new UserGeneratorService();
 
-        //TODO : I've placed a User generator in Activity Class and Now this Constructor - which is best practice?
         this.userId = UserGeneratorService.generateUserId();
         this.userId= builder.userId;
 

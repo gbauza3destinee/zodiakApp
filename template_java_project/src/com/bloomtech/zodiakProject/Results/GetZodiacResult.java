@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class GetZodiacResult {
 
-    //TODO: Take out all fields but major
+    //TODO: Take out all fields but userId
 
     private UserGeneratorService userGeneratorService;
     private String userId;

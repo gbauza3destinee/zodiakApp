@@ -11,10 +11,8 @@ import javax.naming.Context;
 import java.time.LocalDate;
 
 
-//TODO: My logic for this class, consists of an existing user made by CreateUserRequest
-// my goal is to find a way to tie up the new data (sign information) to the existing userId + user.
+//TODO: My goal is to find a way to tie up the new data (sign information) to the existing userId + user.
 
-// Q: Which would I be adding logic to user (data facing)  or user model (program facing)?
 
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
 
@@ -26,6 +24,10 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
 
     }
 
+
+
+
+    // TODO: Access UserDAO Class getUserById() method
 
     /**
      * Request Handler method that works with API requests made by a user,
@@ -40,7 +42,6 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
 
 
 
-        // TODO: Access UserDAO Class getUserById() method
 
         // 1. Take in birthdate
         // 2. perform logic to find the elemental and zodiac sign

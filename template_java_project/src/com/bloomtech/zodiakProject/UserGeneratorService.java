@@ -8,7 +8,7 @@ public final class UserGeneratorService {
 
         private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'\\\\]");
 
-        // TODO: 4/27 Adjust My Invalid Pattern to take no ** ' and ; signs
+        // TODO: 4/27 Adjust My Invalid Pattern to take no ** / or ' and ; signs
 
 
 
