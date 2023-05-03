@@ -82,6 +82,9 @@ public final class DateCalculator {
         // DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
+        //TODO Update- Setting our delimiters for String.split() as , and .
+        // Regex Pattern to Seek: [ , . ]+
+
         //Clause 1 Aries
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
 

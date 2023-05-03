@@ -101,7 +101,6 @@ public class CreateUserRequest {
         }
 
 
-
         private Builder withUserName(String userNameToUse){
             this.userName = userNameToUse;
             return this;

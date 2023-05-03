@@ -9,10 +9,12 @@ import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.UserDao;
 
 import javax.naming.Context;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 
 
+// DONE: Review String Split Logic
 
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
 
@@ -20,14 +22,12 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
 
     public GetZodiacActivity(UserDao userDao) {
 
-        this.userDao = UserDao;
+        this.userDao = userDao;
 
     }
 
 
 
-
-    // TODO: Access UserDAO Class getUserById() method
 
     /**
      * Request Handler method that works with API requests made by a user,
@@ -54,16 +54,19 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         DateCalculator dateCalculator = new DateCalculator();
         String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(userBirthDate);
 
-        //TODO: Brush up on Splitting Strings by index HERE
 
-        zodiacAndElementalSign.split(",");
-        String zodiac = ;
-        String elemental = ;
-        thisUser.setZodiac(zodiacAndElementalSign.split(" ", ", "));
-        thisUser.setElemental(zodiacAndElementalSign.split("," "."));
+        // If you use split, you must be ready to store the 2 parts into an array!
+        // Note, advanced use of this method allows for a # to be added to specify how many String pieces
+        // should be output as individual elements in your String array
+
+        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
+
+        String zodiac = signsArray[0];
+        String elemental = signsArray[1];
 
 
-        GetZodiacResult result = GetZodiacResult.builder().withUserId(userId).withZodiacSign(zodiac).withElementalSign(elemental).build();
+        GetZodiacResult result = GetZodiacResult.builder().withUserId(userId)
+                .withZodiacSign(zodiac).withElementalSign(elemental).build();
 
         return result;
 

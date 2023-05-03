@@ -2,7 +2,6 @@ package com.bloomtech.zodiakProject.activityClasses;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.DateCalculator;
-import com.bloomtech.zodiakProject.DateGenerator;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.ModelClasses.User;
@@ -10,10 +9,8 @@ import com.bloomtech.zodiakProject.UserDao;
 import com.bloomtech.zodiakProject.UserGeneratorService;
 
 import javax.naming.Context;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 
