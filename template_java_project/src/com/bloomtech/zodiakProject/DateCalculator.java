@@ -3,8 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//TODO: Change Switch Case into If/Else Ladder 5/1
 
+
+@Service
 public final class DateCalculator {
 
     LocalDate usersBirthDate;
@@ -82,8 +83,8 @@ public final class DateCalculator {
         // DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
-        //TODO Update- Setting our delimiters for String.split() as , and .
-        // Regex Pattern to Seek: [ , . ]+
+        //TODO Update- Setting our delimiters for String.split() as ,
+
 
         //Clause 1 Aries
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {

@@ -2,6 +2,8 @@ package com.bloomtech.zodiakProject.ModelClasses;
 
 import java.time.LocalDate;
 
+
+@Service
 public class ModelConverter {
 
 

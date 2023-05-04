@@ -12,7 +12,7 @@ public class UserDao {
 
 
 
-    @Inject
+    @AutoWired
     public UserDao(DynamoDBMapper dynamoDbMapper){
         //AmazonDynamoDB dynamoDBClient = DynamoDbClientProvider.getDynamoDBClient();
         this.dynamoDbMapper = dynamoDbMapper;

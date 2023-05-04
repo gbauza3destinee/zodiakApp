@@ -1,0 +1,23 @@
+
+@startuml
+class UserDao <<root>>
+class CreateUserRequest <<entry point 1>>
+class CreateUserResult
+class CreateUserActivity
+class UserGeneratorService <<service>>
+class DateCalculator <<service>>
+class ModelConverter <<service>>
+
+
+class GetZodiacRequest <<entry point 2>>
+class GetZodiacResult
+class GetZodiacActivity
+
+User --> ModelConverter
+UserGeneratorService --> CreateUserResult
+DateCalculator --> GetZodiacResult
+CreateUserActivity --> UserDao
+GetZodiacActivity --> UserDao
+
+
+@enduml
