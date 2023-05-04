@@ -1,17 +1,11 @@
 package com.bloomtech.zodiakProject.activityClasses;
-
 import com.bloomtech.zodiakProject.DateCalculator;
 import com.bloomtech.zodiakProject.ModelClasses.User;
-import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
-import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.UserDao;
-
 import javax.naming.Context;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-
 
 
 // DONE: Review String Split Logic

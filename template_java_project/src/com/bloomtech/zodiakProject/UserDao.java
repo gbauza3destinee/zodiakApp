@@ -3,8 +3,15 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.ModelClasses.UserModel;
 
-@Component
+@Repository
 public class UserDao {
+
+    // TODO: Should a Spring Tag be added to DynamoDB Mapper
+
+    // 5/4 TODO: Logic for this Class Question: Should I add in 2 methods to save Zodiac and get Zodiac,
+    // or is this handled in the logic done in "GetZodiacResult"
+
+
     private final DynamoDBMapper dynamoDbMapper;
     private User user;
 
@@ -23,7 +30,6 @@ public class UserDao {
         }
 
 
-        // TODO: Should this DAO Class also save Elemental Sign + ZodiacSign, rather than have two separate DAO Classes?
 
 
 
