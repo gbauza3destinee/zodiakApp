@@ -1,4 +1,5 @@
 package com.bloomtech.zodiakProject.activityClasses;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
@@ -8,12 +9,11 @@ import javax.naming.Context;
 import java.time.LocalDate;
 
 
-// DONE: Review String Split Logic
+// TODO: Does this class need a UserDao passed into constructor? Reference Music Playlist Service and If not, delete
 
-public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
+public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
 
 
-    @Autowired
     public UserDao userDao;
 
     public GetZodiacActivity(UserDao userDao) {
@@ -24,18 +24,14 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
 
 
 
-
-    /**
-     * Request Handler method that works with API requests made by a user,
+    /** Request Handler method that works with API requests made by a user,
      * to save to their UserID, their corresponding ElementalSign, ZodiacSign
-     *
-     * @param input   - represents the incoming data provided by user
-     * @param context - represents server side functions
-     * @return result - results in a program saved valid instance of an id
+     * @param input  represents the incoming data provided by user
+     * @param context represents server side functions
+     * @return results in a program saved valid instance of an id
      */
     @Override
-    public GetZodiacResult handleRequest(GetZodiacRequest input, Context context) {
-
+    public GetZodiacResult handleRequest(GetZodiacRequest input, com.amazonaws.services.lambda.runtime.Context context) {
 
         // 1. Access this user's instance information added to DDB by Dao
         // 2. Access by userId the User instance
@@ -50,16 +46,8 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         DateCalculator dateCalculator = new DateCalculator();
         String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(userBirthDate);
 
-
-        // If you use split, you must be ready to store the 2 parts into an array!
-        // Note, advanced use of this method allows for a # to be added to specify how many String pieces
-        // should be output as individual elements in your String array
-
-        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
-        String zodiac = signsArray[0];
-        String elemental = signsArray[1];
-
         String zodiac = thisUser.getZodiac();
+        String elemental = thisUser.getElemental();
 
 
         GetZodiacResult result = GetZodiacResult.builder().withUserId(userId)

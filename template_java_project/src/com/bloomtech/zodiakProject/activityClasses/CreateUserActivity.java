@@ -13,7 +13,6 @@ import java.time.LocalDate;
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
-    @Autowired
     UserDao userDao;
 
 
@@ -54,18 +53,19 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
 
 
 
-        // THIS LOGIC WILL CHANGE AFTER DateCalculator Class changes from switchcase to if/else ladder
 
+        String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
+      // Using Split = Array, and Set each User Sign ( Zodiac, Elemental)
+        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
+        String zodiac = signsArray[0];
+        String elemental = signsArray[1];
 
-            String = dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
-// leave return type as a stirng.
-//        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
-//        String zodiac = signsArray[0];
-//        String elemental = signsArray[1];
+        thisUser.setZodiac(zodiac);
+        thisUser.setElemental(elemental);
 
-
-        // TODO : Set thisUser. (elemental), (zodiac)
-        //TODO: SAVE USERDAO here.
+        // Save this User instance and information
+        UserDao userDao = new UserDao();
+        userDao.saveUser(thisUser);
 
 
         CreateUserResult result = CreateUserResult.builder().withbirthdate(userBirthdate)

@@ -9,10 +9,7 @@ import javax.inject.Inject;
 public class UserDao {
 
 
-
     private DynamoDBMapper dynamoDbMapper;
-
-
 
 
     /**
@@ -29,8 +26,6 @@ public class UserDao {
 
         public UserDao(){
         }
-
-
 
 
 
