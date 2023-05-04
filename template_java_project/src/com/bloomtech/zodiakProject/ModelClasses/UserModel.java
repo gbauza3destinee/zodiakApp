@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 
-@Component
 // TUTOR NOTE: None of my classes need to access or use UserModel objects, instead we will be
 // interacting with the DAO Class to save and fetch a User
 

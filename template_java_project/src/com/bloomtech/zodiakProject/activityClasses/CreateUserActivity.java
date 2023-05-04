@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
 
+    @Autowired
     UserDao userDao;
 
 

@@ -18,6 +18,8 @@ import java.time.LocalDate;
 
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
 
+
+    @Autowired
     public UserDao userDao;
 
     public GetZodiacActivity(UserDao userDao) {

@@ -3,8 +3,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.bloomtech.zodiakProject.ModelClasses.User;
 import com.bloomtech.zodiakProject.ModelClasses.UserModel;
 
-import javax.inject.Inject;
-
+@Component
 public class UserDao {
     private final DynamoDBMapper dynamoDbMapper;
     private User user;
