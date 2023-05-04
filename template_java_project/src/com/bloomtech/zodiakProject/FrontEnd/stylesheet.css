@@ -1,12 +1,19 @@
 
 
-#topMostContainer{
-font-size: 60px;
+#loadScreen-topContainer h3{
+ font-size: 60px;
 
 }
 
-
-#titleContainer{
+#loadScreen-titleContainer h1{
  font-size: 700px;
+ font-weight:100;
+ margin: 0 auto;
+ padding: 10px;
+ justify-content:center;
 
 }
+
+p{
+     font-size: 18px;
+ }
