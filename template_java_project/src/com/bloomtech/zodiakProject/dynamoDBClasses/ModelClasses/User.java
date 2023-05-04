@@ -1,4 +1,4 @@
-package com.bloomtech.zodiakProject.ModelClasses;
+package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;

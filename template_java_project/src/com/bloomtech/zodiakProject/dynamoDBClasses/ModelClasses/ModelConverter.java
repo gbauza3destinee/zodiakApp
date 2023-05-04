@@ -1,4 +1,4 @@
-package com.bloomtech.zodiakProject.ModelClasses;
+package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 
 import java.time.LocalDate;
 

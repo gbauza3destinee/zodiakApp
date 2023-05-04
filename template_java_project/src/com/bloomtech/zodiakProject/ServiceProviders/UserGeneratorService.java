@@ -1,4 +1,4 @@
-package com.bloomtech.zodiakProject;
+package com.bloomtech.zodiakProject.ServiceProviders;
 import org.junit.platform.commons.util.StringUtils;
 
 import java.util.regex.Pattern;

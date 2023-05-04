@@ -1,5 +1,5 @@
 package com.bloomtech.zodiakProject.Results;
-import com.bloomtech.zodiakProject.UserGeneratorService;
+import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 
 
 public class GetZodiacResult {

@@ -1,10 +1,7 @@
 package com.bloomtech.zodiakProject.Results;
 
-import com.amazonaws.internal.config.Builder;
-import com.bloomtech.zodiakProject.UserGeneratorService;
-import com.bloomtech.zodiakProject.activityClasses.CreateUserActivity;
+import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 
 public class CreateUserResult {

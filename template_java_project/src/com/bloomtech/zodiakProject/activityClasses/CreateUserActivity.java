@@ -1,17 +1,14 @@
 package com.bloomtech.zodiakProject.activityClasses;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.bloomtech.zodiakProject.DateCalculator;
+import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
-import com.bloomtech.zodiakProject.ModelClasses.User;
-import com.bloomtech.zodiakProject.UserDao;
-import com.bloomtech.zodiakProject.UserGeneratorService;
+import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
+import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
+import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 
-import javax.naming.Context;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {

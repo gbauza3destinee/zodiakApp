@@ -1,14 +1,16 @@
-package com.bloomtech.zodiakProject;
+package com.bloomtech.zodiakProject.dynamoDBClasses;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.bloomtech.zodiakProject.ModelClasses.User;
-import com.bloomtech.zodiakProject.ModelClasses.UserModel;
+import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
+import dagger.Component;
 
-@Repository
+import javax.inject.Inject;
+
+@Component
 public class UserDao {
 
 
 
-    private final DynamoDBMapper dynamoDbMapper;
+    private DynamoDBMapper dynamoDbMapper;
     private User user;
 
 
@@ -40,8 +42,10 @@ public class UserDao {
 
     public void saveUser(User user){
 
+        //TODO: Review other Dao
+
         String userId = user.getUserId();
-        User saveThisUser = dynamoDbMapper.save(User.class, userId);
+        dynamoDbMapper.save(user);
 
     }
 
