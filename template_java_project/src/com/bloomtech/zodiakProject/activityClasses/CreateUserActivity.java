@@ -59,7 +59,17 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
 
         // THIS LOGIC WILL CHANGE AFTER DateCalculator Class changes from switchcase to if/else ladder
 
-        dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
+
+            String = dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
+// leave return type as a stirng.
+//        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
+//        String zodiac = signsArray[0];
+//        String elemental = signsArray[1];
+
+
+        // TODO : Set thisUser. (elemental), (zodiac)
+        //TODO: SAVE USERDAO here.
+
 
         CreateUserResult result = CreateUserResult.builder().withbirthdate(userBirthdate)
                 .withUserName(userName).withUserId(userId).withPronouns(userPronouns).build();

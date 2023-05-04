@@ -56,9 +56,10 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         // should be output as individual elements in your String array
 
         String [] signsArray =  zodiacAndElementalSign.split(",", 2);
-
         String zodiac = signsArray[0];
         String elemental = signsArray[1];
+
+        String zodiac = thisUser.getZodiac();
 
 
         GetZodiacResult result = GetZodiacResult.builder().withUserId(userId)

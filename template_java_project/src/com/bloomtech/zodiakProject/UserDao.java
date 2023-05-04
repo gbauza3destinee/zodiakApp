@@ -6,10 +6,6 @@ import com.bloomtech.zodiakProject.ModelClasses.UserModel;
 @Repository
 public class UserDao {
 
-    // TODO: Should a Spring Tag be added to DynamoDB Mapper
-
-    // 5/4 TODO: Logic for this Class Question: Should I add in 2 methods to save Zodiac and get Zodiac,
-    // or is this handled in the logic done in "GetZodiacResult"
 
 
     private final DynamoDBMapper dynamoDbMapper;
@@ -17,8 +13,8 @@ public class UserDao {
 
 
 
+    @Inject
 
-    @AutoWired
     public UserDao(DynamoDBMapper dynamoDbMapper){
         //AmazonDynamoDB dynamoDBClient = DynamoDbClientProvider.getDynamoDBClient();
         this.dynamoDbMapper = dynamoDbMapper;
