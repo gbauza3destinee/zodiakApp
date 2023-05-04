@@ -14,10 +14,12 @@ class GetZodiacResult
 class GetZodiacActivity
 
 User --> ModelConverter
-UserGeneratorService --> CreateUserResult
-DateCalculator --> GetZodiacResult
-CreateUserActivity --> UserDao
-GetZodiacActivity --> UserDao
+CreateUserActivity --* UserDao
+GetZodiacActivity --* UserDao
+GetZodiacResult --* UserGeneratorService
+CreateUserResult --* UserGeneratorService
+GetZodiacRequest --* DateCalculator
+CreateUserRequest --* User
 
 
 @enduml
