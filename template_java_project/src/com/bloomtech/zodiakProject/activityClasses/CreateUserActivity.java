@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Component
 public class CreateUserActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
 
-    UserDao userDao;
+    public UserDao userDao;
 
 
     // DONE: Updated Logic to Assign new ID generator

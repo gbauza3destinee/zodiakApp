@@ -1,9 +1,10 @@
 package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 
+import java.beans.BeanProperty;
+import java.beans.JavaBean;
 import java.time.LocalDate;
 
 
-@Service
 public class ModelConverter {
 
 

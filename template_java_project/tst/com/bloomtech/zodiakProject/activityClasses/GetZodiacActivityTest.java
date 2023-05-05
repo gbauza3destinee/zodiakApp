@@ -5,16 +5,22 @@ import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
+import static org.mockito.MockitoAnnotations.initMocks;
 
 public class GetZodiacActivityTest {
 
     @Mock
     UserDao userDao;
 
+    @InjectMocks
+    GetZodiacActivity getZodiacActivity;
 
     @BeforeEach
     void setUp(){
+        initMocks(this);
 
     }
 

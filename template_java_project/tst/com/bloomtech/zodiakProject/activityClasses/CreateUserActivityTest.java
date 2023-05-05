@@ -3,18 +3,25 @@ package com.bloomtech.zodiakProject.activityClasses;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.util.ArrayList;
 
+import static org.mockito.MockitoAnnotations.initMocks;
+@SpringBootTest
+
 public class CreateUserActivityTest {
 
+    @InjectMocks
+    CreateUserActivity createUserActivity;
 
     @Mock
     UserDao userDao;
 
     @BeforeEach
     void setUp() {
+        initMocks(this);
 
 
         ArrayList<String> fireSignsList = new ArrayList<String>();
