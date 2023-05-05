@@ -1,4 +1,5 @@
 package com.bloomtech.zodiakProject.activityClasses;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
@@ -7,11 +8,12 @@ import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
+import dagger.Component;
 
 import java.time.LocalDate;
 
-
-public class CreateUserActivity implements RequestHandler <CreateUserRequest, CreateUserResult> {
+@Component
+public class CreateUserActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
 
     UserDao userDao;
 
@@ -27,7 +29,8 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
     /**
      * Request Handler method that works with APi requests made by a user,
      * gathers 3 fields and saves to a User generated instance with a unique Id.
-     * @param input - represents the incoming data provided by user
+     *
+     * @param input   - represents the incoming data provided by user
      * @param context - represents server side functions
      * @return result - results in a program saved valid instance of an id
      */
@@ -42,7 +45,6 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         String userName = input.getUserName();
 
 
-
         /// Set User's general fields
         String userId = UserGeneratorService.generateUserId();
         thisUser.setUserId(userId);
@@ -52,11 +54,9 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
         DateCalculator dateCalculator = new DateCalculator();
 
 
-
-
         String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
-      // Using Split = Array, and Set each User Sign ( Zodiac, Elemental)
-        String [] signsArray =  zodiacAndElementalSign.split(",", 2);
+        // Using Split = Array, and Set each User Sign ( Zodiac, Elemental)
+        String[] signsArray = zodiacAndElementalSign.split(",", 2);
         String zodiac = signsArray[0];
         String elemental = signsArray[1];
 

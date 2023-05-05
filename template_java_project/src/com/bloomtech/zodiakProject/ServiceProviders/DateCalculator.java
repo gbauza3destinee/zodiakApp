@@ -1,11 +1,14 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+import com.google.errorprone.annotations.DoNotMock;
+import dagger.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 
-@Service
+@Component
 public final class DateCalculator {
 
     LocalDate usersBirthDate;

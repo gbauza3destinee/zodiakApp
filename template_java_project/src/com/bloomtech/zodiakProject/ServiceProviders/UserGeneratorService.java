@@ -1,18 +1,19 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+import dagger.Component;
 import org.junit.platform.commons.util.StringUtils;
 
 import java.util.regex.Pattern;
 
 
-@Service
+@Component
 public final class UserGeneratorService {
+
 
     private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'\\\\]");
 
     // TODO: 4/27 Adjust My Invalid Pattern to take no ** / or ' and ; signs
 
 
-    // package private for testing
     static final int USER_ID_LENGTH = 5;
 
     // do not instantiate

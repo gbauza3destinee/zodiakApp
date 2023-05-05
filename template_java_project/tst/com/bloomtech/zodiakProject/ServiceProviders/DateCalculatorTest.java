@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 // import static org.junit.jupiter.api.Assertions;
 
+
+// @SpringBootTest
+
 public class DateCalculatorTest {
 
 
@@ -16,10 +19,10 @@ public class DateCalculatorTest {
 
 
 
-    @BeforeEach{
-        dateCalculator = new DateCalculator();
-
-    }
+//    @BeforeEach{
+//        dateCalculator = new DateCalculator();
+//
+//    }
 
     // Test : Happy Case 1
     @Test
