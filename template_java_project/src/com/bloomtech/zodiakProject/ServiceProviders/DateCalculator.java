@@ -1,4 +1,5 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.google.errorprone.annotations.DoNotMock;
 import dagger.Component;
 
@@ -71,9 +72,7 @@ public final class DateCalculator {
         return elementalToZodiacMap;
     }
 
-
-    // TODO: Change implementation from setting values to a User instance with a void method
-    // TODO: To -> Returning 1 String called Zodiac, Elemental which can be split with String.split() in Activity
+    // TODO: Implementing NUll or Invalid Format Catches before If/else Ladder - must resolve Exception Constructor
 
     /**
      * A method that takes in a User's birthdate and matches it to the correct Astrological Sun Sign
@@ -82,14 +81,25 @@ public final class DateCalculator {
      * @return String consisting of (Zodiac, Elemental)
      */
 
-    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) {
-        // DateForSeason vs  userBirthdate
+    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws InvalidFormatException{
+        // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
-        //TODO Update- Setting our delimiters for String.split() as ,
+        String validFormat = "1990-04-12";
+
+        try{
+            boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
+            if (!validDate){
+                throw new InvalidFormatException();
+            }
+
+        } catch (InvalidFormatException e){
+            System.out.println("Sorry, you entered an invalid date format! Please only use the YYYY-MM-DD formaf");
+
+        }
 
 
-        //Clause 1 Aries
+            //Clause 1 Aries
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
 
             ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
@@ -170,11 +180,6 @@ public final class DateCalculator {
             waterSignsList = elementalToZodiacMap.get("Water");
             String userPiscesWaterElemental = waterSignsList.get(3);
             return "Pisces, Water";
-
-        } else {
-            String errorMessage = "Sorry, you entered an invalid date range! Please choose a date from" +
-                    "01/01/2020 onwards!";
-            System.out.println(errorMessage);
 
         }
 

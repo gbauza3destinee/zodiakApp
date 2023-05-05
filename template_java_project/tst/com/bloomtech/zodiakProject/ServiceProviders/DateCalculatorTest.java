@@ -1,5 +1,6 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
 import com.amazonaws.services.dynamodbv2.xspec.S;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -7,10 +8,8 @@ import org.mockito.Mock;
 import org.testng.Assert;
 
 import javax.inject.Inject;
-import java.sql.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -30,6 +29,11 @@ public class DateCalculatorTest {
     LocalDate validBirthDate;
 
     @Mock
+    LocalDate misMatchBirthDate;
+
+    @Mock
+    LocalDate invalidBirthDate;
+    @Mock
     ArrayList<String> earthSignsList;
 
     @Mock
@@ -39,7 +43,8 @@ public class DateCalculatorTest {
     @BeforeEach void setUp(){
 
          validBirthDate = LocalDate.parse("12-23-1994");
-         LocalDate invalidBirthDate = LocalDate.parse("13/20/2023");
+         misMatchBirthDate = LocalDate.parse("09-02-2001");
+         invalidBirthDate = LocalDate.parse("13/20/2023");
 
         initMocks(this);
 
@@ -89,28 +94,25 @@ public class DateCalculatorTest {
     }
 
 
+
+    //TODO: Implement this test case
     @Test
     public void findUserZodiacAndElementalSign_ProgramProvidesWrongZodiac( LocalDate localDate){
 
         //Given
 
-
-
-        String validZodiacAndElemental = "Capricorn, Earth";
-
+        String wrongZodiacElemental = "Capricorn, Earth";
+        String correctZodiacElemental = "Virgo, Earth";
 
         //When
 
-        if (LocalDate.parse("2020-19-03").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(validBirthDate) == -1)){
-
-        }
-
-
-
-        when(dateCalculator.getElementalToZodiacMap()).thenReturn(validZodiacAndElemental);
+       // LocalDate.parse("2020-19-03").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(validBirthDate) == -1))
+        when(dateCalculator.findUserZodiacAndElementalSign(misMatchBirthDate)).thenReturn(wrongZodiacElemental);
 
         //Then
 
+
+        // Assert.assertFalse(!wrongZodiacElemental.equals(correctZodiacElemental));
 
 
     }
@@ -137,6 +139,12 @@ public class DateCalculatorTest {
 
     @Test
     public void findUserZodiacAndElementalSign_UserProvidesInvalidCharacters(LocalDate userBirthDate){
+
+
+
+        when(UserGeneratorService.isValidString(invalidBirthDate.toString())).thenThrow(InvalidFormatException.class);
+
+        Assert
 
 
 
