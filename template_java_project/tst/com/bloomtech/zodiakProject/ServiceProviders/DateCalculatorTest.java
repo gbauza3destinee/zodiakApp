@@ -1,4 +1,5 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+
 import com.amazonaws.services.dynamodbv2.xspec.S;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,11 +41,12 @@ public class DateCalculatorTest {
     UserGeneratorService userGeneratorService;
 
 
-    @BeforeEach void setUp(){
+    @BeforeEach
+    void setUp() {
 
-         validBirthDate = LocalDate.parse("12-23-1994");
-         misMatchBirthDate = LocalDate.parse("09-02-2001");
-         invalidBirthDate = LocalDate.parse("13/20/2023");
+        validBirthDate = LocalDate.parse("12-23-1994");
+        misMatchBirthDate = LocalDate.parse("09-02-2001");
+        invalidBirthDate = LocalDate.parse("13/20/2023");
 
         initMocks(this);
 
@@ -55,14 +57,12 @@ public class DateCalculatorTest {
         earthSignsList.add("Virgo");
 
 
-
-
     }
 
-    // Test : Happy Case 1
+    // Test : Happy Case 1 Test Case Done
 
     @Test
-    public void findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned(LocalDate validBirthDate){
+    public void findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned(LocalDate validBirthDate) throws InvalidFormatException {
 
         //Given
 
@@ -74,30 +74,27 @@ public class DateCalculatorTest {
         String validZodiacAndElemental = "Capricorn, Earth";
 
 
-
         //When
 
-            Assert.assertTrue(LocalDate.parse("2020-22-12").compareTo(validBirthDate) <= 1 &&
-                    LocalDate.parse("2020-19-01").compareTo(validBirthDate) == -1);
+        Assert.assertTrue(LocalDate.parse("2020-22-12").compareTo(validBirthDate) <= 1 &&
+                LocalDate.parse("2020-19-01").compareTo(validBirthDate) == -1);
 
-            String zodiacSign = earthSignsList.get(1);
-            String elemental = "Earth";
-            String zodiacElemental = zodiacSign + elemental;
+        String zodiacSign = earthSignsList.get(1);
+        String elemental = "Earth";
+        String zodiacElemental = zodiacSign + elemental;
 
 
-            when(dateCalculator.findUserZodiacAndElementalSign(validBirthDate)).thenReturn(zodiacElemental);
+        when(dateCalculator.findUserZodiacAndElementalSign(validBirthDate)).thenReturn(zodiacElemental);
 
         //Then
-
 
 
     }
 
 
-
     //TODO: Implement this test case
     @Test
-    public void findUserZodiacAndElementalSign_ProgramProvidesWrongZodiac( LocalDate localDate){
+    public void findUserZodiacAndElementalSign_ProgramProvidesWrongZodiac(LocalDate localDate) throws InvalidFormatException {
 
         //Given
 
@@ -106,7 +103,7 @@ public class DateCalculatorTest {
 
         //When
 
-       // LocalDate.parse("2020-19-03").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(validBirthDate) == -1))
+        // LocalDate.parse("2020-19-03").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(validBirthDate) == -1))
         when(dateCalculator.findUserZodiacAndElementalSign(misMatchBirthDate)).thenReturn(wrongZodiacElemental);
 
         //Then
@@ -118,15 +115,16 @@ public class DateCalculatorTest {
     }
 
 
+    //TODO: Implement this test case
+
     // Test : Edge Case 1
     @Test
-    public void findUserZodiacAndElementalSign_UserProvidesInvalidBirthDate(LocalDate userBirthDate){
+    public void findUserZodiacAndElementalSign_UserProvidesInvalidBirthDate(LocalDate userBirthDate) throws InvalidFormatException {
 
         //Given
 
 
         //When
-
 
 
         //Then
@@ -137,26 +135,16 @@ public class DateCalculatorTest {
     // Test : Edge Case 2
 
 
-    @Test
-    public void findUserZodiacAndElementalSign_UserProvidesInvalidCharacters(LocalDate userBirthDate){
+    //TODO: Implement this test case
 
+    @Test
+    public void findUserZodiacAndElementalSign_UserProvidesInvalidCharacters(LocalDate userBirthDate) throws InvalidFormatException {
 
 
         when(UserGeneratorService.isValidString(invalidBirthDate.toString())).thenThrow(InvalidFormatException.class);
 
-        Assert
-
-
-
 
     }
-
-
-
-
-
-
-
 
 
 }

@@ -35,24 +35,24 @@ public final class DateCalculator {
         // Setting my HashMap
 
         HashMap<String, ArrayList<String>> elementalToZodiacMap = new HashMap<>();
-        ArrayList fireSignsList = new ArrayList();
+        ArrayList <String> fireSignsList = new ArrayList<String>();
         fireSignsList.add("Aries");
         fireSignsList.add("Leo");
         fireSignsList.add("Sagittarius");
 
-        ArrayList airSignsList = new ArrayList();
+        ArrayList <String> airSignsList = new ArrayList<String>();
         airSignsList.add("Gemini");
         airSignsList.add("Libra");
         airSignsList.add("Aquarius");
 
 
-        ArrayList waterSignsList = new ArrayList();
+        ArrayList <String >waterSignsList = new ArrayList<String>();
         waterSignsList.add("Cancer");
         waterSignsList.add("Scorpio");
         waterSignsList.add("Pisces");
 
 
-        ArrayList earthSignsList = new ArrayList();
+        ArrayList <String> earthSignsList = new ArrayList<String>();
         earthSignsList.add("Capricorn");
         earthSignsList.add("Taurus");
         earthSignsList.add("Virgo");
@@ -87,6 +87,9 @@ public final class DateCalculator {
 
         String validFormat = "1990-04-12";
 
+        //TODO: Fix this Exceptions Constructor. L96
+
+
         try{
             boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
             if (!validDate){
@@ -103,7 +106,8 @@ public final class DateCalculator {
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
 
             ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
-            String userFireElemental = fireSignsList.get(1);
+
+            String fireZodiac = fireSignsList.get(1);
 
             String userZodiacAndElementalString = "Aries, Fire";
 
@@ -113,7 +117,7 @@ public final class DateCalculator {
 
             //Clause 2 :Taurus
             earthSignsList = elementalToZodiacMap.get("Earth");
-            String userEarthElemental = earthSignsList.get(2);
+            String earthZodiac = earthSignsList.get(2);
 
             String userZodiacAndElementalString = "Taurus, Earth";
             System.out.println(userZodiacAndElementalString);
@@ -122,21 +126,21 @@ public final class DateCalculator {
 
             //Clause 3 - Gemini
             ArrayList<String> airSignsList = elementalToZodiacMap.get("Air");
-            String userAirElemental = airSignsList.get(1);
+            String airZodiac = airSignsList.get(1);
 
             return "Gemini, Air";
 
         } else if (LocalDate.parse("2020-21-06").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-07").compareTo(userBirthDate) == -1) {
             //Clause 4- Cancer
             ArrayList<String> waterSignsList = elementalToZodiacMap.get("Water");
-            String userWaterElemental = waterSignsList.get(1);
+            String waterZodiac = waterSignsList.get(1);
 
             return "Cancer, Water";
 
         } else if (LocalDate.parse("2020-23-07").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-08").compareTo(userBirthDate) == -1) {
             // Clause 5- Leo
             fireSignsList = elementalToZodiacMap.get("Fire");
-            String userFireLeoElemental = fireSignsList.get(2);
+            String fireZodiac = fireSignsList.get(2);
             return "Leo, Fire";
         } else if (LocalDate.parse("2020-23-08").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-09").compareTo(userBirthDate) == -1) {
             // Clause 6- Virgo

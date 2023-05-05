@@ -1,7 +1,4 @@
 package com.bloomtech.zodiakProject.activityClasses;
-
-import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
-import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
