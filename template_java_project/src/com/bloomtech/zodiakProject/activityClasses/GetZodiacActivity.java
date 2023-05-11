@@ -5,14 +5,12 @@ import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
 import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
-import dagger.Component;
 
 import javax.naming.Context;
 import java.time.LocalDate;
 
 
-// TODO: Does this class need a UserDao passed into constructor? Reference Music Playlist Service and If not, delete
-
+// TODO: Fix Activity Classes' Spring Annotations + RequestHandler Red Lines 5/11
 
 @Component
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {

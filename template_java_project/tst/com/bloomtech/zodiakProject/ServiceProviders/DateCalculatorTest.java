@@ -27,18 +27,8 @@ public class DateCalculatorTest {
     DateCalculator dateCalculator;
 
     @Mock
-    LocalDate validBirthDate;
-
-    @Mock
-    LocalDate misMatchBirthDate;
-
-    @Mock
-    LocalDate invalidBirthDate;
-    @Mock
-    ArrayList<String> earthSignsList;
-
-    @Mock
     UserGeneratorService userGeneratorService;
+
 
 
     @BeforeEach
@@ -59,89 +49,98 @@ public class DateCalculatorTest {
 
     }
 
-    // Test : Happy Case 1 Test Case Done
 
+    /**
+     * Happy case test for DateCalc Class, where a birthdate is provided, it is checked for validity, and then it is compared
+     * @param validBirthDate
+     * @throws InvalidFormatException
+     */
     @Test
-    public void findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned(LocalDate validBirthDate) throws InvalidFormatException {
+    public void findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned() throws InvalidFormatException {
 
-        //Given
+        //Given - Check if user date is valid string
 
+        String validBirthDate = "1995-11-09";
 
-        ArrayList<String> earthSignsList = new ArrayList<String>();
-        earthSignsList.add("Capricorn");
-        earthSignsList.add("Taurus");
-        earthSignsList.add("Virgo");
-        String validZodiacAndElemental = "Capricorn, Earth";
+        when(dateCalculator.isValidString(validBirthDate)).thenReturn(true);
 
 
-        //When
+        //When : Evaluation is done between birthdate + Virgo seasonal date ranges.
 
-        Assert.assertTrue(LocalDate.parse("2020-22-12").compareTo(validBirthDate) <= 1 &&
-                LocalDate.parse("2020-19-01").compareTo(validBirthDate) == -1);
+        Assert.assertTrue(LocalDate.parse("2020-23-08").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-22-09").compareTo(validBirthDate) == -1);
 
-        String zodiacSign = earthSignsList.get(1);
+
+        //THEN: Return Correct Answer
+
+        String zodiacSign = earthSignsList.get(3);
         String elemental = "Earth";
         String zodiacElemental = zodiacSign + elemental;
 
-
         when(dateCalculator.findUserZodiacAndElementalSign(validBirthDate)).thenReturn(zodiacElemental);
 
-        //Then
-
 
     }
 
 
-    //TODO: Implement this test case
-    @Test
-    public void findUserZodiacAndElementalSign_ProgramProvidesWrongZodiac(LocalDate localDate) throws InvalidFormatException {
 
-        //Given
+    /**
+     * EdgeCase 1 test for DateCalc Class, where an invalid birthdate is provided and exception is throwm
+     * @param validBirthDate
+     * @throws InvalidFormatException
+     */
+
+
+    @Test
+    public void findUserZodiacAndElementalSign_withInvalidBirthDate_ThrowsException() throws IllegalArgumentException {
+
+        //Given - Evaluate validity of String Date
+        String invalidBirthDate = "06/04/2002";
+
+        when(dateCalculator.isValidString(invalidBirthDate)).thenReturn(false);
+
+        //When = Comparison is done
+        when(dateCalculator.findUserZodiacAndElementalSign(invalidBirthDate)).thenThrow(IllegalArgumentException);
+
+        //Then - Assert answer provided is FALSE
 
         String wrongZodiacElemental = "Capricorn, Earth";
-        String correctZodiacElemental = "Virgo, Earth";
+        String correctZodiacElemental = "Gemini, Air";
+        AssertNotEquals(wrongZodiacElemental, correctZodiacElemental);
+        AssertThrows(dateCalculator.findUserZodiacAndElementalSign(invalidBirthDate));
 
-        //When
-
-        // LocalDate.parse("2020-19-03").compareTo(validBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(validBirthDate) == -1))
-        when(dateCalculator.findUserZodiacAndElementalSign(misMatchBirthDate)).thenReturn(wrongZodiacElemental);
-
-        //Then
-
-
-        // Assert.assertFalse(!wrongZodiacElemental.equals(correctZodiacElemental));
 
 
     }
 
 
-    //TODO: Implement this test case
 
-    // Test : Edge Case 1
-    @Test
-    public void findUserZodiacAndElementalSign_UserProvidesInvalidBirthDate(LocalDate userBirthDate) throws InvalidFormatException {
+    //TODO: Finish implementation tomorrow!
 
-        //Given
-
-
-        //When
-
-
-        //Then
-
-
-    }
-
-    // Test : Edge Case 2
-
-
-    //TODO: Implement this test case
+    /**
+     * EdgeCase 2 test for DateCalc Class, where an valid birthdate is provided but then wrong zodiac is provided.
+     * @param validBirthDate
+     * @throws InvalidFormatException
+     */
 
     @Test
-    public void findUserZodiacAndElementalSign_UserProvidesInvalidCharacters(LocalDate userBirthDate) throws InvalidFormatException {
+    public void findUserZodiacAndElementalSign_UserProvideWrongBirthdate() {
+
+        //GIVEN: A user provided birthdate that is not valid.
+
+        String invalidBirthDate = "2002-04-06";
+        String wrongZodiacElemental = "Capricorn, Earth";
+        String correctZodiacElemental = "Gemini, Air";
+
+        when(dateCalculator.isValidString(invalidBirthDate)).thenReturn(true);
 
 
-        when(UserGeneratorService.isValidString(invalidBirthDate.toString())).thenThrow(InvalidFormatException.class);
+        //When : Evaluation is done between birthdate + Virgo seasonal date ranges.
+
+        when(dateCalculator.findUserZodiacAndElementalSign).thenReturn(wrongZodiacElemental)
+
+        //THEN: Return Correct Answer
+
+        AssertNotTrue(invalidBirthDate !=wrongZodiacElemental);
 
 
     }

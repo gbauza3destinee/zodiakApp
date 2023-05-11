@@ -17,11 +17,25 @@ public class CreateUserActivityTest {
     CreateUserActivity createUserActivity;
 
     @Mock
+    CreateUserRequest createUserRequest;
+
+
+    @Mock
+    CreateUserResult createUserResult;
+
+    @Mock
     UserDao userDao;
+
+    @Mock
+    UserGeneratorService userGeneratorService;
+
+    @Mock
+    DateCalculator dateCalculator;
 
     @BeforeEach
     void setUp() {
         initMocks(this);
+
 
 
         ArrayList<String> fireSignsList = new ArrayList<String>();
@@ -47,39 +61,67 @@ public class CreateUserActivityTest {
         earthSignsList.add("Virgo");
 
 
+    }
+
+
+    /**
+     * Happy Case where User Entry information is valid and set and saved  -- DONE
+     */
+
+    @Test
+    void handleRequest_receivesValidUserInput_AssertUserResultIsValid() {
+
+        // GIVEN: The User Entry Details provided are checked against the UserGeneratorService ValidString()
+
+        when(userGeneratorService.isValidString(userEntryBirthDate)).thenReturn(true);
+
+        // WHEN: Date is passed to DateCalculator method
+        String userEntryBirthDate = "1998-30-06";
+
+        String userName = "lalaloopsie";
+
+        String userPronouns = "they / them";
+
+        when(dateCalculator.findUserZodiacAndElementalSign()).thenReturn(validZodiac);
+
+        // THEN: Assert result returned is Valid!
+        String validZodiac = "Cancer, Water";
+
+        String userName = "lalaloopsie";
+
+        //TODO : If I do not have access to the CreateUserResult Class, how can I prove this method returns all fields
+        AssertNotNull(userEntryBirthDate & validZodiac & userName & userPronouns);
+
 
 
     }
 
 
     /**
-     *
+     * Edge Case 1 User  is valid and set and saved  -- DONE
      */
 
-    @Test
-    void handleRequest_receivesValidUserInput_AssertUserResultIsValid() {
+    // TODO : Implement EdgeCase UserName
 
-
-    }
 
     @Test
-    void handleRequest_receivesInvalidUserId_AssertInvalidFormatExceptionThrown() {
-
-
-    }
-
-    @Test
-    void handleRequest_receivesInValidBirthDateFormat_AssertInvalidFormatExceptionThrown() {
+    void handleRequest_receivesInvalidUserName_AssertIllegalArgumentThrown() {
 
 
     }
 
 
+    /**
+     * Edge Case 2 User  is valid and set and saved  -- DONE
+     */
+
+
+   // TODO: Implement EdgeCase UserBirthDate
+
     @Test
-    void handleRequest_dateCalculatorDoesNotProvideZodiac_AssertEmptySignsThrowNullPointerException() {
+    void handleRequest_receivesInValidBirthDateFormat_AssertIllegalArgumentThrown() {
 
 
     }
-
 
 }

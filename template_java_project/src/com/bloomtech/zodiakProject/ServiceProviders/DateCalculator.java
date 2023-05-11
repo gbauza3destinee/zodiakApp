@@ -1,16 +1,14 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.google.errorprone.annotations.DoNotMock;
-import dagger.Component;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
 @Component
 public final class DateCalculator {
+
+
+    UserGeneratorService userGeneratorService;
 
     LocalDate usersBirthDate;
     public HashMap<String, ArrayList<String>> elementalToZodiacMap;
@@ -81,22 +79,20 @@ public final class DateCalculator {
      * @return String consisting of (Zodiac, Elemental)
      */
 
-    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws InvalidFormatException{
+    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws IllegalArgumentException{
         // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
-        String validFormat = "1990-04-12";
 
-        //TODO: Fix this Exceptions Constructor. L96
-
+        //Catch: Invalid Birthdate
 
         try{
             boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
             if (!validDate){
-                throw new InvalidFormatException();
+                throw new IllegalArgumentException("Please format your date using - symbols and in YYYY - MM - DD format!");
             }
 
-        } catch (InvalidFormatException e){
+        } catch (IllegalArgumentException e){
             System.out.println("Sorry, you entered an invalid date format! Please only use the YYYY-MM-DD formaf");
 
         }
@@ -143,6 +139,7 @@ public final class DateCalculator {
             String fireZodiac = fireSignsList.get(2);
             return "Leo, Fire";
         } else if (LocalDate.parse("2020-23-08").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-09").compareTo(userBirthDate) == -1) {
+
             // Clause 6- Virgo
             earthSignsList = elementalToZodiacMap.get("Earth");
             String userVirgoEarthElemental = earthSignsList.get(3);
@@ -174,6 +171,7 @@ public final class DateCalculator {
             String userCapEarthElemental = earthSignsList.get(1);
             return "Capricorn, Earth";
         } else if (LocalDate.parse("2021-20-01").compareTo(userBirthDate) <= 1 && LocalDate.parse("2021-18-02").compareTo(userBirthDate) == -1) {
+
             //Clause 11 - Aquarius
             airSignsList = elementalToZodiacMap.get("Air");
             String userAquaAirElemental = airSignsList.get(3);

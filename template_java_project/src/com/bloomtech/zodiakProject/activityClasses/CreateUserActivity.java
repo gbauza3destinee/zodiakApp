@@ -1,13 +1,10 @@
 package com.bloomtech.zodiakProject.activityClasses;
-
-
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
-
 import javax.naming.Context;
 
 
@@ -34,7 +31,7 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
      * @return result - results in a program saved valid instance of an id
      */
     @Override
-    public CreateUserResult handleRequest(CreateUserRequest input, Context context) {
+    public CreateUserResult handleRequest(CreateUserRequest input, Context context) throws IllegalArgumentException {
 
         //  GET - Gather all incoming user data
         UserGeneratorService userGeneratorService;
