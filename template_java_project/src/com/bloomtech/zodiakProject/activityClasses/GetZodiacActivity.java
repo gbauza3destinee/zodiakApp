@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 
 @Component
-public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
+public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
 
 
     public UserDao userDao;
@@ -35,7 +35,7 @@ public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZo
      * @return results in a program saved valid instance of an id
      */
     @Override
-    public GetZodiacResult handleRequest(GetZodiacRequest input, com.amazonaws.services.lambda.runtime.Context context) {
+    public GetZodiacResult handleRequest(GetZodiacRequest input, Context context) {
 
         // 1. Access this user's instance information added to DDB by Dao
         // 2. Access by userId the User instance

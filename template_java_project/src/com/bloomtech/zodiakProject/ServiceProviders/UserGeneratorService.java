@@ -6,14 +6,13 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.regex.Pattern;
 
 
+
+// TODO: Swastik - Review
 @Component
 public final class UserGeneratorService {
 
 
     private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'\\\\]");
-
-    // TODO: 4/27 Adjust My Invalid Pattern to take no ** / or ' and ; signs
-
 
     static final int USER_ID_LENGTH = 5;
 

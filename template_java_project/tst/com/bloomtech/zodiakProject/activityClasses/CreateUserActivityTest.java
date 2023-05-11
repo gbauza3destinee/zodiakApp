@@ -52,14 +52,18 @@ public class CreateUserActivityTest {
     }
 
 
+    /**
+     *
+     */
+
     @Test
-    void handleRequest_receivesValidUserInput_AssertCreateUserResultIsValid() {
+    void handleRequest_receivesValidUserInput_AssertUserResultIsValid() {
 
 
     }
 
     @Test
-    void handleRequest_receivesInValidUserId_AssertInvalidFormatExceptionThrown() {
+    void handleRequest_receivesInvalidUserId_AssertInvalidFormatExceptionThrown() {
 
 
     }
