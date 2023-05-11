@@ -1,5 +1,4 @@
 package com.bloomtech.zodiakProject.activityClasses;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
@@ -10,7 +9,7 @@ import javax.naming.Context;
 import java.time.LocalDate;
 
 
-// TODO: Fix Activity Classes' Spring Annotations + RequestHandler Red Lines 5/11
+// TODO: Fix Activity Classes' Spring Annotations + RequestHandler + @Override Red Lines 5/11
 
 @Component
 public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {

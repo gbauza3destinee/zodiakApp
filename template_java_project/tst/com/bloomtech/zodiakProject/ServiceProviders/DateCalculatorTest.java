@@ -17,8 +17,11 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 // import static org.junit.jupiter.api.Assertions;
 
-
 // @SpringBootTest
+
+
+
+// TODO Q T : Is this test Annotations necessary?
 
 public class DateCalculatorTest {
 
@@ -28,7 +31,6 @@ public class DateCalculatorTest {
 
     @Mock
     UserGeneratorService userGeneratorService;
-
 
 
     @BeforeEach
@@ -114,7 +116,7 @@ public class DateCalculatorTest {
 
 
 
-    //TODO: Finish implementation tomorrow!
+
 
     /**
      * EdgeCase 2 test for DateCalc Class, where an valid birthdate is provided but then wrong zodiac is provided.
@@ -122,23 +124,25 @@ public class DateCalculatorTest {
      * @throws InvalidFormatException
      */
 
+    //TODO: Finish implementation tomorrow! 5/11
+
     @Test
-    public void findUserZodiacAndElementalSign_UserProvideWrongBirthdate() {
+    public void findUserZodiacAndElementalSign_ValidBirthDate_MisMatchZodiacElementalSign() {
 
-        //GIVEN: A user provided birthdate that is not valid.
+        //GIVEN: A user provided birthdate that is valid.
 
-        String invalidBirthDate = "2002-04-06";
+        String validBirthDate = "2002-04-06";
         String wrongZodiacElemental = "Capricorn, Earth";
         String correctZodiacElemental = "Gemini, Air";
 
-        when(dateCalculator.isValidString(invalidBirthDate)).thenReturn(true);
+        when(dateCalculator.isValidString(validBirthDate)).thenReturn(true);
 
 
         //When : Evaluation is done between birthdate + Virgo seasonal date ranges.
 
         when(dateCalculator.findUserZodiacAndElementalSign).thenReturn(wrongZodiacElemental)
 
-        //THEN: Return Correct Answer
+        //THEN: Return WRONG Answer for the user's birthdate!
 
         AssertNotTrue(invalidBirthDate !=wrongZodiacElemental);
 

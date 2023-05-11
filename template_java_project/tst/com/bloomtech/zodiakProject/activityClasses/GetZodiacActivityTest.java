@@ -22,6 +22,11 @@ public class GetZodiacActivityTest {
     }
 
 
+    /**
+     *
+     */
+
+
     @Test
     void handleRequest_UserProvidesValidAttributesInInput_UserValuesSaved() {
 
