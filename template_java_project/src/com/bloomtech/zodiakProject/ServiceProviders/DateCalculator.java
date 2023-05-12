@@ -79,7 +79,7 @@ public final class DateCalculator {
      * @return String consisting of (Zodiac, Elemental)
      */
 
-    public String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws IllegalArgumentException{
+    public static String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws IllegalArgumentException{
         // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
 
