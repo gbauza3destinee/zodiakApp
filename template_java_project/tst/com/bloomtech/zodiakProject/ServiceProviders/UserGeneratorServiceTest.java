@@ -5,8 +5,7 @@ import org.mockito.InjectMocks;
 
 import static org.mockito.MockitoAnnotations.initMocks;
 
-// TODO: Q T Is this test class even necessary if it uses a built in library "String Utils?"
-//  There's not much logic here...
+
 
 public class UserGeneratorServiceTest {
 
@@ -22,6 +21,10 @@ public class UserGeneratorServiceTest {
 
     @Test
     void isValidString_ValidUserIdGenerated_AssertResultIsTrue() {
+
+
+
+
 
     }
 

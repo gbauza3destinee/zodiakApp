@@ -33,6 +33,10 @@ public class UserDao {
     public User getUser(String userId){
         User thisUser =this.dynamoDbMapper.load(User.class, userId);
 
+
+        if (userId == null){
+            throw new NullPointerException("Could not find playlist with id " + userId);
+        }
         if (thisUser == null){
             throw new NullPointerException("Could not find playlist with id " + userId);
         }
