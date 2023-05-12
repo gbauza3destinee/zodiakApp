@@ -4,15 +4,19 @@ import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
 import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
+import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.UserModel;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import javax.naming.Context;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -22,9 +26,9 @@ public class CreateUserActivityTest {
     @InjectMocks
     CreateUserActivity createUserActivity;
 
+    @Mock
+    CreateUserResult result;
 
-    // TODO: Are these 2  necessary? Adding into scope the Request
-    // and Result Classes in order to mimic the "Result"
 
 
     @Mock
@@ -41,8 +45,8 @@ public class CreateUserActivityTest {
         initMocks(this);
 
 
-        CreateUserRequest createUserRequest = new CreateUserRequest();
-        CreateUserResult createUserResult = new CreateUserResult();
+
+        CreateUserRequest input = new CreateUserRequest();
 
         ArrayList<String> fireSignsList = new ArrayList<String>();
         fireSignsList.add("Aries");
@@ -98,11 +102,21 @@ public class CreateUserActivityTest {
 
 
         //TODO : REDO the last part of test ->
+        CreateUserRequest input = new CreateUserRequest();
+        input.setUserName(userName);
+        input.setPronouns(userPronouns);
+        input.setBirthdate(LocalDate.parse(userEntryBirthDate));
+
+        result = CreateUserResult.builder().withUserId(UserGeneratorService.generateUserId()).withUserName(userName).withbirthdate(LocalDate.parse(userEntryBirthDate)).withPronouns(userPronouns).build();
+
+        Context context = null;
+
+        when(CreateUserActivity.handleRequest(input, null)).thenReturn(result);
 
         // CAll handleRequest and it should return result
 
         // Validate result generated
-        assertNotNull(userEntryBirthDate & validZodiac & userName & userPronouns);
+        assertNotNull(result);
 
 
         // 1. Create a CreateResult
@@ -124,15 +138,29 @@ public class CreateUserActivityTest {
        //WHEN
         when(UserGeneratorService.isValidString(userEntryBirthDate)).thenReturn(true);
 
-        String userName = "//eiu_*love!";
+        String invalidUserName = "//eiu_*love!";
         String userPronouns = "they / them";
 
-        when(UserGeneratorService.isValidString(userName)).thenThrow(IllegalArgumentException);
+        when(UserGeneratorService.isValidString(invalidUserName)).thenThrow(IllegalArgumentException.class);
 
         //Then- assert that this result cannot be generated.
 
-      AssertNull(userName);
-      AssertNull(createUserResult);
+        CreateUserRequest input = new CreateUserRequest();
+        input.setUserName(invalidUserName);
+        input.setPronouns(userPronouns);
+        input.setBirthdate(LocalDate.parse(userEntryBirthDate));
+
+        result = CreateUserResult.builder().withUserId(UserGeneratorService.generateUserId()).withUserName(invalidUserName).withbirthdate(LocalDate.parse(userEntryBirthDate)).withPronouns(userPronouns).build();
+
+        Context context = null;
+
+        when(CreateUserActivity.handleRequest(input, null)).thenThrow(IllegalArgumentException.class);
+
+        // CAll handleRequest and it should return result
+
+        // Validate result generated
+        assertNull(result.getUserName());
+
     }
 
 
@@ -143,18 +171,30 @@ public class CreateUserActivityTest {
     void handleRequest_receivesInValidBirthDateFormat_AssertIllegalArgumentThrown() {
 
         //GIVEN
-        String userEntryBirthDate = "2094-30-02";
-        when(UserGeneratorService.isValidString(userEntryBirthDate)).thenReturn(false);
+        String invalidBirthDate = "2094-30-02";
+        when(UserGeneratorService.isValidString(invalidBirthDate)).thenReturn(false);
 
         //WHEN
-        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(userEntryBirthDate))).thenThrow(IllegalArgumentException);
+        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(invalidBirthDate))).thenThrow(IllegalArgumentException.class);
 
         //THEN
 
-        // TODO: Q Does this suffice for proving the failed
-        // execution of this method due to invalid birthdate.
-       AssertNull(userEntryBirthDate);
-       AssertNull(createUserResult);
+
+        //TODO : REDO the last part of test ->
+        CreateUserRequest input = new CreateUserRequest();
+
+        String userName = "Barbara";
+        String pronouns = "he/him";
+
+        result = CreateUserResult.builder().withUserId(UserGeneratorService.generateUserId()).withUserName(userName).withbirthdate(LocalDate.parse(invalidBirthDate)).withPronouns(pronouns).build();
+
+        Context context = null;
+
+        when(CreateUserActivity.handleRequest(input, null)).thenReturn(result);
+
+       assertNull(input.getBirthdate());
+
+
 
 
 

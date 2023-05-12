@@ -34,7 +34,7 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
      * @return
      */
     @Override
-    public CreateUserResult handleRequest(CreateUserRequest input, com.amazonaws.services.lambda.runtime.Context context) {
+    public static CreateUserResult handleRequest(CreateUserRequest input, com.amazonaws.services.lambda.runtime.Context context) throws IllegalArgumentException{
 
         //  GET - Gather all incoming user data
         UserGeneratorService userGeneratorService;
