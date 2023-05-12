@@ -39,16 +39,16 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
         // 3. Save user's birthdate
         // 4. Pass user's birthdate to DateCalculator .findUserZodiacAndElementalSign(LocalDate userBirthDate);
 
+        //Id was Already generated in Create User Activity
         String userId = input.getUserId();
         UserDao userDao = new UserDao();
         User thisUser = userDao.getUser(userId);
 
-        LocalDate userBirthDate = LocalDate.parse(thisUser.getBirthDate());
-        DateCalculator dateCalculator = new DateCalculator();
-        String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(userBirthDate);
-
         String zodiac = thisUser.getZodiac();
         String elemental = thisUser.getElemental();
+
+        // Deleted Logic for Calculating DateCalculator's find zodiac
+        // since CreateActivity parses and sets these signs.
 
         userDao.saveUser(thisUser);
 

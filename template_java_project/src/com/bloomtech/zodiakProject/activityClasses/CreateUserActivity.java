@@ -50,10 +50,12 @@ public class CreateUserActivity implements RequestHandler <CreateUserRequest, Cr
             thisUser.setUserName(input.getUserName());
             thisUser.setPronouns(String.format("%s / %s",input.getPronouns(), input.getPronouns()));
             thisUser.setBirthDate(input.getBirthdate().toString());
+
+            /// Generate UserId
+            String userId = UserGeneratorService.generateUserId();
+            thisUser.setUserId(userId);
         }
-        /// Generate UserId
-        String userId = UserGeneratorService.generateUserId();
-        thisUser.setUserId(userId);
+
         DateCalculator dateCalculator = new DateCalculator();
         String zodiacAndElementalSign = dateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
 
