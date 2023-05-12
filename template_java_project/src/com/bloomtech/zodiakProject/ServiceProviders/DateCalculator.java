@@ -1,4 +1,6 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+import dagger.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +13,11 @@ public final class DateCalculator {
     UserGeneratorService userGeneratorService;
 
     LocalDate usersBirthDate;
-    public HashMap<String, ArrayList<String>> elementalToZodiacMap;
-    public ArrayList<String> fireSignsList;
-    public ArrayList<String> airSignsList;
-    public ArrayList<String> waterSignsList;
-    public ArrayList<String> earthSignsList;
+    public static HashMap<String, ArrayList<String>> elementalToZodiacMap;
+    public static ArrayList<String> fireSignsList;
+    public static ArrayList<String> airSignsList;
+    public static ArrayList<String> waterSignsList;
+    public static ArrayList<String> earthSignsList;
 
     public DateCalculator() {
 
@@ -33,7 +35,7 @@ public final class DateCalculator {
         // Setting my HashMap
 
         HashMap<String, ArrayList<String>> elementalToZodiacMap = new HashMap<>();
-        ArrayList <String> fireSignsList = new ArrayList<String>();
+        ArrayList <String> fireSignsList = new ArrayList<>();
         fireSignsList.add("Aries");
         fireSignsList.add("Leo");
         fireSignsList.add("Sagittarius");

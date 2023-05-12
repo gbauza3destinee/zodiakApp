@@ -1,4 +1,5 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
+import dagger.Component;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.platform.commons.util.StringUtils;
 
@@ -12,7 +13,8 @@ import java.util.regex.Pattern;
 public final class UserGeneratorService {
 
 
-    private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'\\\\]");
+    //TODO: Updated Pattern - check for correct formatting
+    private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'*!_\\\\]");
 
     static final int USER_ID_LENGTH = 5;
 

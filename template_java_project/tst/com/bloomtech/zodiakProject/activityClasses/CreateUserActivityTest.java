@@ -1,5 +1,7 @@
 package com.bloomtech.zodiakProject.activityClasses;
 
+import com.bloomtech.zodiakProject.Requests.CreateUserRequest;
+import com.bloomtech.zodiakProject.Results.CreateUserResult;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
@@ -13,12 +15,6 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
-@SpringBootTest
-
-//TODO : Q* For Activity Test Classes, I am unsure how to prove the last "when"
-// within my tests
-// If I do not have access to the CreateUserResult Class, how can I prove this method returns all fields
-
 
 
 public class CreateUserActivityTest {
@@ -30,12 +26,6 @@ public class CreateUserActivityTest {
     // TODO: Are these 2  necessary? Adding into scope the Request
     // and Result Classes in order to mimic the "Result"
 
-    @Mock
-    CreateUserRequest createUserRequest;
-
-
-    @Mock
-    CreateUserResult createUserResult;
 
     @Mock
     UserDao userDao;
@@ -51,6 +41,8 @@ public class CreateUserActivityTest {
         initMocks(this);
 
 
+        CreateUserRequest createUserRequest = new CreateUserRequest();
+        CreateUserResult createUserResult = new CreateUserResult();
 
         ArrayList<String> fireSignsList = new ArrayList<String>();
         fireSignsList.add("Aries");
@@ -100,12 +92,21 @@ public class CreateUserActivityTest {
 
         String validZodiac = "Sagittarius, Fire";
 
-        when(dateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(userEntryBirthDate))).thenReturn(validZodiac);
+        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(userEntryBirthDate))).thenReturn(validZodiac);
 
         // THEN: The result should be a valid instance
 
-        //TODO : How can I check the action of this last part?
-        AssertNotNull(userEntryBirthDate & validZodiac & userName & userPronouns);
+
+        //TODO : REDO the last part of test ->
+
+        // CAll handleRequest and it should return result
+
+        // Validate result generated
+        assertNotNull(userEntryBirthDate & validZodiac & userName & userPronouns);
+
+
+        // 1. Create a CreateResult
+        // 2. Create a builder
 
 
 

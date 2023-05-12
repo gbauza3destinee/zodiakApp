@@ -27,7 +27,12 @@ public class UserGeneratorServiceTest {
 
 
     @Test
-    void isValidString_InvalidUserId_AssertResultIsFalse() {
+    void isValidString_InvalidUserIdString_AssertResultIsFalse() {
+    }
+
+
+    @Test
+    void generateUserId_validStringGenerated_AssertResultIsTrue() {
     }
 
 

@@ -1,9 +1,11 @@
 package com.bloomtech.zodiakProject.activityClasses;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.ServiceProviders.DateCalculator;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.User;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
 import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
+import dagger.Component;
 
 import javax.naming.Context;
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ import java.time.LocalDate;
 // TODO: Fix Activity Classes' Spring Annotations + RequestHandler + @Override Red Lines 5/11
 
 @Component
-public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZodiacResult> {
+public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
 
 
     public UserDao userDao;
@@ -25,14 +27,14 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
 
 
 
-    /** Request Handler method that works with API requests made by a user,
-     * to save to their UserID, their corresponding ElementalSign, ZodiacSign
-     * @param input  represents the incoming data provided by user
-     * @param context represents server side functions
-     * @return results in a program saved valid instance of an id
+
+    /**
+     * @param input   The Lambda Function input
+     * @param context The Lambda execution environment context object.
+     * @return
      */
     @Override
-    public GetZodiacResult handleRequest(GetZodiacRequest input, Context context) {
+    public GetZodiacResult handleRequest(GetZodiacRequest input, com.amazonaws.services.lambda.runtime.Context context) {
 
         // 1. Access this user's instance information added to DDB by Dao
         // 2. Access by userId the User instance
@@ -56,6 +58,8 @@ public class GetZodiacActivity implements RequestHandler <GetZodiacRequest, GetZ
                 .withZodiacSign(zodiac).withElementalSign(elemental).build();
 
         return result;
+
+
 
 
     }
