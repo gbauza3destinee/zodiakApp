@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 public final class UserGeneratorService {
 
 
-    //TODO: Updated Pattern - check for correct formatting
     private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\".'*!_\\\\]");
 
     static final int USER_ID_LENGTH = 5;

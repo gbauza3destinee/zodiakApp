@@ -4,7 +4,6 @@ import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 
 public class GetZodiacResult {
 
-    //5.1 Take out all fields but userId
 
     private UserGeneratorService userGeneratorService;
     private String userId;

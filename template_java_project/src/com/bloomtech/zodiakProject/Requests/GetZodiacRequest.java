@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class GetZodiacRequest {
 
-    //5.1 deleted all fields but userId.
     private String userId;
 
 

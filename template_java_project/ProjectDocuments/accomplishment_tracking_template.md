@@ -1,4 +1,4 @@
-# [Your Name] - [Team name] Accomplishment Tracking
+# [DES] - [ZODIAK APP] Accomplishment Tracking
 
 Each team member should have their own version of this document.
 
