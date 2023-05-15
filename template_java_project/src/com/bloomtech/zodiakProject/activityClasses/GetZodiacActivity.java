@@ -11,8 +11,6 @@ import javax.naming.Context;
 import java.time.LocalDate;
 
 
-// TODO: Fix Activity Classes' Spring Annotations + RequestHandler + @Override Red Lines 5/11
-
 @Component
 public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
 

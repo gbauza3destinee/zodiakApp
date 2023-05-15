@@ -6,9 +6,6 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.regex.Pattern;
 
 
-
-// TODO: 5/11 Swastik - How do I import the StringUtils Library into this Class, so these methods become integrated?
-
 @Component
 public final class UserGeneratorService {
 

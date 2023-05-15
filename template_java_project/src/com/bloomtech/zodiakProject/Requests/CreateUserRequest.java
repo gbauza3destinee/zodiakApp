@@ -20,7 +20,6 @@ public class CreateUserRequest {
     private String pronouns;
 
 
-    // TODO: Change DateFormat to LocalDate Us 9 after researching how it works
     public CreateUserRequest( String userName, LocalDate birthdate, String pronouns){
         this.userName = userName;
         this.birthdate = birthdate;

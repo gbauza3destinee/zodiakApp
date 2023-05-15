@@ -6,7 +6,6 @@ public class GetZodiacResult {
 
     //5.1 Take out all fields but userId
 
-    @Autowired
     private UserGeneratorService userGeneratorService;
     private String userId;
     private String elementalSign;
