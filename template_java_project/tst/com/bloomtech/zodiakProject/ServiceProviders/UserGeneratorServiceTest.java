@@ -4,8 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -28,6 +27,8 @@ public class UserGeneratorServiceTest {
         String validUserId = UserGeneratorService.generateUserId();
         when(UserGeneratorService.isValidString(validUserId)).thenReturn(true);
 
+        assertFalse(StringUtils.isBlank(validUserId));
+
 
 
     }
@@ -40,6 +41,8 @@ public class UserGeneratorServiceTest {
         when(UserGeneratorService.isValidString(invalidUserId)).thenReturn(false);
 
         assertTrue(StringUtils.isBlank(invalidUserId));
+
+
 
     }
 
