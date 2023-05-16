@@ -38,7 +38,7 @@ instructors by the end of the unit._
 
 **Goals: Set up my project's Wire Frame and Prototype Designs via Figma **
 
-**Activity:**
+**Activity: Scaffold code plan and front end wireframe for client facing main menus.**
 
 **Important Docs, Commits, or Code Reviews**:
 
@@ -50,7 +50,7 @@ play in order for the program to work smoothly, this all comes together within t
 
 **Goals: Map out the exchange of data in my program (what is the currency of information passed), and set up new database tables that will correlate to my program, via a database's CLI program.**
 
-**Activity:**
+**Activity: Implement all model classes, dao class (with limited logic) and all POJO - database facing classes.**
 
 **Important Docs, Commits, or Code Reviews**:
 
@@ -67,18 +67,25 @@ in a format the database server will understand.**
 - DAO class which will be without business logic, and the only class to touch the dynamodb (database) save and load functions, which perform actual changes, updates and operations to our tables located on the database server.
 
 
-**Activity:**
+**Activity: Define where the logic of my program will be done, and set this class' access modifiers so that all classes needing to access this logic (date calculation or customer entry validation) easily. **
 
 **Important Docs, Commits, or Code Reviews**:
 
-**Things learned:**
+**Things learned: Instead of implementing new classes to represent the object of "Zodiac Sign" and "Elemental Sign", 
+to simplify the code architecture I let the model classes and api related classes utilize simple Strings that contained an 
+Zodiac or Elemental value, and stored this in a dataset that made most sense for accessing it - a hashmap which contained an arraylist .
+For focusing on logic, I added in 2 utility classes to handle date calculation and comparison, and evaluating a user's string values.**
 
 ## Week 4
 
 **Goals: Define and set up with Swagger and RapiDoc my program's API functions and details for users or other clients to connect to.**
 
-**Activity:**
+**Activity: Creating test files using Spring Framework tags, and solely writing tests for logic based classes. Reviewing and implementing Swagger's Online API editor in yaml code and json code. Viewing the visual output using Swagger's interface.**
 
-**Important Docs, Commits, or Code Reviews**: External Ressources- Swagger, Syntax - RapiDoc/ OpenAPI
+**Important Docs, Commits, or Code Reviews**: External Resources- Swagger, Syntax - RapiDoc/ OpenAPI
 
-**Things learned:**
+**Things learned: Returning to the API Documentation built with OpenAPI's standard rules, I noticed the structure of
+defining my program's api functions was very similar to the yaml file created to map out my database's tables as well. 
+I also understood the process on creating a well documented API doc for future developers and clients wanting to access these 
+API functions (Get) and (Post). I struggled with deployment of the API code to the AWS S3 server, after having created a bucket
+I found it difficult to understand how to attach my API documentation via Lambda function or via "Creation of Object Lambda Access Point." **
