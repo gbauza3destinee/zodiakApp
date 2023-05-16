@@ -5,7 +5,6 @@ import dagger.Component;
 
 import javax.inject.Inject;
 
-@Component
 public class UserDao {
 
 

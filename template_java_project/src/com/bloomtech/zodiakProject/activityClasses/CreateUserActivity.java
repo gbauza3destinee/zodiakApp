@@ -8,17 +8,16 @@ import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 import dagger.Component;
 
+import javax.inject.Inject;
 import javax.naming.Context;
 
 
-@Component
 public class CreateUserActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
 
     public UserDao userDao;
 
 
-    // DONE: Updated Logic to Assign new ID generator
-
+@Inject
     public CreateUserActivity(UserDao userDao) {
 
         this.userDao = userDao;
@@ -31,7 +30,7 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
      *
      * @param input The Lambda Function input
      * @param context The Lambda execution environment context object.
-     * @return
+     * @return CreateUserResult a valid, instance of a customer result.
      */
     @Override
     public CreateUserResult handleRequest(CreateUserRequest input, com.amazonaws.services.lambda.runtime.Context context) {

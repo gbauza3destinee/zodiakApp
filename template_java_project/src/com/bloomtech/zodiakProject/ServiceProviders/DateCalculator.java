@@ -1,12 +1,12 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
 import dagger.Component;
 
+import javax.inject.Inject;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-@Component
 public final class DateCalculator {
 
 
@@ -19,6 +19,8 @@ public final class DateCalculator {
     public static ArrayList<String> waterSignsList;
     public static ArrayList<String> earthSignsList;
 
+
+    @Inject
     public DateCalculator() {
 
 

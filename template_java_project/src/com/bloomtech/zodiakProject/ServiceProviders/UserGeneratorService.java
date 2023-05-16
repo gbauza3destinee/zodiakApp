@@ -3,10 +3,10 @@ import dagger.Component;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.platform.commons.util.StringUtils;
 
+import javax.inject.Inject;
 import java.util.regex.Pattern;
 
 
-@Component
 public final class UserGeneratorService {
 
 
@@ -14,7 +14,8 @@ public final class UserGeneratorService {
 
     static final int USER_ID_LENGTH = 5;
 
-    // do not instantiate
+
+    @Inject
     public UserGeneratorService() {
     }
 

@@ -7,16 +7,17 @@ import com.bloomtech.zodiakProject.Results.GetZodiacResult;
 import com.bloomtech.zodiakProject.dynamoDBClasses.UserDao;
 import dagger.Component;
 
+import javax.inject.Inject;
 import javax.naming.Context;
 import java.time.LocalDate;
 
 
-@Component
 public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
 
 
     public UserDao userDao;
 
+    @Inject
     public GetZodiacActivity(UserDao userDao) {
 
         this.userDao = userDao;
@@ -29,7 +30,7 @@ public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZo
     /**
      * @param input   The Lambda Function input
      * @param context The Lambda execution environment context object.
-     * @return
+     * @return GetZodiacResult a program created result that provides elemental and zodiac sign information for user's birthdate.
      */
     @Override
     public GetZodiacResult handleRequest(GetZodiacRequest input, com.amazonaws.services.lambda.runtime.Context context) {
