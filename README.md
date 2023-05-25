@@ -22,7 +22,8 @@ If you're using any code style like xo, standard etc. That will help others whil
 Include logo/demo screenshot etc.
 
 Zodiak Front End Designs for Load Screen, User Entry Screens, Instructions.
-### [Browse the Face of the Zodiak App] (https://www.figma.com/file/eC5nieQ8Z6vRwT7bZnhkV1/ZodiakGUIWireFrame?type=design&node-id=1%3A34&t=Qe3w3a9LlQdCeCWN-1)
+### Browse Zodiak App's Design 
+url: https://www.figma.com/file/eC5nieQ8Z6vRwT7bZnhkV1/ZodiakGUIWireFrame?type=design&node-id=1%3A34&t=Qe3w3a9LlQdCeCWN-1
 
 ## Tech/framework used
 Ex. Java language 
