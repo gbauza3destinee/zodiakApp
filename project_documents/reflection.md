@@ -1,4 +1,4 @@
-# [ZODIAK APP] Reflection and Accomplishment Milestone Tracking Document
+# Zodiak App's Reflection and Accomplishment Milestone Tracking Document
 
 
 ## Background
