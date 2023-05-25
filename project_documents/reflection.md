@@ -1,45 +1,91 @@
-# [Team name] Reflection
+# [ZODIAK APP] Reflection and Accomplishment Milestone Tracking Document
+
+
+## Background
+
+Reflect on what I've worked on in the past, how to better it, and will come in handy 
+during performance reviews and promotion cycles.
 
 ## Instructions
 
-1. *Create a new folder within this current folder, and name the new folder
-   after your team name*
-2. *If you prefer keeping this reflection private to your team, you may change
-   the permissions on your folder so that only your teammates + unit instructors
-   can view the contents*
-3. *Create a copy of this reflection template, and put it in your newly created
-   folder *
+**Save a copy of this document in your “private” folder.**
 
-*Please answer at least one question from each section below. Answers here will
-likely be inspiration for the “lessons learned” section of your project
-presentation at the end of the unit.*
+Using the below template, keep track of what you’ve worked on each week during
+the unit. 1-3 bullets under each section for each week should suffice. This
+should only take 5 - 10 minutes of reflection each week.
 
-## Design
+As you track your work, think about how it relates to the SDE fundamental skills
+laid out in the syllabus and how you are practicing them.
 
-* How closely did you follow your design document after the review was complete?
-Did your implementation need to change based on what you learned once you were
-underway? 
+* Converts a design into code and delivers it using best practices
+* Writes secure, testable, maintainable code
+* Understands when to use (or not) a broad range of data structures and
+  algorithms
+* Creates unit tests that thoroughly test functionality
+* Troubleshoots by debugging and reviewing errors, logfiles, and metrics
+* Contributes to planning and design
+* Escalates when projects hit roadblocks and risks
 
-## Project
+The important work samples don’t only include the things you authored, but
+should include things like key CRs you reviewed that you are proud of as well!
 
-* How did you handle the ambiguity of defining your own project and user
-  stories? What strategies did you use to decide on concrete work to do to
-  satisfy your requirements?
-* How did you deal with getting stuck on a problem? What strategies did you
-  employ to get yourself unblocked?
-* Did any of your commitments you made in your team charter help navigate a
-  difficult decision, situation, or collaboration challenge? How?
+_You will submit your completed Accomplishment Tracking Document to your
+instructors by the end of the unit._
 
-## Scrum
+## Week 1
 
-* What did you find to be the most valuable part of daily stand-ups? Is there
-  anything you would want to do differently at stand-up to make it more useful
-  to you?
-* Did you over or underestimate the work you could complete during your sprints?
-  What have you learned that will help you better estimate work next time?
+**Goals: Set up my project's Wire Frame and Prototype Designs via Figma **
 
-## Looking ahead
+**Activity: Scaffold code plan and front end wireframe for client facing main menus.**
 
-* If you were to start this unit over again, what would you do differently? How
-  do you see yourself applying that to your work in later units, the capstone,
-  or your internship?
+**Important Docs, Commits, or Code Reviews**:
+
+**Things learned: A prototype of an app idea, can help organize execution of flow within a program being built up, 
+this later helps with conceptualizing the Class architecture of the program and which relationships come into 
+play in order for the program to work smoothly, this all comes together within the Plant UML diagram.**
+
+## Week 2
+
+**Goals: Map out the exchange of data in my program (what is the currency of information passed), 
+and set up new database tables that will correlate to my program, via a database's CLI program.**
+
+**Activity: Implement all model classes, dao class (with limited logic) and all POJO - database facing classes.**
+
+**Important Docs, Commits, or Code Reviews**:
+
+**Things learned: Using AWS CLI, and a command related to "CLOUDFORMATIONSTACKS", we can deploy directly via terminal, 
+our new database tables to intiate via our Database Server, and what their PRIMARY KEY or unique identifiers will be. 
+This able to be deployed with a YAML File that provides a server specific steps and values to set up within the table, 
+in a format the database server will understand.**
+
+## Week 3
+
+**Goals: Code Implementation begins, starting with 
+- Utility app (that holds most of the logic) 
+- model classes which are just POJOs that contain dynamodb annotations and help the program connect from data-model classes to real time operations done on our database's table**
+- DAO class which will be without business logic, and the only class to touch the dynamodb (database) save and load functions, which perform actual changes, updates and operations to our tables located on the database server.
+
+
+**Activity: Define where the logic of my program will be done, and set this class' access modifiers so that all classes needing to access this logic (date calculation or customer entry validation) easily. **
+
+**Important Docs, Commits, or Code Reviews**:
+
+**Things learned: Instead of implementing new classes to represent the object of "Zodiac Sign" and "Elemental Sign", 
+to simplify the code architecture I let the model classes and api related classes utilize simple Strings that contained an 
+Zodiac or Elemental value, and stored this in a dataset that made most sense for accessing it - a hashmap which contained an arraylist .
+For focusing on logic, I added in 2 utility classes to handle date calculation and comparison, and evaluating a user's string values.**
+
+## Week 4
+
+**Goals: Define and set up with Swagger and RapiDoc my program's API functions and details for users or other clients to connect to.**
+
+**Activity: Creating test files using Spring Framework tags, and solely writing tests for logic based classes. 
+Reviewing and implementing Swagger's Online API editor in yaml code and json code. Viewing the visual output using Swagger's interface.**
+
+**Important Docs, Commits, or Code Reviews**: External Resources- Swagger, Syntax - RapiDoc/ OpenAPI
+
+**Things learned: Returning to the API Documentation built with OpenAPI's standard rules, I noticed the structure of
+defining my program's api functions was very similar to the yaml file created to map out my database's tables as well. 
+I also understood the process on creating a well documented API doc for future developers and clients wanting to access these 
+API functions (Get) and (Post). I struggled with deployment of the API code to the AWS S3 server, after having created a bucket
+I found it difficult to understand how to attach my API documentation via Lambda function or via "Creation of Object Lambda Access Point." **
