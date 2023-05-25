@@ -1,10 +1,6 @@
 
 # Zodiak App Design Document
 
-## Instructions
-
-
-## *Project Title* Design
 
 ## 1. Problem Statement
 
