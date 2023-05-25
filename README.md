@@ -64,23 +64,13 @@ In Terminal
 ### Zodiak's API Syntax Rules 
 
 Searching Requirements 
-a. The Birthdate of a User may be searched using a string of characters.
-b. The input is limited to letters, numbers, and special characters '/' and ‘_’.
-c. The search returns the corresponding Java Object or Zodiac Sign.  Where the Zodiac sign matches or contains the string of characters called “BirthDate” from the input.
-d. App detail should include the app identifier, name, icon, category, description, author, review ratings, and number of downloads.
-e. If no birthdates are found, the resulting Zodiac and Elemental set may be empty.
-f. If a search is received with invalid input, return a client error.
-g. If a search cannot be processed due to an unexpected system error, return a server error.
+- The Birthdate of a User may be searched using a string of characters.
+- The input is limited to letters, numbers, and special characters '/' and ‘_’.
 
 Listing Requirements 
 
-j. The system shall allow the client to request Zodiac and Elemental information for a given birthdate.
-k. The system shall allow the client to limit the results to a specific birthdate provided (limited to known birthdates starting from one year before 2023).
-l. The result list will be limited to 4 Zodiac related details.
-m. The Zodiac details will include the corresponding Zodiac Name, 2 Characteristics for this Zodiac, and 1 Elemental characteristic description.
-n. Zodiac’s gauge of popularity is defined as number of date-of-birth entries  over the past 10 days.
-o. If invalid input is received, the system will return a client error.
-p. If the system encounters an unexpected error while processing a request, it will return a server error.
+- The system shall allow the client to request Zodiac and Elemental information for a given birthdate.
+- The system shall allow the client to limit the results to a specific birthdate provided (limited to known birthdates starting from one year before 2023).
 
 
 ### Zodiak's API Documentation 
