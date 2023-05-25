@@ -2,6 +2,7 @@
 ## Zodiak App Project
 Zodiak is a utility service app that receives a User’s birthdate and predicts their Sun sign, and Elemental Value as dictated by Western Astrology, mapping where the Sun was stationed on the User’s date of birth.
 
+This app takes in a User given birthdate, and name. Then it internally identifies which of the 12 subgroup Classes it belongs to, as organized by Quad Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). 
 
 ## Motivation
 Zodiak makes predicting a User’s sunSign and elemental qualities quick, easy and fun! Share your sign results with your friends and discuss the nuances of Astrology and personalities.
@@ -88,8 +89,8 @@ API Swagger YAML File (not hosted)
 openapi: 3.0.3
 info:
   title: Zodiak App - OpenAPI 3.0
-  description: |-
-    This app takes in a User given birthdate, and name. Then it internally identifies which of the 12 subgroup Classes it belongs to, as organized by Quad Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). 
+  description: |- Magical App that forecasts your solar sign given the day you were born!
+    
 
 tags:
   - name: zodiac
@@ -229,8 +230,6 @@ components:
 
 
 
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
 ## Tests
 Describe and show how to run the tests with code examples.
