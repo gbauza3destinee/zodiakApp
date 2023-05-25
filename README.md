@@ -58,6 +58,7 @@ In Terminal
   cd zodiakProjectApp
 **cd template_java_project**
 
+[template_java_project]((https://github.com/gbauza3destinee/zodiakApp/blob/bccf1092c8549be63a1c1862f8cba23afccde0e6/template_java_project)) 
 
 ## API Reference
 
@@ -215,9 +216,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/User'
-
-
-
 
 
 
