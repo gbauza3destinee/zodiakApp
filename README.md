@@ -54,11 +54,11 @@ Provide step by step series of examples and explanations about how to get a deve
 2. Open this program from the template_java_project directory.
 
 Ex: 
-In Terminal 
-  cd zodiakProjectApp
+Run in Terminal 
+  cd zodiakProjectApp <br>
 **cd template_java_project**
 
-[template_java_project]((https://github.com/gbauza3destinee/zodiakApp/blob/bccf1092c8549be63a1c1862f8cba23afccde0e6/template_java_project)) 
+[template_java_project](https://github.com/gbauza3destinee/zodiakApp/blob/bccf1092c8549be63a1c1862f8cba23afccde0e6/template_java_project)
 
 ## API Reference
 
