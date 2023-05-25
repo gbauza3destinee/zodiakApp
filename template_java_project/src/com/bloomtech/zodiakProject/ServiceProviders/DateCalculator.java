@@ -74,7 +74,6 @@ public final class DateCalculator {
         return elementalToZodiacMap;
     }
 
-    // TODO: Implementing NUll or Invalid Format Catches before If/else Ladder - must resolve Exception Constructor
 
     /**
      * A method that takes in a User's birthdate and matches it to the correct Astrological Sun Sign
@@ -86,7 +85,6 @@ public final class DateCalculator {
     public static String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws IllegalArgumentException{
         // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
-
 
         //Catch: Invalid Birthdate
 

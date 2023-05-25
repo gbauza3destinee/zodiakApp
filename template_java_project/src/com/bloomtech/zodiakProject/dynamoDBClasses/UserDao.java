@@ -34,10 +34,10 @@ public class UserDao {
 
 
         if (userId == null){
-            throw new NullPointerException("Could not find playlist with id " + userId);
+            throw new NullPointerException("Could not find User saved instance with this id " + userId);
         }
         if (thisUser == null){
-            throw new NullPointerException("Could not find playlist with id " + userId);
+            throw new NullPointerException("Could not find User saved instance with id " + userId);
         }
         return thisUser;
     }
