@@ -14,7 +14,6 @@ Build status of continuous integration i.e. travis, appveyor etc. Ex. -
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
 
 ## Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
  
@@ -231,9 +230,8 @@ GetZodiacActivitiyTest.java
 
 ## Contribute
 
-You can contribute to this project, by adding in a Class that gives more n Sun and Elemental Signs Descriptions, as well as adding in an API request for User’s time of birth and geolocation birth place, in order to begin adding in more logic for assigning all 11 other signs, a User might want to access.
+You can contribute to this project, by adding in a Class that gives more Sun and Elemental Sign Descriptions, as well as adding in an API request for User’s time of birth and geolocation of birth place, in order to implement more logic for assigning even more specific birth chart signs, a User may be interested in accessing.
 
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
 
 ## Credits
 Credits to my mentor Swastik, and the Chani Nicholas’ app that inspired me to recreate an interactive Astrological app, but as lightweight as possible.
