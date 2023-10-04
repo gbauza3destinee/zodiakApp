@@ -1,7 +1,6 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
 import dagger.Component;
 
-import javax.inject.Inject;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,13 @@ public final class DateCalculator {
     public static ArrayList<String> earthSignsList;
 
 
-    /*
+
+    //TODO: Fix Dagger tag dependency error
+
+
+
+
+    /*  October 4th Update
         User Story : We are given a birthdate in MM/DD/YYYY format
             - If this date falls into a time span -> we get the sign first
             - Then, we check if this sign falls into an Elemental's HashMap
@@ -84,8 +89,8 @@ public final class DateCalculator {
 
 
     /**
-     * 1st Step in the user's request,
-     * where we take in a User's provided birthdate and identify the correct Sun Sign
+     * 1st Step in the User's request, provided a BirthDate
+     * identify the correct sun sign for this date range
      *
      * @param userBirthDate
      * @return String consisting of (Zodiac, Elemental)
@@ -105,89 +110,78 @@ public final class DateCalculator {
 
         }
 
-
-            //Clause 1 Aries
+        // TODO: OCT 4 - EDIT removed hardwiring of Element & Zodiac
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
-
-            // TODO: EDIT remove the adding
+            //Clause 1 Aries
             ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
-
             String fireZodiac = fireSignsList.get(1);
 
-            String userZodiacAndElementalString = "Aries, Fire";
-
-            return "Aries, Fire";
+            return fireZodiac;
 
         } else if (LocalDate.parse("2020-20-04").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-20-05").compareTo(userBirthDate) == -1) {
 
             //Clause 2 :Taurus
             earthSignsList = elementalToZodiacMap.get("Earth");
             String earthZodiac = earthSignsList.get(2);
+            return earthZodiac;
 
-            String userZodiacAndElementalString = "Taurus, Earth";
-            System.out.println(userZodiacAndElementalString);
-            return userZodiacAndElementalString;
         } else if (LocalDate.parse("2020-21-05").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-20-06").compareTo(userBirthDate) == -1) {
 
             //Clause 3 - Gemini
             ArrayList<String> airSignsList = elementalToZodiacMap.get("Air");
             String airZodiac = airSignsList.get(1);
-
-            return "Gemini, Air";
+            return airZodiac;
 
         } else if (LocalDate.parse("2020-21-06").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-07").compareTo(userBirthDate) == -1) {
             //Clause 4- Cancer
             ArrayList<String> waterSignsList = elementalToZodiacMap.get("Water");
             String waterZodiac = waterSignsList.get(1);
 
-            return "Cancer, Water";
+            return waterZodiac;
 
         } else if (LocalDate.parse("2020-23-07").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-08").compareTo(userBirthDate) == -1) {
             // Clause 5- Leo
             fireSignsList = elementalToZodiacMap.get("Fire");
             String fireZodiac = fireSignsList.get(2);
-            return "Leo, Fire";
+            return fireZodiac;
         } else if (LocalDate.parse("2020-23-08").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-09").compareTo(userBirthDate) == -1) {
-
             // Clause 6- Virgo
             earthSignsList = elementalToZodiacMap.get("Earth");
             String userVirgoEarthElemental = earthSignsList.get(3);
-            return "Virgo, Earth";
+            return userVirgoEarthElemental;
 
         } else if (LocalDate.parse("2020-23-09").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-22-10").compareTo(userBirthDate) == -1) {
             //Clause 7 - Libra
             airSignsList = elementalToZodiacMap.get("Air");
             String userLibraAirElemental = fireSignsList.get(2);
-            return "Libra, Air";
+            return userLibraAirElemental;
 
         } else if (LocalDate.parse("2020-23-10").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-11").compareTo(userBirthDate) == -1) {
             //Clause 8 - Scorpio
             waterSignsList = elementalToZodiacMap.get("Water");
             String userScorpioWaterElemental = waterSignsList.get(2);
-            return "Scorpio, Water";
+            return userScorpioWaterElemental;
 
         } else if (LocalDate.parse("2020-22-11").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-12").compareTo(userBirthDate) == -1) {
             //Clause 9 - Sagittarrius
-
             fireSignsList = elementalToZodiacMap.get("Fire");
             String userSagFireElemental = fireSignsList.get(3);
-            return "Sagittarius, Fire";
+            return userSagFireElemental;
 
         } else if (LocalDate.parse("2020-22-12").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-19-01").compareTo(userBirthDate) == -1) {
             //Clause 10 - Capricorn
-
             earthSignsList = elementalToZodiacMap.get("Earth");
             String userCapEarthElemental = earthSignsList.get(1);
-            return "Capricorn, Earth";
+            return userCapEarthElemental;
+
         } else if (LocalDate.parse("2021-20-01").compareTo(userBirthDate) <= 1 && LocalDate.parse("2021-18-02").compareTo(userBirthDate) == -1) {
 
             //Clause 11 - Aquarius
             airSignsList = elementalToZodiacMap.get("Air");
             String userAquaAirElemental = airSignsList.get(3);
-            return "Aquarius, Air";
+            return userAquaAirElemental;
         } else if (LocalDate.parse("2021-19-02").compareTo(userBirthDate) <= 1 && LocalDate.parse("2021-20-03").compareTo(userBirthDate) == -1) {
             //Clause 12 - Pisces
-
             waterSignsList = elementalToZodiacMap.get("Water");
             String userPiscesWaterElemental = waterSignsList.get(3);
             return "Pisces, Water";
@@ -208,7 +202,7 @@ public final class DateCalculator {
      * @param zodiac
      * @return
      */
-    public static String findZodiacElementalGroup(String zodiac) throws  IllegalArgumentException{
+    public static String findZodiacElementalGroup(String zodiac) throws IllegalArgumentException{
 
         StringBuilder zodiacStringBuilding = new StringBuilder();
         zodiacStringBuilding.append(" ");
@@ -236,6 +230,12 @@ public final class DateCalculator {
 
     }
     public static void main(String[] args) {
+
+        String elemental = findZodiacElementalGroup("Aries");
+        System.out.println("The assigned elemental was: " + elemental);
+        System.out.println("The expected elemental for Aries was: Fire");
+
+
 
         // Potential instructions + hello prompts
 
