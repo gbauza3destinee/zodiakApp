@@ -91,7 +91,7 @@ public final class DateCalculator {
      * @return String consisting of (Zodiac, Elemental)
      */
 
-    public static String calculateUserZodiac(LocalDate userBirthDate) throws IllegalArgumentException{
+    public static String calculateZodiac(LocalDate userBirthDate) throws IllegalArgumentException{
         // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
         try{
@@ -210,6 +210,8 @@ public final class DateCalculator {
      */
     public static String findZodiacElementalGroup(String zodiac) throws  IllegalArgumentException{
 
+        StringBuilder zodiacStringBuilding = new StringBuilder();
+        zodiacStringBuilding.append(" ");
         // For Each 1/4 Element Groups, begin moving through entries
        for(Map.Entry<String, ArrayList<String>> entry : elementalToZodiacMap.entrySet()){
 
@@ -217,7 +219,8 @@ public final class DateCalculator {
            for(String sign : entry.getValue()) {
 
                if (zodiac == sign) {
-                   return entry.getKey();
+                   zodiacStringBuilding.append(entry.getKey());
+                   //return entry.getKey();
                } else{
                    if(!elementalToZodiacMap.containsValue(zodiac)){
                        throw new IllegalArgumentException("The Zodiac could not be found in our DataSet!");
@@ -228,8 +231,8 @@ public final class DateCalculator {
 
        }
 
-
-
+        // Used a String Builder to be able to have access to String from outside the loop.
+        return zodiacStringBuilding.toString();
 
     }
     public static void main(String[] args) {
