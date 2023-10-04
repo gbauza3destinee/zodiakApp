@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public final class DateCalculator {
@@ -20,6 +21,12 @@ public final class DateCalculator {
     public static ArrayList<String> earthSignsList;
 
 
+    /*
+        User Story : We are given a birthdate in MM/DD/YYYY format
+            - If this date falls into a time span -> we get the sign first
+            - Then, we check if this sign falls into an Elemental's HashMap
+     */
+
     @Inject
     public DateCalculator() {
 
@@ -33,7 +40,7 @@ public final class DateCalculator {
      */
     public final void loadHashMapUtils() {
 
-
+        // FIRE, ARIES, SAG, LEO,
         // Setting my HashMap
 
         HashMap<String, ArrayList<String>> elementalToZodiacMap = new HashMap<>();
@@ -70,24 +77,23 @@ public final class DateCalculator {
     }
 
 
+
     public final HashMap<String, ArrayList<String>> getElementalToZodiacMap() {
         return elementalToZodiacMap;
     }
 
 
     /**
-     * A method that takes in a User's birthdate and matches it to the correct Astrological Sun Sign
+     * 1st Step in the user's request,
+     * where we take in a User's provided birthdate and identify the correct Sun Sign
      *
      * @param userBirthDate
      * @return String consisting of (Zodiac, Elemental)
      */
 
-    public static String findUserZodiacAndElementalSign(LocalDate userBirthDate) throws IllegalArgumentException{
+    public static String calculateUserZodiac(LocalDate userBirthDate) throws IllegalArgumentException{
         // Logic: DateForSeason vs  userBirthdate
         // checking if birthdate falls in certain range ^ (lower range / upper range)
-
-        //Catch: Invalid Birthdate
-
         try{
             boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
             if (!validDate){
@@ -103,6 +109,7 @@ public final class DateCalculator {
             //Clause 1 Aries
         if (LocalDate.parse("2020-19-03").compareTo(userBirthDate) <= 1 && LocalDate.parse("2020-21-04").compareTo(userBirthDate) == -1) {
 
+            // TODO: EDIT remove the adding
             ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
 
             String fireZodiac = fireSignsList.get(1);
@@ -193,6 +200,38 @@ public final class DateCalculator {
     }
 
 
+    /**
+     * 2nd Step in the process of returning customer information.
+     * Iterate through our hashmap data structure to identify the sign's elemental group
+     * Where the "entry" refers to -> each element type (1/4)
+     * Where value refers to the arraylist of 3 elements of each ArrayList.
+     * @param zodiac
+     * @return
+     */
+    public static String findZodiacElementalGroup(String zodiac) throws  IllegalArgumentException{
+
+        // For Each 1/4 Element Groups, begin moving through entries
+       for(Map.Entry<String, ArrayList<String>> entry : elementalToZodiacMap.entrySet()){
+
+           // For each Sign in This 1 Element's arraylist
+           for(String sign : entry.getValue()) {
+
+               if (zodiac == sign) {
+                   return entry.getKey();
+               } else{
+                   if(!elementalToZodiacMap.containsValue(zodiac)){
+                       throw new IllegalArgumentException("The Zodiac could not be found in our DataSet!");
+                   }
+               }
+
+           }
+
+       }
+
+
+
+
+    }
     public static void main(String[] args) {
 
         // Potential instructions + hello prompts
