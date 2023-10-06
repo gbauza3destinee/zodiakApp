@@ -59,13 +59,9 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
             thisUser.setUserId(userId);
         }
 
-        String zodiacAndElementalSign = DateCalculator.findUserZodiacAndElementalSign(input.getBirthdate());
 
-        // Use Split = Array, and Set each User Sign ( Zodiac, Elemental)
-        String[] signsArray = zodiacAndElementalSign.split(",", 2);
-        String zodiac = signsArray[0];
-        String elemental = signsArray[1];
-
+        String zodiac = new DateCalculator().calculateZodiac(input.getBirthdate());
+        String elemental = new DateCalculator().findZodiacElementalGroup(zodiac);
 
         // SET Zodiac + Elemental
         thisUser.setZodiac(zodiac);
