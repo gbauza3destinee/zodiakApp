@@ -1,10 +1,10 @@
+#### updated last october 11, 6:30pm
+
 openapi: 3.0.3
 info:
   title: Zodiak App - OpenAPI 3.0
   description: |-
-    This app takes in a User given birthdate, and name. Then it internally identifies which of the 12 subgroup Classes it belongs to, as organized by Quad Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). 
-
-  termsOfService: http://swagger.io/terms/
+    This app receives a User's input (their birth month and day, their name and pronouns. After, it retrieves a String representation of the corresponding Sign. User's can also save their input to program's database to access their sign easier next time.
   contact:
     email: dgb.javadeveloper@gmail.com
   license:
@@ -14,8 +14,7 @@ info:
 externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
-servers:
-  - url: https://petstore3.swagger.io/api/v3
+
 tags:
   - name: zodiac
     description: Everything about your Zodiac & Elemental Signs
@@ -35,19 +34,19 @@ paths:
       parameters:
         - name: userName
           in: path
-          description: userName of user that needs to be updated
+          description: userName of user info that needs to be saved
           required: true
           schema:
             type: integer
             format: int64
         - name: pronouns
           in: query
-          description: Pronouns of user that needs to be saved
+          description: Pronouns of user that need to be saved
           schema:
             type: string
         - name: birthdate
           in: query
-          description: Birthdate of user that needs to be updated
+          description: User Birthdate in MM-DD format to be saved
           schema:
             type: string
       requestBody:
@@ -55,10 +54,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '/APIDocs/requestBody.json'
           application/xml:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/User' ##### we need another version of this in yaml
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/User'
@@ -69,10 +68,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/APIDocs/responseBody.json'
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/User' ##### we need a second file in yaml syntax?
         '405':
           description: Invalid input
 
@@ -80,8 +79,8 @@ paths:
     get:
       tags:
         - zodiac
-      summary: Find zodiac order by userID
-      description: For valid response try integer IDs with value <= 5 or > 10. Other values will generate exceptions.
+      summary: Find my zodiac sign by my saved userID
+      description: For valid response try integer IDs with value <= 5 or > 10. Other values will throw errors.
       operationId: getZodiacByUserId
       parameters:
         - name: userId
@@ -93,52 +92,51 @@ paths:
             format: int64
       responses:
         '200':
-          description: successful operation
+          description: Successful Operation- User information was saved!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Zodiac'
+                $ref: '#/APIDocs/responseBodyPost.json' #### for saving / post action
             application/xml:
               schema:
                 $ref: '#/components/schemas/Zodiac'
         '400':
-          description: Invalid user ID supplied
+          description: Invalid user ID provided.
         '404':
-          description: User and Zodiac not found
+          description: Sorry, this userId and zodiac information was not found!
 
 components:
   schemas:
   Zodiac:
-      type: Object
-      properties:
-        userid:
-          type: integer
-          format: int64
-          example: 14045060
+    type: String
+    properties:
+      userid:
+        type: integer
+        format: int64
+        example: 14045060
 
-    User:
-      type: object
-      properties:
-        username:
-          type: string
-          format: int64
-          example: daisyluv
-        pronouns:
-          type: string
-          example: they them
-        birthdate:
-          type: integer
-          example: 2000-20-02
-      xml:
-        name: user
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+        example: daisyluv
+      pronouns:
+        type: string
+        example: they them
+      birthdate:
+        type: integer
+        example: 06-30, MM-DD format
+    xml:
+      name: user
 
   requestBodies:
     User:
-      description: User object that needs to be added to the database
+      description: Request for User to be saved to the app's database!
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/User'
+            $ref: '#/APIDocs/requestBodyPost.json'
         application/xml:
           schema:
             $ref: '#/components/schemas/User'

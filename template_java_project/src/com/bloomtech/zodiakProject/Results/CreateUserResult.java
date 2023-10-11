@@ -3,6 +3,7 @@ package com.bloomtech.zodiakProject.Results;
 import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
 
 import java.time.LocalDate;
+import java.time.MonthDay;
 
 public class CreateUserResult {
 
@@ -10,7 +11,7 @@ public class CreateUserResult {
     private UserGeneratorService userGeneratorService;
     private String userId;
     private String userName;
-    private LocalDate birthdate;
+    private MonthDay birthdate;
     private String pronouns;
 
     public CreateUserResult(Builder builder) {
@@ -41,11 +42,11 @@ public class CreateUserResult {
         this.userName = userName;
     }
 
-    public LocalDate getBirthdate() {
+    public MonthDay getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
+    public void setBirthdate(MonthDay birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -64,7 +65,7 @@ public class CreateUserResult {
     public static final class Builder {
         private String userId;
         private String userName;
-        private LocalDate birthdate;
+        private MonthDay birthdate;
         private String pronouns;
 
 
@@ -79,7 +80,7 @@ public class CreateUserResult {
         }
 
 
-        public Builder withbirthdate(LocalDate userBirthDateToUse) {
+        public Builder withbirthdate(MonthDay userBirthDateToUse) {
             this.birthdate = userBirthDateToUse;
             return this;
         }

@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Zodiak App - OpenAPI 3.0
   description: |-
-    This app takes in a User given birthdate, and name. Then it internally identifies which of the 12 subgroup Classes it belongs to, as organized by Quad Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). 
+    This app takes in a User given birth month and day, and name. Then it internally identifies which of the 12 Zodiac signs it belongs to, as organized by Quad Elemental Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). 
 
   termsOfService: http://swagger.io/terms/
   contact:
@@ -50,7 +50,9 @@ paths:
           description: Birthdate of user that needs to be updated
           schema:
             type: string
-      requestBody:
+      requestBody: ######  INFO -- Describes the request body content.
+                  ####### In this case, specifying a JSON request body is expected to have
+                  ####### this schema outlined in a file (with same properties listed in this API doc)
         description: Create a new User in the store
         content:
           application/json:
@@ -128,7 +130,7 @@ components:
           example: they them
         birthdate:
           type: integer
-          example: 2000-20-02
+          example: 06 - 30, MM-DD format
       xml:
         name: user
 
@@ -143,7 +145,7 @@ components:
           schema:
             $ref: '#/components/schemas/User'
     UserArray:
-      description: List of user object
+      description: List of user objects
       content:
         application/json:
           schema:

@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.MonthDay;
 import java.util.ArrayList;
 
 import static com.bloomtech.zodiakProject.ServiceProviders.DateCalculator.earthSignsList;
@@ -21,6 +22,8 @@ import static org.mockito.MockitoAnnotations.initMocks;
 public class DateCalculatorTest {
 
 
+    // TODO: Test file updated on Oct 6 to reflect 2 separate methods (calculatezodiac & find zodiacElemental)
+
     @InjectMocks
     DateCalculator dateCalculator;
 
@@ -30,7 +33,7 @@ public class DateCalculatorTest {
 
     @BeforeEach
     void setUp() {
-
+        dateCalculator = new DateCalculator();
         LocalDate validBirthDate = LocalDate.parse("12-23-1994");
         LocalDate misMatchBirthDate = LocalDate.parse("09-02-2001");
         LocalDate invalidBirthDate = LocalDate.parse("13/20/2023");
@@ -52,7 +55,7 @@ public class DateCalculatorTest {
      * @throws IllegalArgumentException - indicating an invalid formatted String will not be accepted.
      */
     @Test
-    public void findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned() throws IllegalArgumentException {
+    public void findUserZodiac_UserProvidesValidBirthDate_correctZodiacReturned() throws IllegalArgumentException {
 
         //Given - Check if user date is valid string
 
@@ -72,7 +75,7 @@ public class DateCalculatorTest {
         String elemental = "Earth";
         String zodiacElemental = zodiacSign + elemental;
 
-        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(validBirthDate))).thenReturn(zodiacElemental);
+        when(dateCalculator.calculateZodiac(MonthDay.parse(validBirthDate))).thenReturn(zodiacElemental);
 
 
 
@@ -87,7 +90,7 @@ public class DateCalculatorTest {
 
 
     @Test
-    public void findUserZodiacAndElementalSign_withInvalidBirthDate_ThrowsException() throws IllegalArgumentException {
+    public void findUserZodiac_withInvalidBirthDate_ThrowsException() throws IllegalArgumentException {
 
         //Given - Evaluate validity of String Date
         String invalidBirthDate = "06/04/2002";
@@ -95,14 +98,14 @@ public class DateCalculatorTest {
         when(UserGeneratorService.isValidString(invalidBirthDate)).thenReturn(false);
 
         //When = Comparison is done
-        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(invalidBirthDate))).thenThrow(IllegalArgumentException.class);
+        when(dateCalculator.calculateZodiac(MonthDay.parse(invalidBirthDate))).thenThrow(IllegalArgumentException.class);
 
         //Then - Assert answer provided is FALSE
 
         String wrongZodiacElemental = "Capricorn, Earth";
         String correctZodiacElemental = "Gemini, Air";
         Assert.assertNotEquals(wrongZodiacElemental, correctZodiacElemental);
-        assertThrows( IllegalArgumentException.class, ()-> {DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(invalidBirthDate));});
+        assertThrows( IllegalArgumentException.class, ()-> {dateCalculator.calculateZodiac(MonthDay.parse(invalidBirthDate));});
 
 
 
@@ -120,7 +123,7 @@ public class DateCalculatorTest {
 
 
     @Test
-    public void findUserZodiacAndElementalSign_ValidBirthDate_MisMatchZodiacElementalSign() throws IllegalArgumentException {
+    public void findZodiacElementalGroup_ValidBirthDate_correctElementalReturned() throws IllegalArgumentException {
 
         //GIVEN: A user provided birthdate that is valid.
 
@@ -133,7 +136,32 @@ public class DateCalculatorTest {
 
         //When : Evaluation is done between birthdate + Virgo seasonal date ranges.
 
-        when(DateCalculator.findUserZodiacAndElementalSign(LocalDate.parse(validBirthDate))).thenReturn(wrongZodiacElemental);
+        when(dateCalculator.calculateZodiac(MonthDay.parse(validBirthDate))).thenReturn(wrongZodiacElemental);
+
+
+        //THEN: Return WRONG Answer for the user's birthdate!
+
+        assertNotSame(correctZodiacElemental, wrongZodiacElemental);
+
+
+    }
+
+
+    @Test
+    public void findZodiacElementalGroup_InvalidBirthDate_ExceptionThrown() throws IllegalArgumentException {
+
+        //GIVEN: A user provided birthdate that is valid.
+
+        String validBirthDate = "2002-04-06";
+        String wrongZodiacElemental = "Earth";
+        String correctZodiacElemental = "Air";
+
+        when(UserGeneratorService.isValidString(validBirthDate)).thenReturn(true);
+
+
+        //When : Evaluation is done between birthdate + Virgo seasonal date ranges.
+
+        when(dateCalculator.calculateZodiac(MonthDay.parse(validBirthDate))).thenReturn(wrongZodiacElemental);
 
 
         //THEN: Return WRONG Answer for the user's birthdate!

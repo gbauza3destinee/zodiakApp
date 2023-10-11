@@ -1,0 +1,28 @@
+{
+  "name": "getZodiacSign",
+  "version": "1.0.0",
+  "description": "This is an application that takes in your birth day and month and returns your zodiac sign",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "build": "echo This is a static template, there is no bundler or bundling involved!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gbauza3destinee/zodiakApp"
+  },
+  "keywords": [
+    "static",
+    "getOperation",
+    "enterBirthDayScreen"
+  ],
+  "author": "Des G. Bauza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbauza3destinee/zodiakApp/issues"
+  },
+  "homepage": "https://github.com/gbauza3destinee/zodiakApp#readme",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}

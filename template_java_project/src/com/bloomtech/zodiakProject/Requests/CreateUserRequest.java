@@ -5,6 +5,7 @@ import com.amazonaws.internal.config.Builder;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.MonthDay;
 import java.util.Objects;
 
 /**\
@@ -16,11 +17,11 @@ public class CreateUserRequest {
 
 
     private String userName;
-    private LocalDate birthdate;
+    private MonthDay birthdate;
     private String pronouns;
 
 
-    public CreateUserRequest( String userName, LocalDate birthdate, String pronouns){
+    public CreateUserRequest( String userName, MonthDay birthdate, String pronouns){
         this.userName = userName;
         this.birthdate = birthdate;
         this.pronouns = pronouns;
@@ -47,11 +48,11 @@ public class CreateUserRequest {
         this.userName = userName;
     }
 
-    public LocalDate getBirthdate() {
+    public MonthDay getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
+    public void setBirthdate(MonthDay birthdate) {
         this.birthdate = birthdate;
     }
 

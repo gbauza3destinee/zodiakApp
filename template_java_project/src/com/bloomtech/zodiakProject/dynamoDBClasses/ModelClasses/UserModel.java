@@ -1,6 +1,8 @@
 package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 
+import java.rmi.MarshalledObject;
 import java.time.LocalDate;
+import java.time.MonthDay;
 import java.util.Objects;
 
 
@@ -16,7 +18,7 @@ public class UserModel {
     private String userId;
 
     private String userName;
-    private LocalDate birthDate;
+    private MonthDay birthDate;
     private String pronouns;
     private String zodiac;
     private String elemental;
@@ -54,11 +56,11 @@ public class UserModel {
         this.userName = userName;
     }
 
-    public LocalDate getBirthDate() {
+    public MonthDay getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(MonthDay birthDate) {
         this.birthDate = birthDate;
     }
 

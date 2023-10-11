@@ -1,6 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <link rel="stylesheet" href="style.css" media="screen" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Details Screen </title>
+
+    <style>
+        /* Later to add in */
+    </style>
+
+</head>
+
 <body>
+
+    /* Div for GET Operation */
+    /* 1 Field = Enter BirthDay and Month  */
+
+    <div class = "flex justify-center align-middle">
+        <form
+                action="http://localhost:3000/upload"
+                method="get"
+                enctype="multipart/form-data"
+        >
+            <label
+                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    for="user_avatar"
+            >Enter your Birthday and Month</label
+            >
+            <input
+                    class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
+                    aria-describedby="user_avatar_help"
+                    id="user_avatar"
+                    name="file"
+                    type="file"
+            />
+            <button
+                    type="Submit to get your Zodiac Sign"
+                    class="text-white mt-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+                Enter
+            </button>
+        </form>
+
+    </div>
+
 
     #HeadIcon
 
@@ -13,7 +58,7 @@
 
     <h1> Zodiak  </h1>
 
-    <p> Please enter your Birthdate in YYYY-DD-MM format </p>
+    <p> Please enter your Birthdate in MM/DD format </p>
 
 </div>
 
