@@ -13,7 +13,7 @@ tags:
   - name: zodiac
     description: A generated Zodiac sign represented as a String, provided a valid birth date in MM-DD format
   - name: userId
-    description: A saved user to the database, containing their zodiac report. Reachable by userId generated from a previous attempt.
+    description: A saved user in the database has a zodiac report reachable by userId generated from the last attempt
 paths:
   /user/{birthdate}:
     post:
@@ -63,13 +63,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '405':
-          description: Invalid input
+          description: Invalid input, please retry!
 
   /zodiac/user/{userId}:
     get:
       tags:
         - userId
-      summary: Find my zodiac sign by my saved userID
+      summary: A returning User submits a saved userID to return their Zodiac Sign report.
       description: Insert your provided userId to pull up the saved zodiac information for this sign. Any ids with a length of smaller than 5 or less than 10 digits will throw an error.
       operationId: getZodiacByUserId
       parameters:
@@ -93,7 +93,7 @@ paths:
         '400':
           description: Invalid user ID provided.
         '404':
-          description: Sorry, this userId and zodiac information was not found!
+          description: Sorry, this userId was invalid, or this zodiac information has not been found!
 
 omponents:
   schemas:
