@@ -1,11 +1,17 @@
 package com.bloomtech.zodiakProject.Requests;
 
 import java.time.LocalDate;
+import java.time.MonthDay;
 import java.util.Objects;
 
 public class GetZodiacRequest {
 
-    private String userId;
+
+    private String userName;
+    private MonthDay birthdate;
+    private String pronouns;
+
+
 
 
     public GetZodiacRequest( String userId){

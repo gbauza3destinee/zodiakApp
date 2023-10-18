@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Zodiak App - OpenAPI 3.0",
-    "description": "This app takes in a User given birthdate, and name. Then it internally identifies which of the 12 subgroup Classes it belongs to, as organized by Quad Groups (consisting of the 4 Elemental Values = Water, Fire, Air, Earth). ",
+    "description": "This is a single page application for displaying zodiac signs.",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
       "email": "dgb.javadeveloper@gmail.com"

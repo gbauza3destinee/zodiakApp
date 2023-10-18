@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Zodiak App - OpenAPI 3.0
   description: |-
-    This app receives a User's input given a valid birth month & day, their name and pronouns. Then, it generates a String representation of the corresponding Zodiac Sign and saves this entry. The program allows for returning visitors to enter their userId to retrieve a previously generated zodiac report.
+    This is a single page application for displaying zodiac signs.
   contact:
     email: dgb.javadeveloper@gmail.com
   license:

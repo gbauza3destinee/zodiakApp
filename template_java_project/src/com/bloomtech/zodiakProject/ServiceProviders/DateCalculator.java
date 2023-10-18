@@ -220,11 +220,11 @@ public final class DateCalculator {
         try{
             boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
             if (!validDate){
-                throw new IllegalArgumentException("Please format your date using - symbols and in YYYY - MM - DD format!");
+                throw new IllegalArgumentException("Please format your date using - symbols and in MM - DD format!");
             }
 
         } catch (IllegalArgumentException e){
-            System.out.println("Sorry, you entered an invalid date format! Please only use the YYYY-MM-DD format");
+            System.out.println("Sorry, you entered an invalid date format! Please only use the MM-DD format");
 
         }
 
@@ -357,16 +357,15 @@ public final class DateCalculator {
 
 
     // TODO: Testing logic for "Aries" date range "03-31"  --> routes to "Aquarius" if statement ?
-    // -- potentially need to
     public static void main(String[] args) {
         // For testing with Console print outputs
 
-        String elemental = "Aries";
+        String expectedOutPut = "Aries";
 
         String actualOutput= new DateCalculator().calculateZodiac(MonthDay.of(03,31));
 
         System.out.println("The assigned elemental was: " + actualOutput);
-        System.out.println("The expected elemental for Aries was: Fire");
+        System.out.println("The expected elemental for Aries was:" + expectedOutPut);
 
 
 
