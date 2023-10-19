@@ -10,15 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.time.MonthDay;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-
-// TODO: Q*** Since the logic is done in CreateUSerActivityTest
-// and this API endpoint just fetches with getters()
-// already established elemental values-- do I need to implement
-// tests for this file?
+// TODO: Fix error
 public class GetZodiacActivityTest {
 
     @Mock
@@ -27,38 +25,33 @@ public class GetZodiacActivityTest {
     @InjectMocks
     GetZodiacActivity getZodiacActivity;
 
+    @Mock
+    GetZodiacRequest input;
     @BeforeEach
     void setUp(){
         initMocks(this);
-
-
+        input = new GetZodiacRequest();
 
     }
 
-
-    /**
-     *
-     */
-
-
-
+    // Happy Case
     @Test
-    void handleRequest_UserProvidesValidAttributesInInput_UserValuesSaved() {
+    void handleRequest_UserProvidesValidInput_ZodiacReturned() {
 
         User thisUser = new User();
-        String userId =  UserGeneratorService.generateUserId();
-        thisUser.setUserId(userId);
-
+        thisUser.setUserName("Holly");
+        thisUser.setPronouns("he him");
         String zodiac = "Aries";
         String elemental = "Fire";
 
-        GetZodiacRequest input = new GetZodiacRequest(userId);
-        input.setUserId(userId);
+        MonthDay monthDay = MonthDay.of(03,31);
 
+        GetZodiacRequest input = new GetZodiacRequest();
 
-        when(userDao.getUser(userId)).thenReturn(thisUser);
+        // when(getZodiacActivity.handleRequest(input, null)).thenReturn()==;
+
         GetZodiacResult result =
-                GetZodiacResult.builder().withUserId(userId).withZodiacSign(zodiac).withElementalSign(elemental).build();
+                GetZodiacResult.builder().withZodiacSign(zodiac).withElementalSign(elemental).build();
 
         assertSame(result.getZodiacSign(), zodiac);
         assertSame(result.getZodiacSign(), elemental );
@@ -66,29 +59,23 @@ public class GetZodiacActivityTest {
     }
 
 
-
+    // Edge Case
     @Test
     void handleRequest_InvalidUserId_ResultsInvalidFormatExceptionThrown() {
 
         User thisUser = new User();
-        String invalidUserId =  "13_ds*er!_s!!";
-        thisUser.setUserId(invalidUserId);
+        MonthDay invalidUserBirthDate = MonthDay.parse("03-79");
 
         String zodiac = "Aries";
         String elemental = "Fire";
 
-        GetZodiacRequest input = new GetZodiacRequest(invalidUserId);
-        input.setUserId(invalidUserId);
-
-        when(userDao.getUser(invalidUserId)).thenThrow(IllegalArgumentException.class);
+        when(getZodiacActivity.handleRequest(input, null )).thenThrow(IllegalArgumentException.class);
         GetZodiacResult result =
-                GetZodiacResult.builder().withUserId(invalidUserId).withZodiacSign(zodiac).withElementalSign(elemental).build();
+                GetZodiacResult.builder().withZodiacSign(zodiac).withElementalSign(elemental).build();
 
         // THEN
-        assertNull(result.getUserId());
-        assertFalse(UserGeneratorService.isValidString(invalidUserId));
-
-
+        assertNull(thisUser.getBirthDate());
+        assertNull(result.getZodiacSign());
 
 
     }

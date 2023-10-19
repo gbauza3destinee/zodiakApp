@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="UnitProject:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../build/classes/java/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src">
+      <sourceFolder url="file://$MODULE_DIR$/../../src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter:5.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: au.com.dius:pact-jvm-provider-junit5-spring:4.0.10" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:30.1.1-jre" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.dagger:dagger:2.15" level="project" />
+    <orderEntry type="library" name="Gradle: org.testng:testng:6.14.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.commons:commons-lang3:3.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-java-sdk-dynamodb:1.12.438" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-java-sdk-s3:1.12.438" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-lambda-java-core:1.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-lambda-java-events:2.2.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-params:5.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:failureaccess:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.checkerframework:checker-qual:3.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.errorprone:error_prone_annotations:2.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.j2objc:j2objc-annotations:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Gradle: com.beust:jcommander:1.72" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache-extras.beanshell:bsh:2.0b6" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:jmespath-java:1.12.438" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-java-sdk-core:1.12.438" level="project" />
+    <orderEntry type="library" name="Gradle: com.amazonaws:aws-java-sdk-kms:1.12.438" level="project" />
+    <orderEntry type="library" name="Gradle: joda-time:joda-time:2.8.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apiguardian:apiguardian-api:1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.junit.platform:junit-platform-commons:1.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.opentest4j:opentest4j:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.12.7.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.15" level="project" />
+    <orderEntry type="library" name="Gradle: software.amazon.ion:ion-java:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.12.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.12.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.12.7" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.13" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.amazonaws:aws-lambda-java-log4j2:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-provider-junit5:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-context:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-test:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-web:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.logging.log4j:log4j-core:2.13.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.logging.log4j:log4j-api:2.13.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-provider:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-core-support:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-api:1.7.28" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-aop:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-beans:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-expression:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-core:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.junit.platform:junit-platform-engine:1.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-core-matchers:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-core-model:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: au.com.dius:pact-jvm-core-pact-broker:4.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.arrow-kt:arrow-core-extensions:0.9.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.fusesource.jansi:jansi:1.17.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.scala-lang:scala-library:2.12.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.github.classgraph:classgraph:4.8.25" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.groovy:groovy:3.0.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.salomonbrys.kotson:kotson:2.5.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.github.microutils:kotlin-logging:1.6.26" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.antlr:antlr4:4.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.3.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework:spring-jcl:5.2.3.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.googlecode.java-diff-utils:diffutils:1.3.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: xerces:xercesImpl:2.12.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.atteo:evo-inflector:1.2.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.zafarkhaja:java-semver:0.9.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.mifmif:generex:1.0.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.mail:mail:1.5.0-b01" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.dmfs:rfc3986-uri:0.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.arrow-kt:arrow-typeclasses:0.9.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.arrow-kt:arrow-core-data:0.9.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.arrow-kt:arrow-annotations:0.9.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.github.microutils:kotlin-logging-common:1.6.26" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.antlr:antlr4-runtime:4.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.antlr:ST4:4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.antlr:antlr-runtime:3.5.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.abego.treelayout:org.abego.treelayout.core:1.0.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish:javax.json:1.0.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.ibm.icu:icu4j:61.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: xml-apis:xml-apis:1.4.01" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: dk.brics.automaton:automaton:1.11-8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.dmfs:optional:0.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.dmfs:iterators:1.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.kindedj:kindedj:1.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+  </component>
+</module>

@@ -1,29 +1,15 @@
 package com.bloomtech.zodiakProject.Results;
-import com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorService;
-
 
 public class GetZodiacResult {
 
 
-    private UserGeneratorService userGeneratorService;
-    private String userId;
-    private String elementalSign;
     private String zodiacSign;
+    private String elementalSign;
 
     public GetZodiacResult(GetZodiacResult.Builder builder) {
 
-        this.userId = builder.userId;
-        this.elementalSign = builder.elementalSign;
         this.zodiacSign = builder.zodiacSign;
 
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
 
@@ -49,16 +35,8 @@ public class GetZodiacResult {
 
     public static final class Builder {
 
-        private String userId;
         private String elementalSign;
         private String zodiacSign;
-
-
-
-        public GetZodiacResult.Builder withUserId(String userIdToUse) {
-            this.userId = userIdToUse;
-            return this;
-        }
 
 
 

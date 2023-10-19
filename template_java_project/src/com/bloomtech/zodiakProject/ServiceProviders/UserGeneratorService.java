@@ -34,9 +34,9 @@ public final class UserGeneratorService {
         return !INVALID_CHARACTER_PATTERN.matcher(stringToValidate).find();
     }
 
-    public static String generateUserId() {
-        return RandomStringUtils.randomAlphanumeric(USER_ID_LENGTH);
-    }
+//    public static String generateUserId() {
+//        return RandomStringUtils.randomAlphanumeric(USER_ID_LENGTH);
+//    }
 }
 
 

@@ -23,27 +23,18 @@ public class UserGeneratorServiceTest {
 
 
     @Test
-    void isValidString_ValidUserIdGenerated_AssertResultIsTrue() {
-        String validUserId = UserGeneratorService.generateUserId();
-        when(UserGeneratorService.isValidString(validUserId)).thenReturn(true);
-
-        assertFalse(StringUtils.isBlank(validUserId));
-
-
-
+    void isValidString_userEntersValidString_resultIsTrue() {
+        String validName = "holly";
+        when(UserGeneratorService.isValidString(validName)).thenReturn(true);
+        assertFalse(StringUtils.isBlank(validName));
     }
 
 
     @Test
-    void isValidString_BlankUserId_AssertResultIsFalse() {
-        String validUserId = UserGeneratorService.generateUserId();
-        String invalidUserId = " ";
-        when(UserGeneratorService.isValidString(invalidUserId)).thenReturn(false);
-
-        assertTrue(StringUtils.isBlank(invalidUserId));
-
-
-
+    void isValidString_userEntersInvalidString_resultIsFalse() {
+        String invalidName = "john-athan!";
+        when(UserGeneratorService.isValidString(invalidName)).thenReturn(false);
+        assertFalse(StringUtils.isBlank(invalidName));
     }
 
 

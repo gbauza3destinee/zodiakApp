@@ -1,9 +1,5 @@
 package com.bloomtech.zodiakProject.ServiceProviders;
-import dagger.Component;
-
 import javax.inject.Inject;
-import java.rmi.MarshalledObject;
-import java.time.LocalDate;
 import java.time.MonthDay;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,13 +8,6 @@ import java.util.Map;
 
 public final class DateCalculator {
 
-
-    UserGeneratorService userGeneratorService;
-
-    // LocalDate usersBirthDate; ---> nulled because I need a object type that doesnt require year inclusion for date (this would make me
-    // have to include all years)
-
-    MonthDay monthDay; // new to replace local date
     public static HashMap<String, ArrayList<String>> elementalToZodiacMap;
     public static ArrayList<String> fireSignsList;
     public static ArrayList<String> airSignsList;
@@ -26,14 +15,6 @@ public final class DateCalculator {
     public static ArrayList<String> earthSignsList;
 
 
-
-    //TODO: Fix Dagger tag dependency error
-
-    /*  October 4th Update
-        User Story : We are given a birthdate in MM/DD/YYYY format
-            - If this date falls into a time span -> we get the sign first
-            - Then, we check if this sign falls into an Elemental's HashMap
-     */
 
     @Inject
     public DateCalculator() {
@@ -89,7 +70,6 @@ public final class DateCalculator {
     }
 
 
-    // ------------------------------------------------ OG VERSION use of "LocalDate Object" -------------------------//
     /**
      * 1st Step in the User's request, provided a BirthDate
      * identify the correct sun sign for this date range
@@ -97,114 +77,6 @@ public final class DateCalculator {
      * @param userBirthDate
      * @return String consisting of (Zodiac, Elemental)
      */
-
-
-    //    public String calculateZodiac(LocalDate userBirthDate) throws IllegalArgumentException{
-//        // Logic: DateForSeason vs  userBirthdate
-//        // checking if birthdate falls in certain range ^ (lower range / upper range)
-//        try{
-//            boolean validDate = UserGeneratorService.isValidString(userBirthDate.toString());
-//            if (!validDate){
-//                throw new IllegalArgumentException("Please format your date using - symbols and in YYYY - MM - DD format!");
-//            }
-//
-//        } catch (IllegalArgumentException e){
-//            System.out.println("Sorry, you entered an invalid date format! Please only use the YYYY-MM-DD format");
-//
-//        }
-//
-//        // TODO : Oct 6 Swap Date to look like 1998 - 03 - 31 (date)
-//        // TODO : OCT 6 removing year
-//
-//        // TODO: OCT 4 - EDIT removed hardwiring of Element & Zodiac
-//        if (LocalDate.parse("03-21").compareTo(userBirthDate) <= 1 && LocalDate.parse("04-19").compareTo(userBirthDate) == -1) {
-//            //Clause 1 Aries
-//            ArrayList<String> fireSignsList = elementalToZodiacMap.get("Fire");
-//            String fireZodiac = fireSignsList.get(1);
-//
-//            return fireZodiac;
-//
-//        } else if (LocalDate.parse("04-20").compareTo(userBirthDate) <= 1 && LocalDate.parse("05-20").compareTo(userBirthDate) == -1) {
-//
-//            //Clause 2 :Taurus
-//            earthSignsList = elementalToZodiacMap.get("Earth");
-//            String earthZodiac = earthSignsList.get(2);
-//            return earthZodiac;
-//
-//        } else if (LocalDate.parse("05-21").compareTo(userBirthDate) <= 1 && LocalDate.parse("06-20").compareTo(userBirthDate) == -1) {
-//
-//            //Clause 3 - Gemini
-//            ArrayList<String> airSignsList = elementalToZodiacMap.get("Air");
-//            String airZodiac = airSignsList.get(1);
-//            return airZodiac;
-//
-//        } else if (LocalDate.parse("06-21").compareTo(userBirthDate) <= 1 && LocalDate.parse("07-22").compareTo(userBirthDate) == -1) {
-//            //Clause 4- Cancer
-//            ArrayList<String> waterSignsList = elementalToZodiacMap.get("Water");
-//            String waterZodiac = waterSignsList.get(1);
-//
-//            return waterZodiac;
-//
-//        } else if (LocalDate.parse("07-23").compareTo(userBirthDate) <= 1 && LocalDate.parse("08-22").compareTo(userBirthDate) == -1) {
-//            // Clause 5- Leo
-//            fireSignsList = elementalToZodiacMap.get("Fire");
-//            String fireZodiac = fireSignsList.get(2);
-//            return fireZodiac;
-//        } else if (LocalDate.parse("08-23").compareTo(userBirthDate) <= 1 && LocalDate.parse("09-22").compareTo(userBirthDate) == -1) {
-//            // Clause 6- Virgo
-//            earthSignsList = elementalToZodiacMap.get("Earth");
-//            String userVirgoEarthElemental = earthSignsList.get(3);
-//            return userVirgoEarthElemental;
-//
-//        } else if (LocalDate.parse("09-23").compareTo(userBirthDate) <= 1 && LocalDate.parse("10-22").compareTo(userBirthDate) == -1) {
-//            //Clause 7 - Libra
-//            airSignsList = elementalToZodiacMap.get("Air");
-//            String userLibraAirElemental = fireSignsList.get(2);
-//            return userLibraAirElemental;
-//
-//        } else if (LocalDate.parse("10-23").compareTo(userBirthDate) <= 1 && LocalDate.parse("11-21").compareTo(userBirthDate) == -1) {
-//            //Clause 8 - Scorpio
-//            waterSignsList = elementalToZodiacMap.get("Water");
-//            String userScorpioWaterElemental = waterSignsList.get(2);
-//            return userScorpioWaterElemental;
-//
-//        } else if (LocalDate.parse("11-22").compareTo(userBirthDate) <= 1 && LocalDate.parse("12-21").compareTo(userBirthDate) == -1) {
-//            //Clause 9 - Sagittarrius
-//            fireSignsList = elementalToZodiacMap.get("Fire");
-//            String userSagFireElemental = fireSignsList.get(3);
-//            return userSagFireElemental;
-//
-//        } else if (LocalDate.parse("12-22").compareTo(userBirthDate) <= 1 && LocalDate.parse("01-19").compareTo(userBirthDate) == -1) {
-//            //Clause 10 - Capricorn
-//            earthSignsList = elementalToZodiacMap.get("Earth");
-//            String userCapEarthElemental = earthSignsList.get(1);
-//            return userCapEarthElemental;
-//
-//        } else if (LocalDate.parse("01-20").compareTo(userBirthDate) <= 1 && LocalDate.parse("02-18").compareTo(userBirthDate) == -1) {
-//
-//            //Clause 11 - Aquarius
-//            airSignsList = elementalToZodiacMap.get("Air");
-//            String userAquaAirElemental = airSignsList.get(3);
-//            return userAquaAirElemental;
-//        } else if (LocalDate.parse("02-19").compareTo(userBirthDate) <= 1 && LocalDate.parse("03-20").compareTo(userBirthDate) == -1) {
-//            //Clause 12 - Pisces
-//            waterSignsList = elementalToZodiacMap.get("Water");
-//            String userPiscesWaterElemental = waterSignsList.get(3);
-//            return "Pisces, Water";
-//
-//        }
-//
-//        return "Sorry, you entered an invalid date range! Please choose a date from" +
-//                "01/01 onwards!";
-//
-//    }
-    // ------------------------------------------------ OG VERSION use of "LocalDate Object" -------------------------//
-
-
-    // Updates -> OCT 4 - EDIT removed hardwiring of Element & Zodiac
-    // REVIEW -> OCT 6  Review why test date is routing to WRONG zodiac
-
-    // MonthDay Object can use (1) MonthDay.parse() (2) MonthDay.of()
 
     /***
      *  LOGIC of Method is to Check if birthdate falls in certain range ^ (lower range / upper range)
@@ -352,7 +224,6 @@ public final class DateCalculator {
         return zodiacStringBuilding.toString();
 
     }
-
 
 
 

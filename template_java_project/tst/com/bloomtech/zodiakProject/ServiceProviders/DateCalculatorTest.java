@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.MonthDay;
 import java.util.ArrayList;
 
@@ -21,9 +22,6 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class DateCalculatorTest {
 
-
-    // TODO: Test file updated on Oct 6 to reflect 2 separate methods (calculatezodiac & find zodiacElemental)
-
     @InjectMocks
     DateCalculator dateCalculator;
 
@@ -34,16 +32,16 @@ public class DateCalculatorTest {
     @BeforeEach
     void setUp() {
         dateCalculator = new DateCalculator();
-        LocalDate validBirthDate = LocalDate.parse("12-23-1994");
-        LocalDate misMatchBirthDate = LocalDate.parse("09-02-2001");
-        LocalDate invalidBirthDate = LocalDate.parse("13/20/2023");
+        MonthDay validBirthDate = MonthDay.of(12,23);
+        MonthDay misMatchBirthDate = MonthDay.of(9,02);
+        MonthDay invalidBirthDate = MonthDay.of(02, 27);
 
         initMocks(this);
 
 
         ArrayList<String> earthSignsList = new ArrayList<String>();
         earthSignsList.add("Capricorn");
-        earthSignsList.add("Taurus");
+        earthSignsList.add("Pisces");
         earthSignsList.add("Virgo");
 
 
