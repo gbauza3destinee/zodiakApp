@@ -1,0 +1,6 @@
+//Users
+
+userName // partition key string 
+birthDate // range key string
+pronouns // string 
+zodiacSign // string

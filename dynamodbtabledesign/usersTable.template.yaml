@@ -1,0 +1,20 @@
+Resources:
+  UsersTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: "Users"
+      AttributeDefinitions:
+        - AttributeName: "userName"
+          AttributeType: "S"
+        - AttributeName: "birthDate"
+          AttributeType: "S"
+        - AttributeName: "pronouns"
+          AttributeType: "S"
+        - AttributeName: "zodiacSign"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "userName"
+          KeyType: "HASH"
+        - AttributeName: "birthDate"
+          KeyType: "RANGE"
+      BillingMode: "PAY_PER_REQUEST"
