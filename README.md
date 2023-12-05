@@ -13,7 +13,5 @@ To use this program, open on an IDE compatible with the Java Language. Then, run
 
 ## Contribute
 This app only focuses on the sun sign and charactersitics of that zodiac sign. To add onto this idea, collaborators can expand by gathering the exact time of birth of a user, as well as the City where they were born to generate information related to their moon and rising signs.
-## License
-A short snippet describing the license (MIT, Apache etc)
 
 MIT © [Des G. Bauza]()
