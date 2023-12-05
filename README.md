@@ -1,4 +1,4 @@
-# ## Zodiac Sign Generator 
+# Zodiac Sign Generator 
 App, that predicts Sun sign characteristics, as dictated by Western Astrology, mapping where the Sun was stationed on the date of your birth.## Motivation
 A project for practicing the Python language, and creating method functionality, and simple String modification operations.
 
