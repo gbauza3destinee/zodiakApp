@@ -1,6 +1,6 @@
 # Zodiac Sign Generator 
-App, that predicts Sun sign characteristics, as dictated by Western Astrology, mapping where the Sun was stationed on the date of your birth.
-My motivation was to create a project practicing the Java langugage class creation, and class architecture.
+An app that predicts a person's Sun sign characteristics, as dictated by Western Astrology, identify where the Sun was stationed on the date of your birth and the corresponding Zodiac sign.
+My motivation was to create a project practicing the Java langugage class creation, and class architecture. I used Lambda Functions to deploy and Spring Framework.
 
 ## Code style
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
