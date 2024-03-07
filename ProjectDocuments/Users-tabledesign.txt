@@ -1,6 +1,0 @@
-//Users
-
-userId // partition key, string
-userName // string
-birthDate // string
-pronouns // string or string format if able
