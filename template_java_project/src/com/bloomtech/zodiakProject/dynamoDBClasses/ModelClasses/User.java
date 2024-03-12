@@ -9,13 +9,12 @@ public class User{
 
     private String userName;
     private String birthDate;
-    private String pronouns;
     private String zodiac;
 
     private String elemental;
 
 
-    @DynamoDBHashKey(attributeName = "shoeId")
+    @DynamoDBHashKey(attributeName = "userId")
     public String getUserId(){
         return userId;
 
@@ -46,15 +45,6 @@ public class User{
         this.birthDate = birthDate;
     }
 
-
-    @DynamoDBAttribute(attributeName = "pronoun")
-    public String getPronouns() {
-        return pronouns;
-    }
-
-    public void setPronouns(String pronouns) {
-        this.pronouns = pronouns;
-    }
 
 
     @DynamoDBAttribute(attributeName = "zodiac")
