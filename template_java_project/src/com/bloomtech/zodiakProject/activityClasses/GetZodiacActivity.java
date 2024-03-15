@@ -2,16 +2,18 @@ package com.bloomtech.zodiakProject.activityClasses;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bloomtech.zodiakProject.Requests.GetZodiacRequest;
 import com.bloomtech.zodiakProject.Results.GetZodiacResult;
+import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
+import com.bloomtech.zodiakProject.dynamoDBClasses.ZodiacDao;
 
 
 public class GetZodiacActivity implements RequestHandler<GetZodiacRequest, GetZodiacResult> {
 
 
-    public UserDao userDao;
+    public ZodiacDao zodiacDao;
 
-    public GetZodiacActivity(UserDao userDao) {
+    public GetZodiacActivity(ZodiacDao zodiacDao) {
 
-        this.userDao = userDao;
+        this.zodiacDao = zodiacDao;
 
     }
 

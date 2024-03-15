@@ -1,15 +1,23 @@
 package com.bloomtech.zodiakProject.dynamoDBClasses.Entity;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+@DynamoDBTable(tableName = "zodiac")
 public class Zodiac {
 
+    public String name;
     public String elemental;
     public String description;
-    public String sign;
+
+    public String startDate;
+    public String endDate;
 
     public Zodiac(){
         this.elemental = elemental;
         this.description = description;
-        this.sign = sign;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public String getElemental() {
@@ -28,11 +36,12 @@ public class Zodiac {
         this.description = description;
     }
 
-    public String getSign() {
-        return sign;
+    @DynamoDBHashKey
+    public String getName() {
+        return name;
     }
 
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setName(String name) {
+        this.name = name;
     }
 }

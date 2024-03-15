@@ -10,11 +10,12 @@ public class ModelConverter {
     // ----> Replace with methods to MonthlyZodiac actual attributes
     public ZodiacModel toZodiacModel(Zodiac zodiac){
 
-        ZodiacModel zodiacModel = ZodiacModel.Builder.builder().withDescription(zodiac.getDescription())
-                .withSign(zodiac.getSign()).withElemental(zodiac.getElemental()).build();
+       // ZodiacModel zodiacModel = ZodiacModel.Builder.builder().withDescription(zodiac.getDescription())
+       //         .withSign(zodiac.getSign()).withElemental(zodiac.getElemental()).build();
 
-        return zodiacModel;
+        //return zodiacModel;
 
+        return null;
     }
 
 
