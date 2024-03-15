@@ -1,10 +1,11 @@
 package com.bloomtech.zodiakProject.Results;
 
+import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
+
 public class GetZodiacResult {
 
 
-    private String zodiacSign;
-    private String elementalSign;
+    private Zodiac zodiacSign;
 
     public GetZodiacResult(GetZodiacResult.Builder builder) {
 
@@ -13,19 +14,12 @@ public class GetZodiacResult {
     }
 
 
-    public String getElementalSign() {
-        return elementalSign;
-    }
 
-    public void setElementalSign(String userElementalSign) {
-        this.elementalSign = userElementalSign;
-    }
-
-    public String getZodiacSign() {
+    public Zodiac getZodiacSign() {
         return zodiacSign;
     }
 
-    public void setZodiacSign(String userZodiacSign) {
+    public void setZodiacSign(Zodiac userZodiacSign) {
         this.zodiacSign = userZodiacSign;
     }
 
@@ -35,18 +29,9 @@ public class GetZodiacResult {
 
     public static final class Builder {
 
-        private String elementalSign;
-        private String zodiacSign;
+        private Zodiac zodiacSign;
 
-
-
-        public GetZodiacResult.Builder withElementalSign(String userElementalSign) {
-            this.elementalSign = userElementalSign;
-            return this;
-        }
-
-
-        public GetZodiacResult.Builder withZodiacSign(String userZodiacSign) {
+        public GetZodiacResult.Builder withZodiacSign(Zodiac userZodiacSign) {
             this.zodiacSign = userZodiacSign;
             return this;
         }

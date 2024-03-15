@@ -1,0 +1,31 @@
+@startuml
+
+class Zodiac {
+    + Elemental
+    + Sign
+    + Description
+}
+
+class MonthlyZodiac{
+    + Checks whether day is greater than startdate and day, and less than
+    + Start day
+    + End day
+    + Zodiac zodiac
+}
+class GetZodiacActivity {
+    + handleRequest()
+    + processes user requests and receives their birthdate
+}
+
+class DateCalculator{
+    + Takes the month number and matches with key value in hashmap, then compares the value of the day
+    + HashMap <Integer, List<MonthlyZodiac> >
+  }
+
+class UserGeneratorService {
+    + isValidString
+    + validates the user's input as a valid or invalid entry
+}
+
+
+@enduml

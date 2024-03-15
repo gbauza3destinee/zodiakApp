@@ -1,4 +1,4 @@
-package com.bloomtech.zodiakProject.ZodiacClasses;
+package com.bloomtech.zodiakProject.dynamoDBClasses.Entity;
 
 public class Zodiac {
 

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ZodiacTable.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requirements.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requirements.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/Requests/GetZodiacRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/Requests/GetZodiacRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/Results/GetZodiacResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/Results/GetZodiacResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/ClassDiagram.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/ClassDiagram.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ModelConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ModelConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/MonthlyZodiacModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/MonthlyZodiacModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ZodiacModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ZodiacModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/com/bloomtech/zodiakProject/ServiceProviders/DateCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/com/bloomtech/zodiakProject/ServiceProviders/DateCalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivityTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="UnitProject" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OvYo4ctosud0A0J7G1YXI0QT37" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/desgonzalezbauza/Documents/BloomTech/Unit5/Sprint1/zodiakProjectApp/template_java_project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.bloomtech.zodiakProject.activityClasses" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/dynamodbtabledesign" />
+      <recent name="$PROJECT_DIR$/.." />
+      <recent name="$PROJECT_DIR$/src/com/bloomtech/zodiakProject" />
+      <recent name="$PROJECT_DIR$/../" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DateCalculator">
+    <configuration name="DateCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bloomtech.zodiakProject.ServiceProviders.DateCalculator" />
+      <module name="UnitProject.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bloomtech.zodiakProject.ServiceProviders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DateCalculatorTest.findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bloomtech.zodiakProject.ServiceProviders.DateCalculatorTest.findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserGeneratorServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bloomtech.zodiakProject.ServiceProviders.UserGeneratorServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="template_java_project [buildZip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildZip" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="template_java_project [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.template_java_project [dependencies]" />
+        <item itemvalue="Gradle.template_java_project [buildZip]" />
+        <item itemvalue="Application.DateCalculator" />
+        <item itemvalue="Gradle.UserGeneratorServiceTest" />
+        <item itemvalue="Gradle.DateCalculatorTest.findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="" />
+      <created>1682442693890</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682442693890</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
+          <option name="timeStamp" value="39" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

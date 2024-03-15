@@ -1,20 +1,19 @@
 package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 
-import java.beans.BeanProperty;
-import java.beans.JavaBean;
-import java.time.LocalDate;
 
+import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
 
 public class ModelConverter {
 
 
     // DONE: Implement Logic for Both Model Class
-    public UserModel toUserModel(User user){
+    // ----> Replace with methods to MonthlyZodiac actual attributes
+    public ZodiacModel toZodiacModel(Zodiac zodiac){
 
-        UserModel userModel = UserModel.Builder.builder().withPronouns(user.getPronouns())
-                .withBirthdate(LocalDate.parse(user.getBirthDate())).withUserId(user.getUserId()).withName(user.getUserName()).build();
+        ZodiacModel zodiacModel = ZodiacModel.Builder.builder().withDescription(zodiac.getDescription())
+                .withSign(zodiac.getSign()).withElemental(zodiac.getElemental()).build();
 
-        return userModel;
+        return zodiacModel;
 
     }
 
