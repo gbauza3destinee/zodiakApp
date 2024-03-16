@@ -43,6 +43,7 @@ dependencies {
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.10.0'
     // To use Spring Framework
     implementation 'org.springframework:spring-context:5.3.20'
+    implementation 'org.springframework:spring-core:5.3.13'
 
 
     // https://mvnrepository.com/artifact/org.testng/testng

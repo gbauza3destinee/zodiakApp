@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
