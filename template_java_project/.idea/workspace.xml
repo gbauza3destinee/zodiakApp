@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ZodiacDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/activityClasses/GetZodiacActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ModelConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ModelConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ZodiacModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/ZodiacModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tst/com/bloomtech/zodiakProject/ServiceProviders/UserGeneratorServiceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
