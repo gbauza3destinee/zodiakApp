@@ -8,12 +8,11 @@ import com.amazonaws.services.dynamodbv2.datamodeling.IDynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.MonthlyZodiacModel;
-
-import java.sql.Array;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-// TODO: Clean up the logic in the loop iterating thru all 12 signs. I need to populate an arraylist but not 12
+// TODO: Clean up the logic in the loop iterating thru all 12 signs.
+// Is dynamodb fully pulling data?
 
 /**
  * * Program starts -> fetch from database  -> populate hashmap -> user request enters -> hashmap fetched
@@ -24,17 +23,19 @@ public final class DateCalculator {
 
     public static Map<Integer, ArrayList <MonthlyZodiacModel>>  monthMap = new HashMap<>();
 
-    @Autowired
-    private static DynamoDBMapper dynamoDBMapper;
+   // private static DynamoDBMapper dynamoDBMapper;
 
 
 
-    public DateCalculator() {
+
+    private static void initialize(){
         monthMap = new HashMap<>();
-        dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
-                .withRegion(Regions.US_WEST_2)
-                .build());
+        System.out.println(DefaultAWSCredentialsProviderChain.getInstance());
+//       // dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.standard()
+//                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
+//                .withRegion(Regions.US_EAST_2)
+//                .build());
+
 
     }
 
@@ -55,16 +56,11 @@ public final class DateCalculator {
 
 
         Zodiac capricornSecondHalf = new Zodiac();
-        String capricorn = "Capricorn"; // fetch zodiac object where name is
-
-        // Load by name
-        Zodiac capricornDb = dynamoDBMapper.load(Zodiac.class, capricorn);
-        capricornSecondHalf.setDescription(capricornDb.getDescription());
-        capricornSecondHalf.setElemental(capricornDb.getElemental());
-        capricornSecondHalf.setEndDate(capricornDb.endDate);
-        capricornSecondHalf.setStartDate(capricornDb.startDate);
-
-
+       capricornSecondHalf.setStartDate("12-22");
+       capricornSecondHalf.setEndDate("1-19");
+       capricornSecondHalf.setDescription("Ruled by Saturn, Capricorns are ambitious and determined initiators. If commanding a room with their authoritative presence alone isn’t Capricorn’s biggest strength, their self-discipline just might be. They comfortably and successfully know how to delegate to others and with the vision to lead.");
+        capricornSecondHalf.setElemental("Earth");
+        capricornSecondHalf.setName("Capricorn");
         // ********************************************  1 JANUARY ****************************************************//
 
         MonthlyZodiacModel janZodiac1 = new MonthlyZodiacModel(1,19 , 1, capricornSecondHalf);
@@ -72,23 +68,20 @@ public final class DateCalculator {
         janZodiacs.add(janZodiac1);
         monthMap.put(janZodiac1.month, janZodiacs);
 
-
-        // Retrieve ALL Zodiac items from DB with SCAN method
-//        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
-//        PaginatedScanList <Zodiac> zodiacList = dynamoDBMapper.scan(Zodiac.class, scanExpression);
-//
-//
-//        // Load the Hashmap
-//        for( Zodiac thisZodiac : zodiacList){
-//                String startDate = thisZodiac.getStartDate();
-//                String[] monthAndDay = startDate.split("-");
-//                int month = Integer.valueOf(monthAndDay[0]);
-//                // Add month to map
-//                ArrayList<MonthlyZodiacModel> allZodiacsFromMonth = new ArrayList<>();
-//                MonthlyZodiacModel monthZodiac = new MonthlyZodiacModel();
-//                allZodiacsFromMonth.add(monthZodiac);
-//                monthMap.put(month, allZodiacsFromMonth);
-//        }
+        /**
+         * Aries (03 21 – 04 19)
+         * Taurus (04 20 – 05 20)
+         * Gemini (05 21 – 06 20)
+         * Cancer (06 21 – 07 22)
+         * Leo (07 23 – 08 22)
+         * Virgo (08 23 – 09 22)
+         * Libra (09 23 – 10 22)
+         * Scorpio (10 23 – 11 21)
+         * Sagittarius (11 22 – 12 21)
+         * Capricorn (12 22 – 01 19)
+         * Aquarius (01 20 – 02 18)
+         * Pisces (02 19 – 03 20)
+         */
 
 
 
@@ -97,16 +90,16 @@ public final class DateCalculator {
 
         // Aquarius : 01 - 20 - 01-31
         Zodiac aquariusFirstHalf = new Zodiac();
-        String aquarius = "Aquarius";
-        Zodiac aquariusDb = dynamoDBMapper.load(Zodiac.class, aquarius);
-        MonthlyZodiacModel januaryZodiac2 = new MonthlyZodiacModel(20, 31,1, aquariusDb);
-        aquariusFirstHalf.setElemental(aquariusDb.getElemental());
-        aquariusFirstHalf.setDescription(aquariusDb.getDescription());
-        aquariusFirstHalf.setStartDate(aquariusDb.startDate);
-        aquariusFirstHalf.setEndDate(aquariusDb.endDate);
+        aquariusFirstHalf.setName("Aquarius");
+        aquariusFirstHalf.setElemental("Air");
+        aquariusFirstHalf.setStartDate("1-20");
+        aquariusFirstHalf.setEndDate("2-18");
+        aquariusFirstHalf.setDescription("Independent and enigmatical, Aquarians are unique. There is no one quite like an Aquarius, and because each is so incredibly individual, it can be tough to describe them as a group. Aquarians don't like labels, and may shy away from any adjective—even the good ones you might bestow upon them. Aquarians believe in the nature of change and evolution");
+
+        MonthlyZodiacModel janZodiac2 = new MonthlyZodiacModel(20, 31,1, aquariusFirstHalf);
         // *** Place in hashmap
-        janZodiacs.add(januaryZodiac2);
-        monthMap.put(janZodiac1.month, janZodiacs);
+        janZodiacs.add(janZodiac2);
+        monthMap.put(janZodiac2.month, janZodiacs);
 //
 //
 //
@@ -116,24 +109,23 @@ public final class DateCalculator {
         //    Aquarius 2-1 - 18
 
         Zodiac aquariusSecondHalf = new Zodiac();
+        aquariusSecondHalf.setName("Aquarius");
+        aquariusSecondHalf.setStartDate("01-20");
+        aquariusSecondHalf.setEndDate("2-18");
+        aquariusSecondHalf.setDescription("Independent and enigmatical, Aquarians are unique. There is no one quite like an Aquarius, and because each is so incredibly individual, it can be tough to describe them as a group. Aquarians don't like labels, and may shy away from any adjective—even the good ones you might bestow upon them. Aquarians believe in the nature of change and evolution");
+        aquariusSecondHalf.setElemental("Air");
         MonthlyZodiacModel febZodiac1 = new MonthlyZodiacModel(1, 18, 2, aquariusSecondHalf);
-        aquariusSecondHalf.setElemental(aquariusDb.getElemental());
-        aquariusSecondHalf.setDescription(aquariusDb.getDescription());
-        aquariusSecondHalf.setStartDate(aquariusDb.startDate);
-        aquariusSecondHalf.setEndDate(aquariusDb.endDate);
+
 //        // ******************************************** 2- Pisces ****************************************************//
 
         // Pisces 2-19 - 29
 
         Zodiac piscesFirstHalf = new Zodiac();
-        String pisces = "pisces";
-        Zodiac piscesDb = dynamoDBMapper.load(Zodiac.class, pisces);
+        piscesFirstHalf.setElemental("Water");
+        piscesFirstHalf.setName("Pisces");
+        piscesFirstHalf.setStartDate("2-19");
+        piscesFirstHalf.setEndDate("3-20");
         MonthlyZodiacModel febZodiac2 = new MonthlyZodiacModel(19, 29, 2, piscesFirstHalf);
-        piscesFirstHalf.setName(piscesDb.getName());
-        piscesFirstHalf.setElemental(piscesDb.getElemental());
-        piscesFirstHalf.setDescription(piscesDb.getDescription());
-        piscesFirstHalf.setStartDate(piscesDb.getStartDate());
-        piscesFirstHalf.setEndDate(piscesDb.getEndDate());
 
 //        // *** Place in hashmap
         ArrayList<MonthlyZodiacModel> febZodiacs = new ArrayList<>();
@@ -150,24 +142,20 @@ public final class DateCalculator {
 
         Zodiac piscesSecondHalf = new Zodiac();
         MonthlyZodiacModel marZodiac1 = new MonthlyZodiacModel(1,20,03,piscesSecondHalf);
-        piscesSecondHalf.setName(piscesDb.getName());
-        piscesSecondHalf.setElemental(piscesDb.getElemental());
-        piscesSecondHalf.setDescription(piscesDb.getDescription());
-        piscesSecondHalf.setStartDate(piscesDb.getStartDate());
-        piscesSecondHalf.setEndDate(piscesDb.getEndDate());
-
+        piscesSecondHalf.setName("Pisces");
+        piscesSecondHalf.setElemental("Water");
+        piscesSecondHalf.setStartDate("2-19");
+        piscesSecondHalf.setEndDate("3-20");
         // ******************************************** Aries ****************************************************//
 
         // Aries 03 21 - 31
 
-        String aries = "Aries";
-        Zodiac ariesDb = dynamoDBMapper.load(Zodiac.class, aries);
         Zodiac ariesFirstHalf = new Zodiac();
-        ariesFirstHalf.setName(ariesDb.getName());
-        ariesFirstHalf.setDescription(ariesDb.getDescription());
-        ariesFirstHalf.setElemental(ariesDb.getElemental());
-        ariesFirstHalf.setStartDate(ariesDb.getStartDate());
-        ariesFirstHalf.setEndDate(ariesDb.getEndDate());
+        ariesFirstHalf.setElemental("Fire");
+        ariesFirstHalf.setName("Aries");
+        ariesFirstHalf.setStartDate("3-21");
+        ariesFirstHalf.setEndDate("4-19");
+        ariesFirstHalf.setDescription("Aries's masculine nature is forthright with vigor, a trait further amplified by its planetary ruler, Mars. Aries is known to be vivacious, enthusiastic, childish, and a bit selfish. Although this sign is impulsive and hotheaded, nobody can deny the quick-thinking and intense call-to-action innate in any Aries. Expressed as the Ram, Aries can be counted on to headbutt its way through anything!\n");
 
         MonthlyZodiacModel marZodiac2 = new MonthlyZodiacModel(21,31, 03, ariesFirstHalf);
 //
@@ -187,24 +175,23 @@ public final class DateCalculator {
         Zodiac ariesSecondHalf = new Zodiac();
         MonthlyZodiacModel aprilZodiac1 = new MonthlyZodiacModel(1,19,04,ariesSecondHalf);
 
-        ariesSecondHalf.setName(ariesDb.getName());
-        ariesSecondHalf.setDescription(ariesDb.getDescription());
-        ariesSecondHalf.setElemental(ariesDb.getElemental());
-        ariesSecondHalf.setStartDate(ariesDb.getStartDate());
-        ariesSecondHalf.setEndDate(ariesDb.getEndDate());
+        ariesSecondHalf.setElemental("Fire");
+        ariesSecondHalf.setName("Aries");
+        ariesSecondHalf.setStartDate("3-21");
+        ariesSecondHalf.setEndDate("4-19");
+        ariesSecondHalf.setDescription("Aries's masculine nature is forthright with vigor, a trait further amplified by its planetary ruler, Mars. Aries is known to be vivacious, enthusiastic, childish, and a bit selfish. Although this sign is impulsive and hotheaded, nobody can deny the quick-thinking and intense call-to-action innate in any Aries. Expressed as the Ram, Aries can be counted on to headbutt its way through anything!\n");
+
 
 
         // ******************************************** Taurus ****************************************************//
 
         // Taurus 04-20 , 04-30
-        String taurus = "Taurus";
-        Zodiac taurusDb = dynamoDBMapper.load(Zodiac.class, taurus);
         Zodiac taurusFirstHalf = new Zodiac();
-        taurusFirstHalf.setName(taurusDb.getName());
-        taurusFirstHalf.setElemental(taurusDb.getElemental());
-        taurusFirstHalf.setDescription(taurusDb.getDescription());
-        taurusFirstHalf.setStartDate(taurusDb.getStartDate());
-        taurusFirstHalf.setEndDate(taurusDb.getEndDate());
+        taurusFirstHalf.setName("Taurus");
+        taurusFirstHalf.setElemental("Earth");
+        taurusFirstHalf.setStartDate("4-20");
+        taurusFirstHalf.setEndDate("5-20");
+        taurusFirstHalf.setDescription("Smart, ambitious, and trustworthy, Taurus is the anchor of the Zodiac. Amazing friends, colleagues, and partners, Taureans value honesty above all else and are proud that their personal relationships tend to be drama free. Bulls get the reputation of being stubborn, but they're not always stuck in their ways");
 
         MonthlyZodiacModel aprilZodiac2 = new MonthlyZodiacModel(20, 30, 4, taurusFirstHalf);
 
@@ -221,24 +208,24 @@ public final class DateCalculator {
           // Taurus 05 -01, 05,20
 
         Zodiac taurusSecondHalf = new Zodiac();
-        taurusSecondHalf.setName(taurusDb.getName());
-        taurusSecondHalf.setElemental(taurusDb.getElemental());
-        taurusSecondHalf.setDescription(taurusDb.getDescription());
-        taurusSecondHalf.setStartDate(taurusDb.getStartDate());
-        taurusSecondHalf.setEndDate(taurusDb.getEndDate());
+        taurusSecondHalf.setName("Taurus");
+        taurusSecondHalf.setElemental("Earth");
+        taurusSecondHalf.setStartDate("4-20");
+        taurusSecondHalf.setEndDate("5-20");
+        taurusSecondHalf.setDescription("Smart, ambitious, and trustworthy, Taurus is the anchor of the Zodiac. Amazing friends, colleagues, and partners, Taureans value honesty above all else and are proud that their personal relationships tend to be drama free. Bulls get the reputation of being stubborn, but they're not always stuck in their ways");
+
         MonthlyZodiacModel mayZodiac1 = new MonthlyZodiacModel(1,20,05,taurusSecondHalf);
 //        // ******************************************** Gemini ****************************************************//
 
         //  Gemini 05 -21, 05-31
 
         Zodiac geminiFirstHalf = new Zodiac();
-        String gemini = "Gemini";
-        Zodiac geminiDb = dynamoDBMapper.load(Zodiac.class, gemini);
-        geminiFirstHalf.setName(geminiDb.getName());
-        geminiFirstHalf.setElemental(geminiDb.getElemental());
-        geminiFirstHalf.setDescription(geminiDb.getDescription());
-        geminiFirstHalf.setStartDate(geminiDb.getStartDate());
-        geminiFirstHalf.setEndDate(geminiDb.getEndDate());
+        geminiFirstHalf.setName("Gemini");
+        geminiFirstHalf.setElemental("Air");
+        geminiFirstHalf.setStartDate("5-21");
+        geminiFirstHalf.setEndDate("6-20");
+        geminiFirstHalf.setDescription("Gemini is an air sign with a ton of superpowers, including multitasking, since they’re multifaceted and live outside of the box. Recognized as the sacred duality present in the universe, Gemini is an intellectual and versatile sign with an endless curiosity and a bright, quick-witted mind.");
+
 
         MonthlyZodiacModel mayZodiac2 = new MonthlyZodiacModel(21, 31, 5, geminiFirstHalf);
 
@@ -257,24 +244,22 @@ public final class DateCalculator {
        // Cancer 06-21, 06-30
 
         Zodiac geminiSecondHalf = new Zodiac();
-        geminiSecondHalf.setName(geminiDb.getName());
-        geminiSecondHalf.setElemental(geminiDb.getElemental());
-        geminiSecondHalf.setDescription(geminiDb.getDescription());
-        geminiSecondHalf.setStartDate(geminiDb.getStartDate());
-        geminiSecondHalf.setEndDate(geminiDb.getEndDate());
+        geminiSecondHalf.setName("Gemini");
+        geminiSecondHalf.setElemental("Air");
+        geminiSecondHalf.setStartDate("5-21");
+        geminiSecondHalf.setEndDate("6-20");
+        geminiSecondHalf.setDescription("Gemini is an air sign with a ton of superpowers, including multitasking, since they’re multifaceted and live outside of the box. Recognized as the sacred duality present in the universe, Gemini is an intellectual and versatile sign with an endless curiosity and a bright, quick-witted mind.");
+
         MonthlyZodiacModel juneZodiac1 = new MonthlyZodiacModel(1,20,6, geminiSecondHalf);
 
 //        // ******************************************** Cancer ****************************************************//
 
         Zodiac cancerFirstHalf = new Zodiac();
-        String cancer = "Cancer";
-        Zodiac cancerDb = dynamoDBMapper.load(Zodiac.class, cancer);
-        cancerFirstHalf.setName(cancerDb.getName());
-        cancerFirstHalf.setElemental(cancerDb.getElemental());
-        cancerFirstHalf.setDescription(cancerDb.getDescription());
-        cancerFirstHalf.setStartDate(cancerDb.getStartDate());
-        cancerFirstHalf.setEndDate(cancerDb.getEndDate());
-
+       cancerFirstHalf.setName("Cancer");
+       cancerFirstHalf.setElemental("Water");
+       cancerFirstHalf.setStartDate("6-21");
+       cancerFirstHalf.setEndDate("7-22");
+       cancerFirstHalf.setDescription("One of Cancer’s strongest assets is their capacity for love—and the lengths they’ll go to for the people they care about. Intuitive and tenacious, this sign sticks to their roots and excels at getting what it wants to protect their family and loved ones,a Cancer sign will give you the world, as long as you give it right back.");
 
         MonthlyZodiacModel juneZodiac2 = new MonthlyZodiacModel(21, 30, 6, cancerFirstHalf);
 
@@ -291,24 +276,23 @@ public final class DateCalculator {
          // Cancer 07-01 - 07-22
 
         Zodiac cancerSecondHalf = new Zodiac();
-        cancerSecondHalf.setName(cancerDb.getName());
-        cancerSecondHalf.setElemental(cancerDb.getElemental());
-        cancerSecondHalf.setDescription(cancerDb.getDescription());
-        cancerSecondHalf.setStartDate(cancerDb.getStartDate());
-        cancerSecondHalf.setEndDate(cancerDb.getEndDate());
+        cancerSecondHalf.setName("Cancer");
+        cancerSecondHalf.setElemental("Water");
+        cancerSecondHalf.setStartDate("6-21");
+        cancerSecondHalf.setEndDate("7-22");
+        cancerFirstHalf.setDescription("One of Cancer’s strongest assets is their capacity for love—and the lengths they’ll go to for the people they care about. Intuitive and tenacious, this sign sticks to their roots and excels at getting what it wants to protect their family and loved ones,a Cancer sign will give you the world, as long as you give it right back.");
+
         MonthlyZodiacModel julyZodiac1 = new MonthlyZodiacModel(1,22,7,cancerSecondHalf);
 
 //        // ******************************************** Leo ****************************************************//
         // Leo 07-23, 07-31
 
         Zodiac leoFirstHalf = new Zodiac();
-        String leo = "Leo";
-        Zodiac leoDb = dynamoDBMapper.load(Zodiac.class, leo);
-        leoFirstHalf.setName(leoDb.getName());
-        leoFirstHalf.setDescription(leoDb.getDescription());
-        leoFirstHalf.setElemental(leoDb.getElemental());
-        leoFirstHalf.setStartDate(leoDb.getStartDate());
-        leoFirstHalf.setEndDate(leoDb.getEndDate());
+        leoFirstHalf.setName("Leo");
+        leoFirstHalf.setElemental("Fire");
+        leoFirstHalf.setStartDate("7-23");
+        leoFirstHalf.setEndDate("8-22");
+       leoFirstHalf.setDescription("This king of the jungle has a lust for life. Leo can be bold and fearless, allowing them to take risks and pursue their dreams with vigor. If you know a Leo, then you probably also know that making a good impression is their number one priority. This sign’s creativity and fiery magnetism puts them at the center stage of life.");
 
         MonthlyZodiacModel julyZodiac2 = new MonthlyZodiacModel(23,31, 7, leoFirstHalf);
 
@@ -326,11 +310,12 @@ public final class DateCalculator {
         // Leo 08-01, 08-22
 
         Zodiac leoSecondHalf = new Zodiac();
-        leoSecondHalf.setName(leoDb.getName());
-        leoSecondHalf.setDescription(leoDb.getDescription());
-        leoSecondHalf.setElemental(leoDb.getElemental());
-        leoSecondHalf.setStartDate(leoDb.getStartDate());
-        leoSecondHalf.setEndDate(leoDb.getEndDate());
+        leoSecondHalf.setName("Leo");
+        leoSecondHalf.setElemental("Fire");
+        leoSecondHalf.setStartDate("7-23");
+        leoSecondHalf.setEndDate("8-22");
+        leoSecondHalf.setDescription("This king of the jungle has a lust for life. Leo can be bold and fearless, allowing them to take risks and pursue their dreams with vigor. If you know a Leo, then you probably also know that making a good impression is their number one priority. This sign’s creativity and fiery magnetism puts them at the center stage of life.");
+
         MonthlyZodiacModel augZodiac1 = new MonthlyZodiacModel(1,22, 8, leoSecondHalf);
 
 //        // ******************************************** Virgo ****************************************************//
@@ -338,13 +323,26 @@ public final class DateCalculator {
         // Virgo 08-23, 08 -31
 
         Zodiac virgoFirstHalf = new Zodiac();
-        String virgo = "Virgo";
-        Zodiac virgoDb = dynamoDBMapper.load(Zodiac.class, virgo);
-        virgoFirstHalf.setName(virgoDb.getName());
-        virgoFirstHalf.setDescription(virgoDb.getDescription());
-        virgoFirstHalf.setElemental(virgoDb.getElemental());
-        virgoFirstHalf.setStartDate(virgoDb.getStartDate());
-        virgoFirstHalf.setEndDate(virgoDb.getEndDate());
+        virgoFirstHalf.setName("Virgo");
+        virgoFirstHalf.setElemental("Earth");
+        virgoFirstHalf.setStartDate("8-23");
+        virgoFirstHalf.setEndDate("9-22");
+        virgoFirstHalf.setDescription("Virgo is capable of taking on high levels of responsibility, which fills them with a great sense of duty in the world. They’re used to wearing multiple hats at the same time and are often under the impression that they’re the best person to do it all.");
+
+        /**
+         * Aries (03 21 – 04 19)
+         * Taurus (04 20 – 05 20)
+         * Gemini (05 21 – 06 20)
+         * Cancer (06 21 – 07 22)
+         * Leo (07 23 – 08 22)
+         * Virgo (08 23 – 09 22)
+         * Libra (09 23 – 10 22)
+         * Scorpio (10 23 – 11 21)
+         * Sagittarius (11 22 – 12 21)
+         * Capricorn (12 22 – 01 19)
+         * Aquarius (01 20 – 02 18)
+         * Pisces (02 19 – 03 20)
+         */
 
 
         MonthlyZodiacModel augZodiac2 = new MonthlyZodiacModel(23, 31, 8, virgoFirstHalf);
@@ -363,24 +361,23 @@ public final class DateCalculator {
         // Virgo 09- 01 - 09-22
 
         Zodiac virgoSecondHalf = new Zodiac();
-        virgoSecondHalf.setName(virgoDb.getName());
-        virgoSecondHalf.setDescription(virgoDb.getDescription());
-        virgoSecondHalf.setElemental(virgoDb.getElemental());
-        virgoSecondHalf.setStartDate(virgoDb.getStartDate());
-        virgoSecondHalf.setEndDate(virgoDb.getEndDate());
+        virgoSecondHalf.setName("Virgo");
+        virgoSecondHalf.setElemental("Earth");
+        virgoSecondHalf.setStartDate("8-23");
+        virgoSecondHalf.setEndDate("9-22");
+        virgoSecondHalf.setDescription("Virgo is capable of taking on high levels of responsibility, which fills them with a great sense of duty in the world. They’re used to wearing multiple hats at the same time and are often under the impression that they’re the best person to do it all.");
+
         MonthlyZodiacModel septZodiac1 = new MonthlyZodiacModel(1, 22, 9, virgoSecondHalf);
 
         // ******************************************** Libra ****************************************************//
         // Libra 09-23, 09-30
 
         Zodiac libraFirstHalf = new Zodiac();
-        String libra = "Libra";
-        Zodiac libraDb = dynamoDBMapper.load(Zodiac.class, libra);
-        libraFirstHalf.setName(libraDb.getName());
-        libraFirstHalf.setDescription(libraDb.getDescription());
-        libraFirstHalf.setElemental(libraDb.getElemental());
-        libraFirstHalf.setStartDate(libraDb.getStartDate());
-        libraFirstHalf.setEndDate(libraDb.getEndDate());
+       libraFirstHalf.setName("Libra");
+       libraFirstHalf.setElemental("Air");
+       libraFirstHalf.setStartDate("9-23");
+       libraFirstHalf.setEndDate("10-22");
+       libraFirstHalf.setDescription("Libras are experts at keeping the peace (they are represented by the scales of justice, after all), but there’s nothing stronger than Libra’s congeniality. This sign seeks to be a source of joy for others. They’re basically the epitome of beauty, balance, harmony, and a sense of fair play");
 
         MonthlyZodiacModel septZodiac2 = new MonthlyZodiacModel(23, 30, 9, libraFirstHalf);
 
@@ -396,11 +393,12 @@ public final class DateCalculator {
 
         // Libra 10-01, 10-22
         Zodiac libraSecondHalf = new Zodiac();
-        libraSecondHalf.setName(libraDb.getName());
-        libraSecondHalf.setDescription(libraDb.getDescription());
-        libraSecondHalf.setElemental(libraDb.getElemental());
-        libraSecondHalf.setStartDate(libraDb.getStartDate());
-        libraSecondHalf.setEndDate(libraDb.getEndDate());
+        libraSecondHalf.setName("Libra");
+        libraSecondHalf.setElemental("Air");
+        libraSecondHalf.setStartDate("9-23");
+        libraSecondHalf.setEndDate("10-22");
+        libraSecondHalf.setDescription("Libras are experts at keeping the peace (they are represented by the scales of justice, after all), but there’s nothing stronger than Libra’s congeniality. This sign seeks to be a source of joy for others. They’re basically the epitome of beauty, balance, harmony, and a sense of fair play");
+
 
         MonthlyZodiacModel octZodiac1 = new MonthlyZodiacModel(1, 22, 10, libraSecondHalf);
 
@@ -408,13 +406,12 @@ public final class DateCalculator {
 
         // Scorpio 10-23, 10-31
         Zodiac scorpioFirstHalf = new Zodiac();
-        String scorpio = "Scorpio";
-        Zodiac scorpioDb = dynamoDBMapper.load(Zodiac.class, scorpio);
-        scorpioFirstHalf.setName(scorpioDb.getName());
-        scorpioFirstHalf.setElemental(scorpioDb.getElemental());
-        scorpioFirstHalf.setDescription(scorpioDb.getDescription());
-        scorpioFirstHalf.setStartDate(scorpioDb.getStartDate());
-        scorpioFirstHalf.setEndDate(scorpioDb.getEndDate());
+        scorpioFirstHalf.setName("Scorpio");
+        scorpioFirstHalf.setElemental("Water");
+        scorpioFirstHalf.setStartDate("10-23");
+        scorpioFirstHalf.setEndDate("11-21");
+        scorpioFirstHalf.setDescription("Scorpio knows how to trigger other people and push their buttons behind limits. Yet, they also love hard, so you can expect a Scorpio to fight till the end for the people they care about. As a fixed modality, they tend to be determined and stable, which also makes Scorpios super independent.");
+
 
         MonthlyZodiacModel octZodiac2 = new MonthlyZodiacModel(23, 31, 10, scorpioFirstHalf);
 
@@ -431,25 +428,25 @@ public final class DateCalculator {
         // Scorpio 11-01, 11-21
 
         Zodiac scorpioSecondHalf = new Zodiac();
+     scorpioSecondHalf.setName("Scorpio");
+     scorpioSecondHalf.setElemental("Water");
+     scorpioSecondHalf.setStartDate("10-23");
+     scorpioSecondHalf.setEndDate("11-21");
+     scorpioSecondHalf.setDescription("Scorpio knows how to trigger other people and push their buttons behind limits. Yet, they also love hard, so you can expect a Scorpio to fight till the end for the people they care about. As a fixed modality, they tend to be determined and stable, which also makes Scorpios super independent.");
 
-        scorpioSecondHalf.setName(scorpioDb.getName());
-        scorpioSecondHalf.setElemental(scorpioDb.getElemental());
-        scorpioSecondHalf.setDescription(scorpioDb.getDescription());
-        scorpioSecondHalf.setStartDate(scorpioDb.getStartDate());
-        scorpioSecondHalf.setEndDate(scorpioDb.getEndDate());
 
         MonthlyZodiacModel novZodiac1 = new MonthlyZodiacModel(1, 21, 11, scorpioSecondHalf);
 
 //        // ******************************************** Sagitarrius ****************************************************//
         // Sagitarrius 11-22. 11-31
         Zodiac sagFirstHalf = new Zodiac();
-        String sagitarrius = "Sagitarrius";
-        Zodiac sagDb = dynamoDBMapper.load(Zodiac.class, sagitarrius);
-        sagFirstHalf.setName(sagDb.getName());
-        sagFirstHalf.setElemental(sagDb.getElemental());
-        sagFirstHalf.setDescription(sagDb.getDescription());
-        sagFirstHalf.setStartDate(sagDb.getStartDate());
-        sagFirstHalf.setEndDate(sagDb.getEndDate());
+        sagFirstHalf.setName("Sagittarius");
+        sagFirstHalf.setElemental("Fire");
+        sagFirstHalf.setDescription("These thrill-seekers rely on their luck and natural positivity to move them from one adventure to the next because they’re so focused on seeing the benefits of exploring new places and trying new experiences. They’re also truth-seekers, and the best way for them to get answers is to seek out tons of connections with others");
+        sagFirstHalf.setStartDate("11-22");
+        sagFirstHalf.setEndDate("12-21");
+
+
 
         MonthlyZodiacModel novZodiac2 = new MonthlyZodiacModel(22, 31, 11, sagFirstHalf);
 
@@ -463,24 +460,24 @@ public final class DateCalculator {
       // ******************************************** Sagitarrius ****************************************************//
         // Sagitarrius 12-01, 12-21
         Zodiac sagSecondHalf = new Zodiac();
-        sagSecondHalf.setName(sagDb.getName());
-        sagSecondHalf.setElemental(sagDb.getElemental());
-        sagSecondHalf.setDescription(sagDb.getDescription());
-        sagSecondHalf.setStartDate(sagDb.getStartDate());
-        sagSecondHalf.setEndDate(sagDb.getEndDate());
-        MonthlyZodiacModel decZodiac1 = new MonthlyZodiacModel(1, 21, 12, sagSecondHalf);
+     sagSecondHalf.setName("Sagittarius");
+     sagSecondHalf.setElemental("Fire");
+     sagSecondHalf.setDescription("These thrill-seekers rely on their luck and natural positivity to move them from one adventure to the next because they’re so focused on seeing the benefits of exploring new places and trying new experiences. They’re also truth-seekers, and the best way for them to get answers is to seek out tons of connections with others");
+     sagSecondHalf.setStartDate("11-22");
+     sagSecondHalf.setEndDate("12-21");
+
+     MonthlyZodiacModel decZodiac1 = new MonthlyZodiacModel(1, 21, 12, sagSecondHalf);
 
 //        // ******************************************** Capricorn ****************************************************//
         // Capricorn 12-22, 12-31
         Zodiac capFirstHalf = new Zodiac();
         MonthlyZodiacModel decZodiac2 = new MonthlyZodiacModel(22, 31, 12, capFirstHalf);
 
-        capFirstHalf.setDescription(capricornDb.getDescription());
-        capFirstHalf.setElemental(capricornDb.getElemental());
-        capFirstHalf.setStartDate(capricornDb.getStartDate());
-        capFirstHalf.setEndDate(capricornDb.getEndDate());
-        capFirstHalf.setName(capricornDb.getName());
-
+        capFirstHalf.setName("Capricorn");
+        capFirstHalf.setElemental("Earth");
+        capFirstHalf.setDescription("Ruled by Saturn, Capricorns are ambitious and determined initiators. If commanding a room with their authoritative presence alone isn’t Capricorn’s biggest strength, their self-discipline just might be. They comfortably and successfully know how to delegate to others and with the vision to lead.");
+        capFirstHalf.setStartDate("12-22");
+        capFirstHalf.setEndDate("1-19");
         ArrayList<MonthlyZodiacModel> decZodiacs = new ArrayList<>();
         monthMap.put(decZodiac1.month, decZodiacs);
 
@@ -520,9 +517,35 @@ public final class DateCalculator {
 
     public static Zodiac findZodiacSign(int month, int day){
 
-        // 1. Check for entries that start with user's month
+        // CHECKS
+        // month should be 1-12
+        // day should be 1-31
 
-        // 2. Iterate through list of zodiac signs found
+        if(  !(month >= 1 && month <= 12)){
+            System.out.println("Invalid month!");
+            return null;
+        }
+        if( !(day >= 1 && day <= 31)){
+            System.out.println("Invalid day");
+            return null;
+        }
+
+
+        // 1. Check for entries that start with user's month
+       List<MonthlyZodiacModel> monthZodiacs =  monthMap.get(month);
+
+
+         // example 12-28
+        // capricorn 12 -22 --> 12-31
+        // Sagitarrius 12-01 --> 12-21
+        // 2. Iterate through list of MonthlyZodiac
+
+     for( MonthlyZodiacModel thisZodiac : monthZodiacs){
+      // Check the day against startday and endday
+      if(day >= thisZodiac.startDay && day <= thisZodiac.endDay ){
+             return thisZodiac.getZodiac();
+         }
+     }
 
         // 3. Compare the day value
     return null;
@@ -535,9 +558,8 @@ public final class DateCalculator {
     // TODO: Testing logic for "Aries" date range "03-31"  --> routes to "Aquarius" if statement ?
     public static void main(String[] args) {
         // For testing with Console print outputs
-
+        initialize();
         populateMonthlyZodiac();
-
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 

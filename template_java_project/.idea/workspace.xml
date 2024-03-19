@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,8 +87,10 @@
       <recent name="$PROJECT_DIR$/../" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DateCalculator">
-    <configuration name="DateCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.com.bloomtech.zodiakProject.ServiceProviders.DateCalculator">
+    <configuration name="com.bloomtech.zodiakProject.ServiceProviders.DateCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.bloomtech.zodiakProject.ServiceProviders.DateCalculator" />
       <module name="UnitProject.main" />
       <extension name="coverage">
@@ -96,6 +98,11 @@
           <option name="PATTERN" value="com.bloomtech.zodiakProject.ServiceProviders.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -189,11 +196,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.com.bloomtech.zodiakProject.ServiceProviders.DateCalculator" />
+      <item itemvalue="Gradle.DateCalculatorTest.findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned" />
+      <item itemvalue="Gradle.template_java_project [buildZip]" />
+      <item itemvalue="Gradle.template_java_project [dependencies]" />
+      <item itemvalue="Gradle.UserGeneratorServiceTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.template_java_project [dependencies]" />
         <item itemvalue="Gradle.template_java_project [buildZip]" />
-        <item itemvalue="Application.DateCalculator" />
+        <item itemvalue="Application.com.bloomtech.zodiakProject.ServiceProviders.DateCalculator" />
         <item itemvalue="Gradle.UserGeneratorServiceTest" />
         <item itemvalue="Gradle.DateCalculatorTest.findUserZodiacAndElementalSign_UserProvidesValidBirthDate_correctZodiacAndElementalReturned" />
       </list>
@@ -228,6 +251,11 @@
           <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
           <option name="timeStamp" value="39" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
