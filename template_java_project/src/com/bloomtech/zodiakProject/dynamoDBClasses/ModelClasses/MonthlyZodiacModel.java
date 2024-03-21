@@ -3,11 +3,9 @@ package com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses;
 import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
 
 
-// API side object
+// API side object - what the application is using
 // MZModel represents our API Gateway's API definition and is what the clients will interact with,
 public class MonthlyZodiacModel {
-
-
 
     public int startDay;
     public int endDay;
@@ -24,53 +22,39 @@ public class MonthlyZodiacModel {
         this.month = month;
         this.zodiac  = zodiac;
     }
-    public MonthlyZodiacModel(Builder builder ){
+
+    public int getStartDay() {
+        return startDay;
+    }
+
+    public void setStartDay(int startDay) {
         this.startDay = startDay;
+    }
+
+    public int getEndDay() {
+        return endDay;
+    }
+
+    public void setEndDay(int endDay) {
         this.endDay = endDay;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
         this.month = month;
-        this.zodiac  = zodiac;
     }
 
-    public static final class Builder {
-
-        private int startDay;
-        private int endDay;
-        private int month;
-        private Zodiac zodiac;
-
-
-        public static MonthlyZodiacModel.Builder builder() {
-            return new Builder();
-        }
-
-
-
-        public MonthlyZodiacModel.Builder withStartDay(int startDay) {
-            this.startDay = startDay;
-            return this;
-        }
-
-        public MonthlyZodiacModel.Builder withEndday(int endDay) {
-            this.endDay = endDay;
-            return this;
-        }
-        public MonthlyZodiacModel.Builder withMonth(int month) {
-            this.month = month;
-            return this;
-        }
-
-        public MonthlyZodiacModel.Builder withZodiac(Zodiac zodiacSign) {
-            this.zodiac = zodiacSign;
-            return this;
-        }
-
-
-
-        public MonthlyZodiacModel build() {
-            return new MonthlyZodiacModel(this);
-        }
+    public Zodiac getZodiac() {
+        return zodiac;
     }
 
-
-
+    public void setZodiac(Zodiac zodiac) {
+        this.zodiac = zodiac;
+    }
 }
+
+
+

@@ -2,7 +2,6 @@ package com.bloomtech.zodiakProject.dynamoDBClasses.Entity;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "zodiac")
 public class Zodiac {
 
     public String name;
@@ -52,7 +51,6 @@ public class Zodiac {
         this.description = description;
     }
 
-    @DynamoDBHashKey
     public String getName() {
         return name;
     }
@@ -60,4 +58,11 @@ public class Zodiac {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString(){
+
+        return String.format("Zodiac: %s , Elemental: %s , Description : %s" , name, elemental, description);
+    }
+
 }

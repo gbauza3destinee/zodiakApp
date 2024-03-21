@@ -8,6 +8,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.IDynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.bloomtech.zodiakProject.dynamoDBClasses.Entity.Zodiac;
 import com.bloomtech.zodiakProject.dynamoDBClasses.ModelClasses.MonthlyZodiacModel;
+
+import java.sql.SQLOutput;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,23 +23,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 public final class DateCalculator {
     // add MonthlyZodiacModel model
 
-    public static Map<Integer, ArrayList <MonthlyZodiacModel>>  monthMap = new HashMap<>();
+    public static Map<Integer, List<MonthlyZodiacModel>>  monthMap = new HashMap<>();
 
    // private static DynamoDBMapper dynamoDBMapper;
 
 
 
 
-    private static void initialize(){
-        monthMap = new HashMap<>();
-        System.out.println(DefaultAWSCredentialsProviderChain.getInstance());
-//       // dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.standard()
-//                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
-//                .withRegion(Regions.US_EAST_2)
-//                .build());
-
-
-    }
 
 
 
@@ -479,6 +471,8 @@ public final class DateCalculator {
         capFirstHalf.setStartDate("12-22");
         capFirstHalf.setEndDate("1-19");
         ArrayList<MonthlyZodiacModel> decZodiacs = new ArrayList<>();
+        decZodiacs.add(decZodiac2);
+        decZodiacs.add(decZodiac1);
         monthMap.put(decZodiac1.month, decZodiacs);
 
         // ********************************************  Print map  ****************************************************//
@@ -533,13 +527,14 @@ public final class DateCalculator {
 
         // 1. Check for entries that start with user's month
        List<MonthlyZodiacModel> monthZodiacs =  monthMap.get(month);
-
+        System.out.println(monthZodiacs.size());
 
          // example 12-28
         // capricorn 12 -22 --> 12-31
         // Sagitarrius 12-01 --> 12-21
         // 2. Iterate through list of MonthlyZodiac
 
+      // TODO: Access the zodiac part within the loop
      for( MonthlyZodiacModel thisZodiac : monthZodiacs){
       // Check the day against startday and endday
       if(day >= thisZodiac.startDay && day <= thisZodiac.endDay ){
@@ -547,7 +542,6 @@ public final class DateCalculator {
          }
      }
 
-        // 3. Compare the day value
     return null;
     }
 
@@ -558,11 +552,12 @@ public final class DateCalculator {
     // TODO: Testing logic for "Aries" date range "03-31"  --> routes to "Aquarius" if statement ?
     public static void main(String[] args) {
         // For testing with Console print outputs
-        initialize();
         populateMonthlyZodiac();
-        Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
+        int month = 12;
+        int day = 3;
 
+        Zodiac chosenZodiac = findZodiacSign(month,day);
+        System.out.println(chosenZodiac.toString());
 
 
 

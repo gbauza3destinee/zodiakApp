@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="370171bc-aa5a-4566-8a4e-74320a2471d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/Entity/Zodiac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/MonthlyZodiacModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bloomtech/zodiakProject/dynamoDBClasses/ModelClasses/MonthlyZodiacModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,13 +197,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
+    <configuration default="true" type="aws.lambda" factoryName="Remote">
+      <option name="credentialProviderId" />
+      <option name="regionId" />
+      <option name="functionName" />
+      <option name="input" />
+      <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
     <list>
@@ -251,11 +251,6 @@
           <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
           <option name="timeStamp" value="39" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/bloomtech/zodiakProject/ServiceProviders/DateCalculator.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
